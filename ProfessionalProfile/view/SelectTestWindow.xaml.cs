@@ -21,26 +21,26 @@ namespace ProfessionalProfile.View
     /// </summary>
     public partial class SelectTestWindow : Window
     {
-        private SelectTestService selectTestService { get; }
+        private SelectTestService SelectTestService { get; }
         private AssessmentResultsService AssessmentResultsService { get; }
-        int userId { get; set; }
+        private int UserId { get; set; }
 
         public SelectTestWindow(int userId)
         {
             InitializeComponent();
-            this.userId = userId;
+            this.UserId = userId;
 
-            selectTestService = new SelectTestService();
+            SelectTestService = new SelectTestService();
             AssessmentResultsService = new AssessmentResultsService();
-            populateTestsNames();
-            loadPreviousResults();
+            PopulateTestsNames();
+            LoadPreviousResults();
         }
 
-        public void loadPreviousResults()
+        public void LoadPreviousResults()
         {
             this.previousResultsListBox.Items.Clear();
 
-            List<AssessmentResult> assessmentResults = this.AssessmentResultsService.getResultsByUserId(this.userId);
+            List<AssessmentResult> assessmentResults = this.AssessmentResultsService.getResultsByUserId(this.UserId);
 
             if (assessmentResults.Count == 0)
             {
@@ -57,9 +57,9 @@ namespace ProfessionalProfile.View
             }
         }
 
-        private void populateTestsNames()
+        private void PopulateTestsNames()
         {
-            List<AssessmentTest> tests = selectTestService.getAllAssessmentTests();
+            List<AssessmentTest> tests = SelectTestService.getAllAssessmentTests();
 
             foreach (AssessmentTest test in tests)
             {
@@ -67,7 +67,7 @@ namespace ProfessionalProfile.View
             }
         }
 
-        private void assessmentNames_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void AssessmentNames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string selectedItem = (string)assessmentNames.SelectedItem;
 
@@ -76,8 +76,8 @@ namespace ProfessionalProfile.View
                 return;
             }
 
-            AssessmentTest test = selectTestService.getAssessmentByName(selectedItem);
-            Skill skill = selectTestService.getSkillById(test.Skill_id);
+            AssessmentTest test = SelectTestService.getAssessmentByName(selectedItem);
+            Skill skill = SelectTestService.getSkillById(test.Skill_id);
 
             this.assessmentDescriptionBox.Text = test.Description;
             this.skillTestedLabel.Content = "Skill tested: " + skill.Name;
@@ -93,10 +93,10 @@ namespace ProfessionalProfile.View
 
             string testName = (string)assessmentNames.SelectedItem;
 
-            AssessmentTest test = selectTestService.getAssessmentByName(testName);
+            AssessmentTest test = SelectTestService.getAssessmentByName(testName);
 
             // TODO: Open the test window
-            TakeTestWindow takeTestWindow = new TakeTestWindow(test.AssessmentTestId, this.userId);
+            TakeTestWindow takeTestWindow = new TakeTestWindow(test.AssessmentTestId, this.UserId);
             takeTestWindow.Show();
             this.Close();
         }

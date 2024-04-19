@@ -22,26 +22,26 @@ namespace ProfessionalProfile.View
     /// </summary>
     public partial class NotificationsPage : Window
     {
-        NotificationsService notificationsService { get; }
-        SearchUsersService SearchUsersService { get; }
-        int userId;
-        User currentUser { get; set; }
+        private NotificationsService NotificationsService { get; }
+        private SearchUsersService SearchUsersService { get; }
+        private int userId;
+        private User CurrentUser { get; set; }
 
         public NotificationsPage(int userId)
         {
             InitializeComponent();
-            this.notificationsService = new NotificationsService(new NotificationRepo());
+            this.NotificationsService = new NotificationsService(new NotificationRepo());
             this.SearchUsersService = new SearchUsersService(new UserRepo());
             this.userId = userId;
-            this.currentUser = SearchUsersService.getUserById(userId);
+            this.CurrentUser = SearchUsersService.getUserById(userId);
 
-            this.nameLabel.Content = "Hi, " + currentUser.FirstName + " " + currentUser.LastName;
-            this.populateNotifications();
+            this.nameLabel.Content = "Hi, " + CurrentUser.FirstName + " " + CurrentUser.LastName;
+            this.PopulateNotifications();
         }
 
-        private void populateNotifications()
+        private void PopulateNotifications()
         {
-            List<Notification> notifications = notificationsService.GetNotifications(userId);
+            List<Notification> notifications = NotificationsService.GetNotifications(userId);
 
             foreach (Notification notification in notifications)
             {

@@ -12,11 +12,16 @@ namespace ProfessionalProfile.Projects_page
 {
     public partial class ProjectsPage : Window
     {
+        private ProjectRepo projectRepo = new ProjectRepo();
+        private UserRepo userRepo = new UserRepo();
+        private int currentUserId;
+        private string ProjectName { get; set; }
+        private string ProjectDescription { get; set; }
+        private string ProjectTechnologies { get; set; }
+        public List<Project> GitHubProjects { get; set; }
+        public List<Project> ManualProjects { get; set; }
 
-        ProjectRepo projectRepo = new ProjectRepo();
-        UserRepo userRepo = new UserRepo();
-
-        public ProjectsPage(int userId, bool isVisiting=false)
+        public ProjectsPage(int userId, bool isVisiting = false)
         {
             InitializeComponent();
 
@@ -24,40 +29,26 @@ namespace ProfessionalProfile.Projects_page
             currentUserId = userId;
 
             if (isVisiting)
+            {
                 this.nameLabel.Content = user.FirstName + " " + user.LastName + "'s Portfolio";
-
-            else 
+            }
+            else
+            {
                 this.nameLabel.Content = "My Portfolio";
-
+            }
             List<Project> projects = projectRepo.GetByUserId(userId);
 
             ManualProjects = projects;
 
-            //ProjectName = project.ProjectName;
-            //ProjectDescription = project.Description;
-            //ProjectTechnologies = project.Technologies;
-
             // Set the data context to this instance
-            DataContext = this;    
-            
+            DataContext = this;
+
             if (isVisiting)
             {
                 AddFromGitHub.Visibility = Visibility.Hidden;
                 AddManually.Visibility = Visibility.Hidden;
             }
         }
-
-        int currentUserId;
-        string ProjectName { get; set; }
-        string ProjectDescription { get; set; }
-        string ProjectTechnologies { get; set; }
-
-
-        // Properties to bind to UI elements
-        public List<Project> GitHubProjects { get; set; }
-        public List<Project> ManualProjects { get; set; }
-
-        // Event handler for the "Add from GitHub" button click
         private void AddFromGitHub_Click(object sender, RoutedEventArgs e)
         {
             // You can implement the logic to add projects from GitHub here

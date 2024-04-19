@@ -30,8 +30,7 @@ namespace ProfessionalProfile.SectionViews
             DataContext = viewModel;
         }
 
-
-        //press cancel button to close the window
+        // press cancel button to close the window
         private void CloseWindow(object sender, RoutedEventArgs e)
         {
             this.Close();

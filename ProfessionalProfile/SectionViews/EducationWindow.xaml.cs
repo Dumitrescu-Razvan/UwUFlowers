@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ProfessionalProfile.profile_page;
+using ProfessionalProfile.Profile_page;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionViewModels;
 
@@ -22,7 +22,7 @@ namespace ProfessionalProfile.SectionViews
     /// </summary>
     public partial class EducationWindow : Window
     {
-        int userId;
+        private int userId;
         public EducationWindow(int userId)
         {
             InitializeComponent();
@@ -30,7 +30,6 @@ namespace ProfessionalProfile.SectionViews
             this.userId = userId;
             EducationViewModel viewModel = new EducationViewModel(new EducationRepo(), userId);
             DataContext = viewModel;
-            
         }
 
         private void OpenWorkExperienceWindow(object sender, RoutedEventArgs e)

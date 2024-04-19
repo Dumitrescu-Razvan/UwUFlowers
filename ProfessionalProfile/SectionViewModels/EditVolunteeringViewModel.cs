@@ -10,7 +10,7 @@ using ProfessionalProfile.SectionCommands;
 
 namespace ProfessionalProfile.SectionViewModels
 {
-    public class EditVolunteeringViewModel: SectionViewModelBase
+    public class EditVolunteeringViewModel : SectionViewModelBase
     {
         public EditVolunteeringViewModel(VolunteeringRepo volunteeringRepo, int userId, int volunteeringId)
         {
@@ -22,35 +22,50 @@ namespace ProfessionalProfile.SectionViewModels
         }
         private Volunteering volunteering;
 
-        private string _organisation;
+        private string organisation;
         public string Organisation
         {
-            get { return _organisation; }
+            get
+            {
+                return organisation;
+            }
+
             set
             {
-                _organisation = value;
+                organisation = value;
+
                 OnPropertyChanged("Organisation");
             }
         }
 
-        private string _role;
+        private string role;
         public string Role
         {
-            get { return _role; }
+            get
+            {
+                return role;
+            }
+
             set
             {
-                _role = value;
+                role = value;
+
                 OnPropertyChanged("Role");
             }
         }
 
-        private string _description;
+        private string description;
         public string Description
         {
-            get { return _description; }
+            get
+            {
+                return description;
+            }
+
             set
             {
-                _description = value;
+                description = value;
+
                 OnPropertyChanged("Description");
             }
         }

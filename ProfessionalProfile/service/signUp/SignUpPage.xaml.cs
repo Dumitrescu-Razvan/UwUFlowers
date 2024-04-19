@@ -25,6 +25,7 @@ using ProfessionalProfile.service.login;
 
 using ProfessionalProfile.service.webBrowser;
 using ProfessionalProfile.SectionViews;
+using ProfessionalProfile.Service.WebBrowser;
 
 namespace ProfessionalProfile.Service.SignUp
 {
@@ -33,9 +34,13 @@ namespace ProfessionalProfile.Service.SignUp
     /// </summary>
     public partial class SignUpPage : Window
     {
-      
         private UserRepo usersRepo;
-        string clientIdLinkedin, redirectUrlLinkedin, clientSecretLinkedin, clientIdFacebook, redirectUrlFacebook, clientSecretFacebook;
+        private string clientIdLinkedin;
+        private string redirectUrlLinkedin;
+        private string clientSecretLinkedin;
+        private string clientIdFacebook;
+        private string redirectUrlFacebook;
+        private string clientSecretFacebook;
         private bool hasExecuted = false;
         public SignUpPage()
         {
@@ -51,9 +56,9 @@ namespace ProfessionalProfile.Service.SignUp
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            if (textBox.Text.Length > 0 || textBox.Text == "")
+            if (textBox.Text.Length > 0 || textBox.Text == string.Empty)
             {
-                textBox.Text = "";
+                textBox.Text = string.Empty;
                 textBox.Foreground = System.Windows.Media.Brushes.Black;
             }
         }
@@ -91,9 +96,8 @@ namespace ProfessionalProfile.Service.SignUp
             }
         }
 
-        private void phoneBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void PhoneBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
         }
 
         private void PhoneBox_LostFocus(object sender, RoutedEventArgs e)
@@ -112,8 +116,7 @@ namespace ProfessionalProfile.Service.SignUp
             passwordBox.Focus();
         }
 
-       
-        static string ComputeSHA256Hash(string input)
+        private static string ComputeSHA256Hash(string input)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
@@ -129,7 +132,7 @@ namespace ProfessionalProfile.Service.SignUp
             }
         }
 
-        private void handleSignUp(object sender, RoutedEventArgs e)
+        private void HandleSignUp(object sender, RoutedEventArgs e)
         {
             if (nameBox.Text.Length == 0 || emailBox.Text.Length == 0 || passwordBox.Password.Length == 0 || dateBox.Text.Length == 0)
             {
@@ -137,14 +140,14 @@ namespace ProfessionalProfile.Service.SignUp
             }
             else
             {
-                this.errorLabel.Content = "";
+                this.errorLabel.Content = string.Empty;
                 this.errorLabel.Visibility = Visibility.Collapsed;
                 string[] name = this.nameBox.Text.Split(' ');
                 string password = ComputeSHA256Hash(this.passwordBox.Password);
                 string phoneNr = this.phoneBox.Text;
                 string about = this.descBox.Text;
                 // the user ID doesn't get processed in the add procedure, and an automatic ID is generated instead
-                User newUser = new User(0, name[0], String.Join(" ",name.Skip(1).ToArray()), emailBox.Text,password,phoneNr,about,DateTime.Parse(this.dateBox.Text),false,"","","");
+                User newUser = new User(0, name[0], string.Join(" ", name.Skip(1).ToArray()), emailBox.Text, password, phoneNr, about, DateTime.Parse(this.dateBox.Text), false, string.Empty, string.Empty, string.Empty);
 
                 this.usersRepo.Add(newUser);
 
@@ -152,7 +155,7 @@ namespace ProfessionalProfile.Service.SignUp
                 List<User> users = this.usersRepo.GetAll();
                 foreach (User user in users)
                 {
-                    if(user.Email == newUser.Email) 
+                    if (user.Email == newUser.Email)
                     {
                         loggedInUser = user;
                         break;
@@ -163,19 +166,15 @@ namespace ProfessionalProfile.Service.SignUp
                 this.Hide();
                 window.Show();
 
-                //this.Hide();
-                //LoginPage loginPage = new LoginPage();
-                //loginPage.Show();
+                // this.Hide();
+                // LoginPage loginPage = new LoginPage();
+                // loginPage.Show();
 
-
-                //this.titleBox.Text = String.Join(" - ", usersRepo.GetAll().Select(e => e.FirstName + " " + e.LastName + " " + e.Email + " " + e.Password + " " + e.DateOfBirth + "\n").ToList());
+                // this.titleBox.Text = String.Join(" - ", usersRepo.GetAll().Select(e => e.FirstName + " " + e.LastName + " " + e.Email + " " + e.Password + " " + e.DateOfBirth + "\n").ToList());
             }
-
         }
 
-        
-
-        private void facebookSignUp(object sender, RoutedEventArgs e)
+        private void FacebookSignUp(object sender, RoutedEventArgs e)
         {
             string scope = "email public_profile";
             HttpClient httpClient = new HttpClient();
@@ -187,10 +186,7 @@ namespace ProfessionalProfile.Service.SignUp
             browserPage.webBrowser.Navigate(authorizationUrl);
             this.Hide();
             browserPage.Show();
-
-
         }
-
 
         private void LinkedInLogin(object sender, RoutedEventArgs e)
         {
@@ -200,21 +196,14 @@ namespace ProfessionalProfile.Service.SignUp
             string redirectUri = "http://localhost:8000"; // Replace with your LinkedIn Redirect URI
             string scope = "profile openid email"; // Add any additional LinkedIn scopes as needed
             // Construct the full authorization URL with parameters
-
             string fullAuthorizationUrl = $"{authorizationUrl}?response_type=code&client_id={this.clientIdLinkedin}&redirect_uri={redirectUrlLinkedin}&scope={scope}";
 
             // Navigate to the authorization URL in the embedded web browser control
             BrowserPage browserPage = new BrowserPage(false);
-            //this.Hide();
+            // this.Hide();
             browserPage.webBrowser.Navigate("about:blank");
             browserPage.webBrowser.Navigate(fullAuthorizationUrl);
             browserPage.Show();
-
-
-
         }
-
-       
     }
-
 }

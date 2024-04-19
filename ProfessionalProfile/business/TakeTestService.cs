@@ -37,7 +37,7 @@ namespace ProfessionalProfile.Business
         public List<QuestionDTO> GetQuestionDTOs(int testId)
         {
             List<QuestionDTO> questionDTOs = new List<QuestionDTO>();
-            List<Question> questions = QuestionRepo.getAllByTestId(testId);
+            List<Question> questions = QuestionRepo.GetAllByTestId(testId);
             foreach (Question question in questions)
             {
                 AnswerDTO correctAnswer = null;

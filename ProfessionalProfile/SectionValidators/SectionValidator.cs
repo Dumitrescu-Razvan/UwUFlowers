@@ -10,23 +10,31 @@ namespace ProfessionalProfile.SectionValidators
 {
     public class SectionValidator
     {
-        public static void validateCertificate(Certificate certificate)
+        public static void ValidateCertificate(Certificate certificate)
         {
             if (certificate.IssuedDate > DateTime.Now)
+            {
                 throw new CustomSectionException("Date of issuance is in the future!");
+            }
             if (certificate.IssuedDate > certificate.ExpirationDate)
+            {
                 throw new CustomSectionException("Date of issuance is after the expiration date!");
+            }
         }
 
-        public static void validateEducation(Education education)
+        public static void ValidateEducation(Education education)
         {
             if (education.GPA < 0 || education.GPA > 4)
+            {
                 throw new CustomSectionException("GPA is out of range!");
+            }
             if (education.GraduationDate > DateTime.Now)
+            {
                 throw new CustomSectionException("Graduation date is in the future!");
+            }
         }
 
-        public static void validateWorkExperience(WorkExperience workExperience)
+        public static void ValidateWorkExperience(WorkExperience workExperience)
         {
             string[] dates = workExperience.EmploymentPeriod.Split(" to ");
 

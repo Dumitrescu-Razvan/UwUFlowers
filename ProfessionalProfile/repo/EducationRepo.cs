@@ -10,19 +10,19 @@ using ProfessionalProfile.SectionValidators;
 
 namespace ProfessionalProfile.Repo
 {
-    public class EducationRepo : RepoInterface<Education>
+    public class EducationRepo : IRepoInterface<Education>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public EducationRepo()
         {
-            this._connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            this.connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         public void Add(Education item)
         {
-            SectionValidator.validateEducation(item);
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            SectionValidator.ValidateEducation(item);
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -42,7 +42,7 @@ namespace ProfessionalProfile.Repo
 
         public void Delete(int id)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -58,11 +58,11 @@ namespace ProfessionalProfile.Repo
         public List<Education> GetAll()
         {
             List<Education> educations = new List<Education>();
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                string sql = "Exec GetAllEducations";   
+                string sql = "Exec GetAllEducations";
                 SqlCommand command = new SqlCommand(sql, connection);
 
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -75,10 +75,10 @@ namespace ProfessionalProfile.Repo
                         string institution = (string)reader["Institution"];
                         string fieldOfStudy = (string)reader["FieldOfStudy"];
                         DateTime graduationDate = (DateTime)reader["GraduationDate"];
-                        decimal GPAValue = (decimal)reader["GPA"];
-                        double GPA = Convert.ToDouble(GPAValue);
+                        decimal gPAValue = (decimal)reader["GPA"];
+                        double gPA = Convert.ToDouble(gPAValue);
 
-                        Education education = new Education(educationId, userId, degree, institution, fieldOfStudy, graduationDate, GPA);
+                        Education education = new Education(educationId, userId, degree, institution, fieldOfStudy, graduationDate, gPA);
                         educations.Add(education);
                     }
                 }
@@ -89,7 +89,7 @@ namespace ProfessionalProfile.Repo
 
         public List<Education> GetByUserId(int userId)
         {
-            List<Education> educations = [];
+            List<Education> educations = new List<Education>();
 
             educations = GetAll();
 
@@ -99,17 +99,17 @@ namespace ProfessionalProfile.Repo
                 {
                     educations.RemoveAt(i);
                     i--;
-                }   
+                }
             }
 
             return educations;
-        }   
+        }
 
         public Education GetById(int id)
         {
             Education education = null;
 
-            using(SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -131,10 +131,10 @@ namespace ProfessionalProfile.Repo
                             string institution = (string)reader["Institution"];
                             string fieldOfStudy = (string)reader["FieldOfStudy"];
                             DateTime graduationDate = (DateTime)reader["GraduationDate"];
-                            decimal GPAValue = (decimal)reader["GPA"];
-                            double GPA = Convert.ToDouble(GPAValue);
+                            decimal gPAValue = (decimal)reader["GPA"];
+                            double gPA = Convert.ToDouble(gPAValue);
 
-                            education = new Education(educationId, userId, degree, institution, fieldOfStudy, graduationDate, GPA);
+                            education = new Education(educationId, userId, degree, institution, fieldOfStudy, graduationDate, gPA);
                         }
                         catch (Exception ex)
                         {
@@ -148,8 +148,8 @@ namespace ProfessionalProfile.Repo
 
         public void Update(Education item)
         {
-            SectionValidator.validateEducation(item);
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            SectionValidator.ValidateEducation(item);
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -164,7 +164,7 @@ namespace ProfessionalProfile.Repo
 
                 SqlCommand command = new SqlCommand(sql, connection);
 
-                Decimal GPA = Convert.ToDecimal(item.GPA);
+                decimal gPA = Convert.ToDecimal(item.GPA);
 
                 command.Parameters.AddWithValue("@EducationId", item.EducationId);
                 command.Parameters.AddWithValue("@UserId", item.UserId);
@@ -172,7 +172,7 @@ namespace ProfessionalProfile.Repo
                 command.Parameters.AddWithValue("@Institution", item.Institution);
                 command.Parameters.AddWithValue("@FieldOfStudy", item.FieldOfStudy);
                 command.Parameters.AddWithValue("@GraduationDate", item.GraduationDate);
-                command.Parameters.AddWithValue("@GPA", GPA);
+                command.Parameters.AddWithValue("@GPA", gPA);
 
                 command.ExecuteNonQuery();
             }

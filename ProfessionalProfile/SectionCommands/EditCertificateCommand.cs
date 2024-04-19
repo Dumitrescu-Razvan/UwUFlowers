@@ -12,39 +12,39 @@ using ProfessionalProfile.SectionViewModels;
 
 namespace ProfessionalProfile.SectionCommands
 {
-    class EditCertificateCommand : SectionCommandBase
+    internal class EditCertificateCommand : SectionCommandBase
     {
-        private readonly CertificateRepo _certificateRepo;
-        private readonly EditCertificateViewModel _certificateViewModel;
-        private readonly int _certificateId;
-        private readonly int _userId;
+        private readonly CertificateRepo certificateRepo;
+        private readonly EditCertificateViewModel certificateViewModel;
+        private readonly int certificateId;
+        private readonly int userId;
 
         public EditCertificateCommand(EditCertificateViewModel certificateViewModel, CertificateRepo certificateRepo, int userId, int certificateId)
         {
-            _certificateRepo = certificateRepo;
-            _certificateViewModel = certificateViewModel;
-            _certificateId = certificateId;
-            _userId = userId;
-            _certificateViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            certificateRepo = certificateRepo;
+            certificateViewModel = certificateViewModel;
+            certificateId = certificateId;
+            userId = userId;
+            certificateViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
 
         public override void Execute(object parameter)
         {
             Certificate updatedCertificate = new Certificate(
-                               _certificateId,
-                                              _userId,
-                                                             _certificateViewModel.CertificateName,
-                                                                            _certificateViewModel.IssuedBy,
-                                                                                           _certificateViewModel.Description,
-                                                                                                          _certificateViewModel.IssuedDate,
-                                                                                                                         _certificateViewModel.ExpirationDate
-                                                                                                                                    );
+                               certificateId,
+                                              userId,
+                                                             certificateViewModel.CertificateName,
+                                                                            certificateViewModel.IssuedBy,
+                                                                                           certificateViewModel.Description,
+                                                                                                          certificateViewModel.IssuedDate,
+                                                                                                                         certificateViewModel.ExpirationDate);
 
             try
             {
-                _certificateRepo.Update(updatedCertificate);
+                certificateRepo.Update(updatedCertificate);
                 MessageBox.Show("Certificate updated successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-            } catch (CustomSectionException ex)
+            }
+            catch (CustomSectionException ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -52,9 +52,9 @@ namespace ProfessionalProfile.SectionCommands
 
         public override bool CanExecute(object parameter)
         {
-            return !string.IsNullOrEmpty(_certificateViewModel.CertificateName) &&
-                !string.IsNullOrEmpty(_certificateViewModel.IssuedBy) &&
-                !string.IsNullOrEmpty(_certificateViewModel.Description) &&
+            return !string.IsNullOrEmpty(certificateViewModel.CertificateName) &&
+                !string.IsNullOrEmpty(certificateViewModel.IssuedBy) &&
+                !string.IsNullOrEmpty(certificateViewModel.Description) &&
                 base.CanExecute(parameter);
         }
 

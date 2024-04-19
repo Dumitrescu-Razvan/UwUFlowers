@@ -7,7 +7,7 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    public class EndorsementRepo : RepoInterface<Endorsement>
+    public class EndorsementRepo : IRepoInterface<Endorsement>
     {
         public void Add(Endorsement item)
         {

@@ -9,22 +9,22 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    class PremiumUsersRepo : RepoInterface<int>
+    internal class PremiumUsersRepo : IRepoInterface<int>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public PremiumUsersRepo()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         public void Add(int item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                string sql = @"INSERT INTO isPremium (userId) values (" + item + ")"; ;
+                string sql = @"INSERT INTO isPremium (userId) values (" + item + ")";
 
                 SqlCommand command = new SqlCommand(sql, connection);
 
@@ -41,7 +41,7 @@ namespace ProfessionalProfile.Repo
         {
             List<int> premiumUsers = new List<int>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -53,7 +53,6 @@ namespace ProfessionalProfile.Repo
                 while (reader.Read())
                 {
                     int userId = (int)reader["userId"];
-                    
 
                     premiumUsers.Add(userId);
                 }

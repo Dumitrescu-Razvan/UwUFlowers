@@ -9,26 +9,26 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    public class ProjectRepo : RepoInterface<Project>
+    public class ProjectRepo : IRepoInterface<Project>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public ProjectRepo()
         {
             // IsRead connection string from app.config
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         public void Add(Project item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 int userIdInt = int.Parse(item.UserId);
 
                 string sql = "EXEC InsertProject @ProjectName, @Description, @Technologies, @UserId";
                 SqlCommand command = new SqlCommand(sql, connection);
-                
+
                 command.Parameters.AddWithValue("@ProjectName", item.ProjectName);
                 command.Parameters.AddWithValue("@Description", item.Description);
                 command.Parameters.AddWithValue("@Technologies", item.Technologies);
@@ -40,7 +40,7 @@ namespace ProfessionalProfile.Repo
 
         public void Delete(int id)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -57,7 +57,7 @@ namespace ProfessionalProfile.Repo
         {
             List<Project> projects = new List<Project>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -87,7 +87,7 @@ namespace ProfessionalProfile.Repo
         {
             Project project = null;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -108,7 +108,6 @@ namespace ProfessionalProfile.Repo
                             string description = (string)reader["Description"];
                             string technologies = (string)reader["Technologies"];
                             string userId = reader["UserId"].ToString();
-                            
 
                             project = new Project(projectId, projectName, description, technologies, userId);
                         }
@@ -126,7 +125,7 @@ namespace ProfessionalProfile.Repo
 
         public void Update(Project item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -137,7 +136,7 @@ namespace ProfessionalProfile.Repo
                             Description = @Description,
                             Technologies = @Technologies,
                             UserId = @UserId";
-                            
+
                 SqlCommand command = new SqlCommand(sql, connection);
 
                 command.Parameters.AddWithValue("@ProjectId", item.ProjectId);
@@ -154,7 +153,7 @@ namespace ProfessionalProfile.Repo
         {
             List<Project> projects = new List<Project>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 

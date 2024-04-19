@@ -10,20 +10,20 @@ using ProfessionalProfile.SectionValidators;
 
 namespace ProfessionalProfile.Repo
 {
-    public class WorkExperienceRepo : RepoInterface<WorkExperience>
+    public class WorkExperienceRepo : IRepoInterface<WorkExperience>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public WorkExperienceRepo()
         {
             // IsRead connection string from app.config
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         public void Add(WorkExperience item)
         {
             SectionValidator.validateWorkExperience(item);
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -45,7 +45,7 @@ namespace ProfessionalProfile.Repo
 
         public void Delete(int id)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -62,7 +62,7 @@ namespace ProfessionalProfile.Repo
         {
             List<WorkExperience> workExperiences = new List<WorkExperience>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -114,7 +114,7 @@ namespace ProfessionalProfile.Repo
         {
             WorkExperience workExperience = null;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -145,7 +145,6 @@ namespace ProfessionalProfile.Repo
                         {
                             Console.WriteLine($"Error getting work experience by id: {ex.Message}");
                         }
-
                     }
                 }
             }
@@ -155,7 +154,7 @@ namespace ProfessionalProfile.Repo
         public void Update(WorkExperience item)
         {
             SectionValidator.validateWorkExperience(item);
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 

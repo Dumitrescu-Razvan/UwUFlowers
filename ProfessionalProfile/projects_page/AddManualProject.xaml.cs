@@ -12,9 +12,13 @@ namespace ProfessionalProfile.Projects_page
 {
     public partial class AddManualProject : Window
     {
-        ProjectRepo projectRepo = new ProjectRepo();
+        private ProjectRepo projectRepo = new ProjectRepo();
 
-        int currentUserId;
+        private int currentUserId;
+
+        private string TextName { get; set; }
+        private string TextDescription { get; set; }
+        private string TextTechnologies { get; set; }
 
         public AddManualProject(int userId)
         {
@@ -22,9 +26,9 @@ namespace ProfessionalProfile.Projects_page
 
             currentUserId = userId;
 
-            textName = null;
-            textDescription = null;
-            textTechnologies = null;
+            TextName = null;
+            TextDescription = null;
+            TextTechnologies = null;
 
             // Set the data context to this instance
             DataContext = this;
@@ -33,9 +37,9 @@ namespace ProfessionalProfile.Projects_page
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             // Get the text entered in the text boxes
-            string projectName = textName;
-            string projectDescription = textDescription;
-            string projectTechnologies = textTechnologies;
+            string projectName = TextName;
+            string projectDescription = TextDescription;
+            string projectTechnologies = TextTechnologies;
 
             // Validate input fields
             if (string.IsNullOrWhiteSpace(projectName) || string.IsNullOrWhiteSpace(projectDescription) || string.IsNullOrWhiteSpace(projectTechnologies))
@@ -59,11 +63,5 @@ namespace ProfessionalProfile.Projects_page
             // Close the window without saving
             Close();
         }
-
-        public string textName { get; set; }
-        public string textDescription { get; set; }
-        public string textTechnologies { get; set; }
-
-
     }
 }

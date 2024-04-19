@@ -12,54 +12,56 @@ using ProfessionalProfile.SectionViewModels;
 
 namespace ProfessionalProfile.SectionCommands
 {
-    public class AddEducationCommand: SectionCommandBase
+    public class AddEducationCommand : SectionCommandBase
     {
-        private readonly EducationRepo _educationRepo;
-        private readonly EducationViewModel _educationViewModel;
-        private readonly int _userId;
+        private readonly EducationRepo educationRepo;
+        private readonly EducationViewModel educationViewModel;
+        private readonly int userId;
 
         public AddEducationCommand(EducationViewModel educationViewModel, EducationRepo educationRepo, int userId)
         {
-            _educationRepo = educationRepo;
-            _educationViewModel = educationViewModel;
-            _userId = userId;
-            _educationViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            educationRepo = educationRepo;
+            educationViewModel = educationViewModel;
+            userId = userId;
+            educationViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
 
         public override void Execute(object parameter)
         {
             double gpa;
-            if (double.TryParse(_educationViewModel.GPA, out gpa))
+            if (double.TryParse(educationViewModel.GPA, out gpa))
             {
                 Education education = new Education(
                                                 4,
-                                                _userId,
-                                                _educationViewModel.Degree,
-                                                _educationViewModel.Institution,
-                                                _educationViewModel.FieldOfStudy,
-                                                _educationViewModel.GraduationDate,
-                                                gpa
-                );
+                                                userId,
+                                                educationViewModel.Degree,
+                                                educationViewModel.Institution,
+                                                educationViewModel.FieldOfStudy,
+                                                educationViewModel.GraduationDate,
+                                                gpa);
 
                 try
                 {
-                    _educationRepo.Add(education);
+                    educationRepo.Add(education);
                     MessageBox.Show("Education added successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                } 
+                }
                 catch (CustomSectionException ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-            } else
+            }
+            else
+            {
                 MessageBox.Show("Invalid GPA value. Please enter a numerical value.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public override bool CanExecute(object parameter)
         {
-            return !string.IsNullOrEmpty(_educationViewModel.Degree) &&
-                !string.IsNullOrEmpty(_educationViewModel.Institution) &&
-                !string.IsNullOrEmpty(_educationViewModel.FieldOfStudy) &&
-                !string.IsNullOrEmpty(_educationViewModel.GPA) &&
+            return !string.IsNullOrEmpty(educationViewModel.Degree) &&
+                !string.IsNullOrEmpty(educationViewModel.Institution) &&
+                !string.IsNullOrEmpty(educationViewModel.FieldOfStudy) &&
+                !string.IsNullOrEmpty(educationViewModel.GPA) &&
                 base.CanExecute(parameter);
         }
 

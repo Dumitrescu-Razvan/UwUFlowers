@@ -22,7 +22,7 @@ namespace ProfessionalProfile.View
     /// </summary>
     public partial class PrivacySettingsPage : Window
     {
-        public int userId;
+        public int UserId;
 
         private SearchUsersService SearchUsersService { get; set; }
         private PrivacyService PrivacyService { get; set; }
@@ -30,127 +30,151 @@ namespace ProfessionalProfile.View
         public PrivacySettingsPage(int userId)
         {
             InitializeComponent();
-            this.userId = userId;
+            this.UserId = userId;
             SearchUsersService = new SearchUsersService(new UserRepo());
             PrivacyService = new PrivacyService();
 
-            loadPrivacy();
+            LoadPrivacy();
         }
 
-        public void loadPrivacy()
+        public void LoadPrivacy()
         {
-            User currentUser = SearchUsersService.getUserById(userId);
+            User currentUser = SearchUsersService.GetUserById(UserId);
             Privacy privacy = PrivacyService.GetPrivacy(currentUser.UserId);
 
             this.helloLabel.Content = "Hello " + currentUser.FirstName + " " + currentUser.LastName;
 
             if (privacy.canViewEducation)
+            {
                 educationPublicCheckBox.IsChecked = true;
+            }
             else
+            {
                 educationPrivateCheckBox.IsChecked = true;
+            }
 
             if (privacy.canViewWorkExperience)
+            {
                 workExperiencePublicCheckBox.IsChecked = true;
+            }
             else
+            {
                 workExperiencePrivateCheckBox.IsChecked = true;
+            }
 
             if (privacy.canViewSkills)
+            {
                 skillsPublicCheckBox.IsChecked = true;
+            }
             else
+            {
                 skillsPrivateCheckBox.IsChecked = true;
+            }
 
             if (privacy.canViewCertificates)
+            {
                 certificationsPublicCheckBox.IsChecked = true;
+            }
             else
+            {
                 certificationsPrivateCheckBox.IsChecked = true;
+            }
 
             if (privacy.canViewVolunteering)
+            {
                 volunteeringPublicCheckBox.IsChecked = true;
+            }
             else
+            {
                 volunteeringPrivateCheckBox.IsChecked = true;
+            }
 
             if (privacy.canViewProjects)
+            {
                 projectsPublicCheckBox.IsChecked = true;
+            }
             else
+            {
                 projectsPrivateCheckBox.IsChecked = true;
+            }
         }
 
-        private void educationPublicCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void EducationPublicCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             educationPrivateCheckBox.IsChecked = false;
         }
 
-        private void educationPrivateCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void EducationPrivateCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             educationPublicCheckBox.IsChecked = false;
         }
 
-        private void workExperiencePublicCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void WorkExperiencePublicCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             workExperiencePrivateCheckBox.IsChecked = false;
         }
 
-        private void workExperiencePrivateCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void WorkExperiencePrivateCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             workExperiencePublicCheckBox.IsChecked = false;
         }
 
-        private void volunteeringPublicCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void VolunteeringPublicCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             volunteeringPrivateCheckBox.IsChecked = false;
         }
 
-        private void volunteeringPrivateCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void VolunteeringPrivateCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             volunteeringPublicCheckBox.IsChecked = false;
         }
 
-        private void certificationsPublicCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void CertificationsPublicCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             certificationsPrivateCheckBox.IsChecked = false;
         }
 
-        private void certificationsPrivateCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void CertificationsPrivateCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             certificationsPublicCheckBox.IsChecked = false;
         }
 
-        private void skillsPublicCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void SkillsPublicCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             skillsPrivateCheckBox.IsChecked = false;
         }
 
-        private void skillsPrivateCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void SkillsPrivateCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             skillsPublicCheckBox.IsChecked = false;
         }
 
-        private void projectsPublicCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void ProjectsPublicCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             projectsPrivateCheckBox.IsChecked = false;
         }
 
-        private void projectsPrivateCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void ProjectsPrivateCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             projectsPublicCheckBox.IsChecked = false;
         }
 
-        private void changePrivacyButton_Click(object sender, RoutedEventArgs e)
+        private void ChangePrivacyButton_Click(object sender, RoutedEventArgs e)
         {
-            bool canViewEducation = isPublic(educationPublicCheckBox, educationPrivateCheckBox);
-            bool canViewWorkExperience = isPublic(workExperiencePublicCheckBox, workExperiencePrivateCheckBox);
-            bool canViewSkills = isPublic(skillsPublicCheckBox, skillsPrivateCheckBox);
-            bool canViewCertificates = isPublic(certificationsPublicCheckBox, certificationsPrivateCheckBox);
-            bool canViewVolunteering = isPublic(volunteeringPublicCheckBox, volunteeringPrivateCheckBox);
-            bool canViewProjects = isPublic(projectsPublicCheckBox, projectsPrivateCheckBox);
+            bool canViewEducation = IsPublic(educationPublicCheckBox, educationPrivateCheckBox);
+            bool canViewWorkExperience = IsPublic(workExperiencePublicCheckBox, workExperiencePrivateCheckBox);
+            bool canViewSkills = IsPublic(skillsPublicCheckBox, skillsPrivateCheckBox);
+            bool canViewCertificates = IsPublic(certificationsPublicCheckBox, certificationsPrivateCheckBox);
+            bool canViewVolunteering = IsPublic(volunteeringPublicCheckBox, volunteeringPrivateCheckBox);
+            bool canViewProjects = IsPublic(projectsPublicCheckBox, projectsPrivateCheckBox);
 
-            Privacy privacy = new Privacy(userId, canViewEducation, canViewWorkExperience, canViewSkills, canViewCertificates, canViewVolunteering, canViewProjects);
+            Privacy privacy = new Privacy(UserId, canViewEducation, canViewWorkExperience, canViewSkills, canViewCertificates, canViewVolunteering, canViewProjects);
             PrivacyService.UpdatePrivacy(privacy);
 
             this.updateSuccessLabel.Content = "Privacy settings updated successfully!";
         }
 
-        private bool isPublic(CheckBox publicCheckBox, CheckBox privateCheckBox)
+        private bool IsPublic(CheckBox publicCheckBox, CheckBox privateCheckBox)
         {
             return publicCheckBox.IsChecked == true && privateCheckBox.IsChecked == false;
         }

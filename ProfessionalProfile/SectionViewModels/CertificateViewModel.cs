@@ -9,59 +9,78 @@ using ProfessionalProfile.SectionCommands;
 
 namespace ProfessionalProfile.SectionViewModels
 {
-    public class CertificateViewModel: SectionViewModelBase
+    public class CertificateViewModel : SectionViewModelBase
     {
-        private string _certificateName;
+        private string certificateName;
         public string CertificateName
         {
-            get { return _certificateName; }
+            get => certificateName;
             set
             {
-                _certificateName = value;
+                certificateName = value;
                 OnPropertyChanged("CertificateName");
             }
         }
 
-        private string _issuedBy;
+        private string issuedBy;
         public string IssuedBy
         {
-            get { return _issuedBy; }
+            get
+            {
+                return issuedBy;
+            }
+
             set
             {
-                _issuedBy = value;
+                issuedBy = value;
+
                 OnPropertyChanged("IssuedBy");
             }
         }
 
-        private string _description;
+        private string description;
         public string Description
         {
-            get { return _description; }
+            get
+            {
+                return description;
+            }
+
             set
             {
-                _description = value;
+                description = value;
+
                 OnPropertyChanged("Description");
             }
         }
 
-        private DateTime _issuedDate = new DateTime(2024, 1, 1);
+        private DateTime issuedDate = new DateTime(2024, 1, 1);
         public DateTime IssuedDate
         {
-            get { return _issuedDate; }
+            get
+            {
+                return issuedDate;
+            }
+
             set
             {
-                _issuedDate = value;
+                issuedDate = value;
                 OnPropertyChanged("IssuedDate");
             }
         }
 
-        private DateTime _expirationDate = new DateTime(2024, 1, 2);
+        private DateTime expirationDate = new DateTime(2024, 1, 2);
         public DateTime ExpirationDate
         {
-            get { return _expirationDate; }
+            get
+            {
+                return expirationDate;
+            }
+
             set
             {
-                _expirationDate = value;
+                expirationDate = value;
+
                 OnPropertyChanged("ExpirationDate");
             }
         }

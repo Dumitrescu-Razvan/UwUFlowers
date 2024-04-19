@@ -15,12 +15,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ProfessionalProfile.Business;
-using ProfessionalProfile.business_card_page;
+using ProfessionalProfile.Business_card_page;
 using ProfessionalProfile.Domain;
-using ProfessionalProfile.projects_page;
+using ProfessionalProfile.Projects_page;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionViews;
-using ProfessionalProfile.view;
+using ProfessionalProfile.View;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProfessionalProfile.Profile_page
@@ -67,16 +67,14 @@ namespace ProfessionalProfile.Profile_page
 
     public partial class ProfilePage : Window
     {
-        
-        UserRepo usersRepo = new UserRepo();
-       
-        public ProfilePage(int userVisitingId, int UserProfileId)
+        private UserRepo usersRepo = new UserRepo();
+        public ProfilePage(int userVisitingId, int userProfileId)
         {
             InitializeComponent();
 
             this.WindowState = WindowState.Maximized;
 
-            if (userVisitingId != UserProfileId)
+            if (userVisitingId != userProfileId)
             {
                 ViewNotificationsButton.Visibility = Visibility.Hidden;
                 createAssessmentButton.Visibility = Visibility.Hidden;
@@ -85,13 +83,13 @@ namespace ProfessionalProfile.Profile_page
                 SearchPageButton.Visibility = Visibility.Hidden;
                 settingsButton.Visibility = Visibility.Hidden;
 
-                setPrivacy(UserProfileId);
+                SetPrivacy(userProfileId);
             }
 
-            if (userVisitingId == UserProfileId)
+            if (userVisitingId == userProfileId)
             {
                 PremiumUsersService premiumUsersService = new PremiumUsersService();
-                bool isPremium = premiumUsersService.isPremiumUser(UserProfileId);
+                bool isPremium = premiumUsersService.IsPremiumUser(userProfileId);
 
                 if (isPremium)
                 {
@@ -127,37 +125,37 @@ namespace ProfessionalProfile.Profile_page
             DataContext = this;
         }
 
-        private void setPrivacy(int userId)
+        private void SetPrivacy(int userId)
         {
             PrivacyService privacyService = new PrivacyService();
 
             Privacy userPrivacySettings = privacyService.GetPrivacy(userId);
 
-            if (!userPrivacySettings.canViewEducation)
+            if (!userPrivacySettings.CanViewEducation)
             {
                 this.educationPanel.Visibility = Visibility.Hidden;
                 this.educationBorder.Visibility = Visibility.Hidden;
             }
 
-            if (!userPrivacySettings.canViewWorkExperience)
+            if (!userPrivacySettings.CanViewWorkExperience)
             {
                 this.experiencePanel.Visibility = Visibility.Hidden;
                 this.experienceBorder.Visibility = Visibility.Hidden;
             }
 
-            if (!userPrivacySettings.canViewCertificates)
+            if (!userPrivacySettings.CanViewCertificates)
             {
                 this.certificationsPanel.Visibility = Visibility.Hidden;
                 this.certificationsBorder.Visibility = Visibility.Hidden;
             }
 
-            if (!userPrivacySettings.canViewSkills)
+            if (!userPrivacySettings.CanViewSkills)
             {
                 this.skillsPanel.Visibility = Visibility.Hidden;
                 this.skillsBorder.Visibility = Visibility.Hidden;
             }
 
-            if (!userPrivacySettings.canViewVolunteering)
+            if (!userPrivacySettings.CanViewVolunteering)
             {
                 this.volunteeringPanel.Visibility = Visibility.Hidden;
                 this.volunteeringBorder.Visibility = Visibility.Hidden;
@@ -235,7 +233,6 @@ namespace ProfessionalProfile.Profile_page
             EditEducationWindow editEducationWindow = new EditEducationWindow(UserId, id);
             editEducationWindow.ShowDialog();
             // Call a method to edit the education item using the educationId
-
             ProfilePage profilePage = new ProfilePage(CurrentUserId, UserId);
             profilePage.WindowState = WindowState.Maximized;
             profilePage.Show();
@@ -283,7 +280,6 @@ namespace ProfessionalProfile.Profile_page
             profilePage.WindowState = WindowState.Maximized;
             profilePage.ShowDialog();
             this.Hide();
-
         }
 
         private void EditCertificationButton_Click(object sender, RoutedEventArgs e)
@@ -296,7 +292,6 @@ namespace ProfessionalProfile.Profile_page
             editCertificateWindow.ShowDialog();
 
             // Call a method to edit the certification item using the certificationId
-            //EditCertification(certificationId);
             ProfilePage profilePage = new ProfilePage(CurrentUserId, UserId);
             profilePage.WindowState = WindowState.Maximized;
             this.Close();
@@ -323,7 +318,6 @@ namespace ProfessionalProfile.Profile_page
             string skillId = button.Tag.ToString(); // Assuming you set the Tag property of the button to the skill ID
             int id = int.Parse(skillId);
             // Call a method to edit the skill item using the skillId
-
         }
 
         private void DeleteSkillsButton_Click(object sender, RoutedEventArgs e)
@@ -348,8 +342,6 @@ namespace ProfessionalProfile.Profile_page
 
             EditVolunteeringWindow volunteeringWindow = new EditVolunteeringWindow(UserId, id);
             volunteeringWindow.ShowDialog();
-            // Call a method to edit the volunteering item using the volunteeringId
-            //EditVolunteering(volunteeringId);
 
             ProfilePage profilePage = new ProfilePage(CurrentUserId, UserId);
             profilePage.WindowState = WindowState.Maximized;
@@ -387,7 +379,6 @@ namespace ProfessionalProfile.Profile_page
             e.Handled = true;
         }
 
-
         // Define properties for profile information
         public int CurrentUserId { get; set; }
         public int UserId { get; set; }
@@ -403,10 +394,8 @@ namespace ProfessionalProfile.Profile_page
         public CertificateRepo CertificationsRepo { get; set; }
         public List<Skill> Skills { get; set; }
         public SkillRepo SkillsRepo { get; set; }
-        public List<Volunteering> Volunteering { get; set; }    
+        public List<Volunteering> Volunteering { get; set; }
         public VolunteeringRepo VolunteeringRepo { get; set; }
-
-
         private void SearchPageButton_Click(object sender, RoutedEventArgs e)
         {
             SearchUserPage searchUserPage = new SearchUserPage(CurrentUserId);
@@ -420,19 +409,19 @@ namespace ProfessionalProfile.Profile_page
             notificationsPage.Show();
         }
 
-        private void createAssessmentButton_Click(object sender, RoutedEventArgs e)
+        private void CreateAssessmentButton_Click(object sender, RoutedEventArgs e)
         {
             CreateAssessmentWindow createAssessmentWindow = new CreateAssessmentWindow(CurrentUserId);
             createAssessmentWindow.Show();
         }
 
-        private void takeAssessmentButton_Click(object sender, RoutedEventArgs e)
+        private void TakeAssessmentButton_Click(object sender, RoutedEventArgs e)
         {
             SelectTestWindow selectTestWindow = new SelectTestWindow(CurrentUserId);
             selectTestWindow.Show();
         }
 
-        private void becomePremiumUserButton_Click(object sender, RoutedEventArgs e)
+        private void BecomePremiumUserButton_Click(object sender, RoutedEventArgs e)
         {
             PremiumUsersService premiumUsersService = new PremiumUsersService();
             premiumUsersService.AddPremiumUser(CurrentUserId);
@@ -442,24 +431,23 @@ namespace ProfessionalProfile.Profile_page
             MessageBox.Show("You are now a premium user", "Success", MessageBoxButton.OK);
         }
 
-        private void settingsButton_Click(object sender, RoutedEventArgs e)
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
             PrivacySettingsPage privacySettingsPage = new PrivacySettingsPage(CurrentUserId);
             privacySettingsPage.Show();
         }
 
-        private void viewProjectsButton_Click(object sender, RoutedEventArgs e)
+        private void ViewProjectsButton_Click(object sender, RoutedEventArgs e)
         {
             bool isVisiting = CurrentUserId != UserId;
             ProjectsPage projectsPage = new ProjectsPage(UserId, isVisiting);
             projectsPage.Show();
         }
 
-        private void viewBusinessCardButton_Click(object sender, RoutedEventArgs e)
+        private void ViewBusinessCardButton_Click(object sender, RoutedEventArgs e)
         {
             BusinessCardPage businessCardPage = new BusinessCardPage(UserId);
             businessCardPage.Show();
         }
     }
-
 }

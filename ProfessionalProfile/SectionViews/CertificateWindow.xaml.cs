@@ -21,21 +21,23 @@ namespace ProfessionalProfile.SectionViews
     /// </summary>
     public partial class CertificateWindow : Window
     {
-        int userId;
-        bool isLoggedIn;
+        private int userId;
+        private bool isLoggedIn;
         public CertificateWindow(int userId, bool isLoggedIn = false)
         {
             InitializeComponent();
             WindowState = WindowState.Maximized;
-            this.userId = userId;
+            this.UserId = userId;
             this.isLoggedIn = isLoggedIn;
             CertificateViewModel viewModel = new CertificateViewModel(new CertificateRepo(), userId, isLoggedIn);
             DataContext = viewModel;
         }
 
+        public int UserId { get => userId; set => userId = value; }
+
         private void OpenVolunteeringWindow(object sender, RoutedEventArgs e)
         {
-            VolunteeringWindow volunteeringWindow = new VolunteeringWindow(userId);
+            VolunteeringWindow volunteeringWindow = new VolunteeringWindow(UserId);
             this.Visibility = Visibility.Hidden;
             volunteeringWindow.Show();
         }

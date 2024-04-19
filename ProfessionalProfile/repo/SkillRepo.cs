@@ -10,18 +10,18 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    public class SkillRepo : RepoInterface<Skill>
+    public class SkillRepo : IRepoInterface<Skill>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public SkillRepo()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         public void Add(Skill item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -36,7 +36,7 @@ namespace ProfessionalProfile.Repo
 
         public void Delete(int id)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -53,7 +53,7 @@ namespace ProfessionalProfile.Repo
         {
             List<Skill> skills = new List<Skill>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -76,7 +76,7 @@ namespace ProfessionalProfile.Repo
         {
             List<Skill> skills = new List<Skill>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -100,7 +100,7 @@ namespace ProfessionalProfile.Repo
         {
             Skill skill = null;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -112,12 +112,10 @@ namespace ProfessionalProfile.Repo
                 {
                     if (reader.Read())
                     {
+                        int skillId = (int)reader["SkillId"];
+                        string name = (string)reader["Name"];
 
-                        int SkillId = (int)reader["SkillId"];
-                        string Name = (string)reader["Name"];
-
-
-                        skill = new Skill(SkillId, Name);
+                        skill = new Skill(skillId, name);
                     }
                 }
             }
@@ -125,10 +123,9 @@ namespace ProfessionalProfile.Repo
             return skill;
         }
 
-
         public int GetIdByName(string name)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -150,7 +147,7 @@ namespace ProfessionalProfile.Repo
 
         public void Update(Skill item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 

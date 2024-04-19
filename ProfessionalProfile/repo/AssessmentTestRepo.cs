@@ -9,19 +9,19 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    public class AssessmentTestRepo : RepoInterface<AssessmentTest>
+    public class AssessmentTestRepo : IRepoInterface<AssessmentTest>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public AssessmentTestRepo()
         {
             // IsRead connection string from app.config
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         public void Add(AssessmentTest item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -42,7 +42,7 @@ namespace ProfessionalProfile.Repo
         {
             int assessmentTestId = 0;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -65,7 +65,7 @@ namespace ProfessionalProfile.Repo
         {
             List<AssessmentTest> assessmentTests = new List<AssessmentTest>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -76,14 +76,13 @@ namespace ProfessionalProfile.Repo
                 {
                     while (reader.Read())
                     {
+                        int assessmentTestId = (int)reader["assessmentTestId"];
+                        string testName = (string)reader["testName"];
+                        int userId = (int)reader["userId"];
+                        string description = (string)reader["description"];
+                        int skillId = (int)reader["SkillId"];
 
-                        int AssessmentTestId = (int)reader["assessmentTestId"];
-                        string TestName = (string)reader["testName"];
-                        int UserId = (int)reader["userId"];
-                        string Description = (string)reader["description"];
-                        int SkillId = (int)reader["SkillId"];
-
-                        AssessmentTest assessmentTest = new AssessmentTest(AssessmentTestId, TestName, UserId, Description, SkillId);
+                        AssessmentTest assessmentTest = new AssessmentTest(assessmentTestId, testName, userId, description, skillId);
 
                         assessmentTests.Add(assessmentTest);
                     }
@@ -93,7 +92,6 @@ namespace ProfessionalProfile.Repo
             return assessmentTests;
         }
 
-
         public void Delete(int id)
         {
         }
@@ -102,7 +100,7 @@ namespace ProfessionalProfile.Repo
         {
             AssessmentTest assessmentTest = null;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -114,15 +112,13 @@ namespace ProfessionalProfile.Repo
                 {
                     if (reader.Read())
                     {
-                        
-                        int AssessmentTestId = (int)reader["assessmentTestId"];
-                        string TestName = (string)reader["testName"];
-                        int UserId = (int)reader["userId"];
-                        string Description = (string)reader["description"];
-                        int SkillId = (int)reader["SkillId"];
+                        int assessmentTestId = (int)reader["assessmentTestId"];
+                        string testName = (string)reader["testName"];
+                        int userId = (int)reader["userId"];
+                        string description = (string)reader["description"];
+                        int skillId = (int)reader["SkillId"];
 
-                        assessmentTest = new AssessmentTest(AssessmentTestId, TestName, UserId, Description, SkillId);
-
+                        assessmentTest = new AssessmentTest(assessmentTestId, testName, userId, description, skillId);
                     }
                 }
             }

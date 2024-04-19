@@ -10,7 +10,7 @@ using ProfessionalProfile.SectionCommands;
 
 namespace ProfessionalProfile.SectionViewModels
 {
-    public class EditEducationViewModel: SectionViewModelBase
+    public class EditEducationViewModel : SectionViewModelBase
     {
         public EditEducationViewModel(EducationRepo educationRepo, int userId, int educationId)
         {
@@ -25,57 +25,82 @@ namespace ProfessionalProfile.SectionViewModels
 
         private Education education;
 
-        private string _degree;
+        private string degree;
         public string Degree
         {
-            get { return _degree; }
+            get
+            {
+                return degree;
+            }
+
             set
             {
-                _degree = value;
+                degree = value;
+
                 OnPropertyChanged("Degree");
             }
         }
 
-        private string _institution;
+        private string institution;
         public string Institution
         {
-            get { return _institution; }
+            get
+            {
+                return institution;
+            }
+
             set
             {
-                _institution = value;
+                institution = value;
+
                 OnPropertyChanged("Institution");
             }
         }
 
-        private string _fieldOfStudy;
+        private string fieldOfStudy;
         public string FieldOfStudy
         {
-            get { return _fieldOfStudy; }
+            get
+            {
+                return fieldOfStudy;
+            }
+
             set
             {
-                _fieldOfStudy = value;
+                fieldOfStudy = value;
+
                 OnPropertyChanged("FieldOfStudy");
             }
         }
 
-        private DateTime _graduationDate = new DateTime(2024, 1, 1);
+        private DateTime graduationDate = new DateTime(2024, 1, 1);
         public DateTime GraduationDate
         {
-            get { return _graduationDate; }
+            get
+            {
+                return graduationDate;
+            }
+
             set
             {
-                _graduationDate = value;
+                graduationDate = value;
+
                 OnPropertyChanged("GraduationDate");
             }
         }
 
-        private string _gpa;
+        private string gpa;
         public string GPA
         {
-            get { return _gpa; }
+            get
+            {
+                return gpa;
+            }
+
             set
             {
-                _gpa = value;
+                gpa = value;
+
                 OnPropertyChanged("GPA");
             }
         }

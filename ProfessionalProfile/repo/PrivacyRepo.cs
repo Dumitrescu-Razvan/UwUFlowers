@@ -9,19 +9,19 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    class PrivacyRepo : RepoInterface<Privacy>
+    internal class PrivacyRepo : IRepoInterface<Privacy>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public PrivacyRepo()
         {
             // IsRead connection string from app.config
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         public void Add(Privacy item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -29,13 +29,13 @@ namespace ProfessionalProfile.Repo
                     "VALUES (@UserId, @CanViewEducation, @CanViewWorkExperience, @CanViewVolunteering, @CanViewProjects, @CanViewCertificates, @CanViewSkills)";
                 SqlCommand command = new SqlCommand(sql, connection);
 
-                command.Parameters.AddWithValue("@UserId", item.userId);
-                command.Parameters.AddWithValue("@CanViewEducation", item.canViewEducation);
-                command.Parameters.AddWithValue("@CanViewWorkExperience", item.canViewWorkExperience);
-                command.Parameters.AddWithValue("@CanViewVolunteering", item.canViewVolunteering);
-                command.Parameters.AddWithValue("@CanViewProjects", item.canViewProjects);
-                command.Parameters.AddWithValue("@CanViewCertificates", item.canViewCertificates);
-                command.Parameters.AddWithValue("@CanViewSkills", item.canViewSkills);
+                command.Parameters.AddWithValue("@UserId", item.UserId);
+                command.Parameters.AddWithValue("@CanViewEducation", item.CanViewEducation);
+                command.Parameters.AddWithValue("@CanViewWorkExperience", item.CanViewWorkExperience);
+                command.Parameters.AddWithValue("@CanViewVolunteering", item.CanViewVolunteering);
+                command.Parameters.AddWithValue("@CanViewProjects", item.CanViewProjects);
+                command.Parameters.AddWithValue("@CanViewCertificates", item.CanViewCertificates);
+                command.Parameters.AddWithValue("@CanViewSkills", item.CanViewSkills);
 
                 command.ExecuteNonQuery();
             }
@@ -50,7 +50,7 @@ namespace ProfessionalProfile.Repo
         {
             List<Privacy> list = new List<Privacy>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -76,12 +76,12 @@ namespace ProfessionalProfile.Repo
             return list;
         }
 
-        //returns by user id
+        // returns by user id
         public Privacy GetById(int id)
         {
             Privacy privacy = null;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -109,20 +109,20 @@ namespace ProfessionalProfile.Repo
 
         public void Update(Privacy item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
                 string sql = "UPDATE Privacy SET CanViewEducation = @CanViewEducation, CanViewWorkExperience = @CanViewWorkExperience, CanViewVolunteering = @CanViewVolunteering, CanViewProjects = @CanViewProjects, CanViewCertificates = @CanViewCertificates, CanViewSkills = @CanViewSkills WHERE UserId = @UserId";
                 SqlCommand command = new SqlCommand(sql, connection);
 
-                command.Parameters.AddWithValue("@UserId", item.userId);
-                command.Parameters.AddWithValue("@CanViewEducation", item.canViewEducation);
-                command.Parameters.AddWithValue("@CanViewWorkExperience", item.canViewWorkExperience);
-                command.Parameters.AddWithValue("@CanViewVolunteering", item.canViewVolunteering);
-                command.Parameters.AddWithValue("@CanViewProjects", item.canViewProjects);
-                command.Parameters.AddWithValue("@CanViewCertificates", item.canViewCertificates);
-                command.Parameters.AddWithValue("@CanViewSkills", item.canViewSkills);
+                command.Parameters.AddWithValue("@UserId", item.UserId);
+                command.Parameters.AddWithValue("@CanViewEducation", item.CanViewEducation);
+                command.Parameters.AddWithValue("@CanViewWorkExperience", item.CanViewWorkExperience);
+                command.Parameters.AddWithValue("@CanViewVolunteering", item.CanViewVolunteering);
+                command.Parameters.AddWithValue("@CanViewProjects", item.CanViewProjects);
+                command.Parameters.AddWithValue("@CanViewCertificates", item.CanViewCertificates);
+                command.Parameters.AddWithValue("@CanViewSkills", item.CanViewSkills);
 
                 command.ExecuteNonQuery();
             }

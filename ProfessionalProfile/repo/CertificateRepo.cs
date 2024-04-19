@@ -10,19 +10,19 @@ using ProfessionalProfile.SectionValidators;
 
 namespace ProfessionalProfile.Repo
 {
-    public class CertificateRepo : RepoInterface<Certificate>
+    public class CertificateRepo : IRepoInterface<Certificate>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public CertificateRepo()
         {
             // IsRead connection string from app.config
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
         public void Add(Certificate item)
         {
-            SectionValidator.validateCertificate(item);
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            SectionValidator.ValidateCertificate(item);
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -42,7 +42,7 @@ namespace ProfessionalProfile.Repo
 
         public void Delete(int certificateId)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -59,7 +59,7 @@ namespace ProfessionalProfile.Repo
         {
             List<Certificate> certificates = new List<Certificate>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -108,7 +108,7 @@ namespace ProfessionalProfile.Repo
         {
             Certificate certificate = null;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -148,8 +148,8 @@ namespace ProfessionalProfile.Repo
 
         public void Update(Certificate item)
         {
-            SectionValidator.validateCertificate(item);
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            SectionValidator.ValidateCertificate(item);
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 

@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace ProfessionalProfile.SectionCommands
 {
-    public abstract class SectionCommandBase: ICommand
+    public abstract class SectionCommandBase : ICommand
     {
         public event EventHandler CanExecuteChanged;
 

@@ -21,7 +21,7 @@ namespace ProfessionalProfile.SectionViews
     /// </summary>
     public partial class WorkExperienceWindow : Window
     {
-        int userId;
+        private int userId;
         public WorkExperienceWindow(int userId)
         {
             InitializeComponent();

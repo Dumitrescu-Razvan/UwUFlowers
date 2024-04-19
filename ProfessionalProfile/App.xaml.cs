@@ -10,5 +10,4 @@ namespace ProfessionalProfile
     public partial class App : Application
     {
     }
-
 }

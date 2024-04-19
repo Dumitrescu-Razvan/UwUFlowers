@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace ProfessionalProfile.Domain
 {
-    class Privacy
+    public class Privacy
     {
-        public int userId { get; set; }
-        public bool canViewEducation { get; set; }
-        public bool canViewWorkExperience { get; set; }
-        public bool canViewSkills { get; set; }
-        public bool canViewProjects { get; set; }
-        public bool canViewCertificates { get; set; }
-        public bool canViewVolunteering { get; set; }
+        public int UserId { get; set; }
+        public bool CanViewEducation { get; set; }
+        public bool CanViewWorkExperience { get; set; }
+        public bool CanViewSkills { get; set; }
+        public bool CanViewProjects { get; set; }
+        public bool CanViewCertificates { get; set; }
+        public bool CanViewVolunteering { get; set; }
 
         public Privacy(int userId, bool canViewEducation, bool canViewWorkExperience, bool canViewSkills, bool canViewProjects, bool canViewCertificates, bool canViewVolunteering)
         {
-            this.userId=userId;
-            this.canViewEducation=canViewEducation;
-            this.canViewWorkExperience=canViewWorkExperience;
-            this.canViewSkills=canViewSkills;
-            this.canViewProjects=canViewProjects;
-            this.canViewCertificates=canViewCertificates;
-            this.canViewVolunteering=canViewVolunteering;
+            this.UserId = userId;
+            this.CanViewEducation = canViewEducation;
+            this.CanViewWorkExperience = canViewWorkExperience;
+            this.CanViewSkills = canViewSkills;
+            this.CanViewProjects = canViewProjects;
+            this.CanViewCertificates = canViewCertificates;
+            this.CanViewVolunteering = canViewVolunteering;
         }
     }
 }

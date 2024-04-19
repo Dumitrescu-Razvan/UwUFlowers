@@ -8,7 +8,7 @@ namespace ProfessionalProfile.Domain
 {
     public class QuestionDTO
     {
-        public String QuestionText { get; set; }
+        public string QuestionText { get; set; }
         public List<AnswerDTO> Answers { get; set; }
         public AnswerDTO CorrectAnswer { get; set; }
 

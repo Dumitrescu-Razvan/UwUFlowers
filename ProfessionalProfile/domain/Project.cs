@@ -8,59 +8,59 @@ namespace ProfessionalProfile.Domain
 {
     public class Project
     {
-        private int _projectId;
-        private string _projectName;
-        private string _description;
-        private string _technologies;
-        private string _userId;
-        
+        private int projectId;
+        private string projectName;
+        private string description;
+        private string technologies;
+        private string userId;
 
         public Project(int projectId, string projectName, string description, string technologies, string userId)
         {
-            this._projectId = projectId;
-            this._projectName = projectName;
-            this._description = description;
-            this._technologies = technologies;
-            this._userId = userId;
+            this.projectId = projectId;
+            this.projectName = projectName;
+            this.description = description;
+            this.technologies = technologies;
+            this.userId = userId;
         }
 
         public int ProjectId
         {
-            get { return this._projectId; }
-            set { this._projectId = value;}
+            get { return this.projectId; }
+            set { this.projectId = value; }
         }
 
         public string ProjectName
         {
-            get { return this._projectName; }
-            set { this._projectName = value; }
+            get { return this.projectName; }
+            set { this.projectName = value; }
         }
 
         public string Description
         {
-            get { return this._description; }
-            set { this._description = value; }
+            get { return this.description; }
+            set { this.description = value; }
         }
 
         public string Technologies
         {
-            get { return this._technologies; }
-            set { this._technologies = value; }
+            get { return this.technologies; }
+            set { this.technologies = value; }
         }
 
-        public string UserId{
-            get { return this._userId; }
-            set { this._userId = value; }
+        public string UserId
+        {
+            get { return this.userId; }
+            set { this.userId = value; }
         }
 
         public override bool Equals(object? obj)
         {
             return obj is Project project &&
-                   _projectId == project._projectId &&
-                   _projectName == project._projectName &&
-                   _description == project._description &&
-                   _technologies == project._technologies &&
-                   _userId == project._userId &&
+                   projectId == project.projectId &&
+                   projectName == project.projectName &&
+                   description == project.description &&
+                   technologies == project.technologies &&
+                   userId == project.userId &&
                    ProjectId == project.ProjectId &&
                    ProjectName == project.ProjectName &&
                    Description == project.Description;
@@ -68,7 +68,7 @@ namespace ProfessionalProfile.Domain
 
         public override string ToString()
         {
-            return _projectName + "\n" + _description + "\n" + _technologies;
+            return projectName + "\n" + description + "\n" + technologies;
         }
     }
 }

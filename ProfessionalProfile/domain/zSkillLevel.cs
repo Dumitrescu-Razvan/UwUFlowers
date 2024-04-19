@@ -9,24 +9,25 @@ namespace ProfessionalProfile.Domain
     // NOT USED
     public class SkillLevel
     {
-        private int _skillLevelId;
-        private string _level; // beginner, intermediate, advanced
+        private int skillLevelId;
+        private string level; // beginner, intermediate, advanced
 
         public SkillLevel(int skillLevelId, string level)
         {
-            this._skillLevelId = skillLevelId;
-            this._level = level;
+            this.skillLevelId = skillLevelId;
+            this.level = level;
         }
 
-        public int SkillLevelId { 
-            get {  return this._skillLevelId; } 
-            set { this._skillLevelId = value; }
+        public int SkillLevelId
+        {
+            get { return this.skillLevelId; }
+            set { this.skillLevelId = value; }
         }
 
         public string Level
         {
-            get { return this._level; }
-            set { this._level = value; }
+            get { return this.level; }
+            set { this.level = value; }
         }
     }
 }

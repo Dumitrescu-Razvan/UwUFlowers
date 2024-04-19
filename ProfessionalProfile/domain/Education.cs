@@ -8,73 +8,75 @@ namespace ProfessionalProfile.Domain
 {
     public class Education
     {
-        private int _educationId;
-        private int _userId;
-        private string _degree;
-        private string _institution;
-        private string _fieldOfStudy;
-        private DateTime _graduationDate;
-        private double _GPA;
-        
+        private int educationId;
+        private int userId;
+        private string degree;
+        private string institution;
+        private string fieldOfStudy;
+        private DateTime graduationDate;
 
-        public Education(int educationId, int userId, string degree, string institution, string fieldOfStudy, DateTime graduationDate, double GPA )
+        private double gPA;
+
+        public Education(int educationId, int userId, string degree, string institution, string fieldOfStudy, DateTime graduationDate, double gpa)
         {
-            this._educationId = educationId;
-            this._degree = degree;
-            this._institution = institution;
-            this._fieldOfStudy = fieldOfStudy;
-            this._graduationDate = graduationDate;
-            this._GPA = GPA;
-            this._userId = userId;
+            this.educationId = educationId;
+            this.degree = degree;
+            this.institution = institution;
+            this.fieldOfStudy = fieldOfStudy;
+            this.graduationDate = graduationDate;
+            this.userId = userId;
+            this.gPA = gpa;
         }
 
         public int EducationId
         {
-            get { return _educationId; }
-            set { _educationId = value; }
+            get { return educationId; }
+            set { educationId = value; }
         }
 
         public string Degree
         {
-            get { return _degree; }
-            set { _degree = value; }
+            get { return degree; }
+            set { degree = value; }
         }
         public string Institution
-        { get { return _institution; } set
-            {
-                _institution = value;
-            } }
+        {
+            get { return institution; } set { institution = value; }
+        }
 
         public string FieldOfStudy
         {
-            get { return _fieldOfStudy; }
-            set { _fieldOfStudy = value; }
+            get { return fieldOfStudy; }
+            set { fieldOfStudy = value; }
         }
 
         public DateTime GraduationDate
         {
-            get { return _graduationDate; }
-            set { _graduationDate = value; }
+            get { return graduationDate; }
+            set { graduationDate = value; }
         }
 
         public double GPA
         {
-            get { return this._GPA; }
-            set { this._GPA = value; }
+            get { return this.GPA; }
+            set { this.GPA = value; }
         }
 
-        public int UserId { get { return this._userId; } set {  this._userId = value; } }
+        public int UserId
+        {
+             get { return this.userId; } set { this.userId = value; }
+        }
 
         public override bool Equals(object? obj)
         {
             return obj is Education education &&
-                   _educationId == education._educationId &&
-                   _degree == education._degree &&
-                   _institution == education._institution &&
-                   _fieldOfStudy == education._fieldOfStudy &&
-                   _graduationDate == education._graduationDate &&
-                   _GPA == education._GPA &&
-                   _userId == education._userId &&
+                   educationId == education.educationId &&
+                   degree == education.degree &&
+                   institution == education.institution &&
+                   fieldOfStudy == education.fieldOfStudy &&
+                   graduationDate == education.graduationDate &&
+                   GPA == education.GPA &&
+                   userId == education.userId &&
                    UserId == education.UserId &&
                    EducationId == education.EducationId &&
                    Degree == education.Degree &&
@@ -86,7 +88,7 @@ namespace ProfessionalProfile.Domain
 
         public override string ToString()
         {
-            return _institution + "\n" + _degree +"\n"+ _fieldOfStudy + "\n" + _graduationDate + "\n" + _GPA;
+            return institution + "\n" + degree + "\n" + fieldOfStudy + "\n" + graduationDate;
         }
     }
 }

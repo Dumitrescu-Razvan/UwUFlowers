@@ -8,57 +8,57 @@ namespace ProfessionalProfile.Domain
 {
     public class BussinesCard
     {
-        private int _bcId;
-        private int _userId;
-        private string _summary;
-        private string _uniqueUrl;
-        private List<Skill> _keySkills;
+        private int bcId;
+        private int userId;
+        private string summary;
+        private string uniqueUrl;
+        private List<Skill> keySkills;
 
         public BussinesCard(int bcId, string summary, string uniqueUrl, int userId, List<Skill> keySkills)
         {
-            this._bcId = bcId;
-            this._summary = summary;
-            this._keySkills = keySkills;
-            this._uniqueUrl = uniqueUrl;
-            _userId = userId;
+            this.bcId = bcId;
+            this.summary = summary;
+            this.keySkills = keySkills;
+            this.uniqueUrl = uniqueUrl;
+            userId = userId;
         }
 
         public int BcId
         {
-            get { return _bcId; }
-            set { _bcId = value; }
+            get { return bcId; }
+            set { bcId = value; }
         }
 
         public string Summary
-        { 
-            get { return _summary; } 
-            set {  _summary = value; } 
+        {
+            get { return summary; }
+            set { summary = value; }
         }
 
         public List<Skill> KeySkills
         {
-            get { return _keySkills;}
-            set { this._keySkills=value;}
+            get { return keySkills; }
+            set { this.keySkills = value; }
         }
         public string UniqueUrl
         {
-            get { return _uniqueUrl; }
-            set { _uniqueUrl = value; }
+            get { return uniqueUrl; }
+            set { uniqueUrl = value; }
         }
 
         public int UserId
         {
-            get { return _userId; }
-            set { this._userId = value; }
+            get { return userId; }
+            set { this.userId = value; }
         }
 
         public override bool Equals(object? obj)
         {
             return obj is BussinesCard card &&
-                   _bcId == card._bcId &&
-                   _summary == card._summary &&
-                   EqualityComparer<List<Skill>>.Default.Equals(_keySkills, card._keySkills) &&
-                   _uniqueUrl == card._uniqueUrl &&
+                   bcId == card.bcId &&
+                   summary == card.summary &&
+                   EqualityComparer<List<Skill>>.Default.Equals(keySkills, card.keySkills) &&
+                   uniqueUrl == card.uniqueUrl &&
                    BcId == card.BcId &&
                    Summary == card.Summary &&
                    EqualityComparer<List<Skill>>.Default.Equals(KeySkills, card.KeySkills) &&

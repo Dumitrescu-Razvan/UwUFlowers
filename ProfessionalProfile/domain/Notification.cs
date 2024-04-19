@@ -2,64 +2,67 @@
 {
     public class Notification
     {
-        private int _notificationId;
-        private int _userId;
-        private string _activity;
-        private DateTime _timestamp;
-        private string _details;
-        private bool _isRead;
+        private int notificationId;
+        private int userId;
+        private string activity;
+        private DateTime timestamp;
+        private string details;
+        private bool isRead;
 
         public Notification(int notificationId, int userId, string activity, DateTime timestamp, string details, bool isRead)
         {
-            this._notificationId = notificationId;
-            this._userId = userId;
-            this._activity = activity;
-            this._timestamp = timestamp;
-            this._details = details;
-            this._isRead = isRead;
+            this.notificationId = notificationId;
+            this.userId = userId;
+            this.activity = activity;
+            this.timestamp = timestamp;
+            this.details = details;
+            this.isRead = isRead;
         }
 
-        public int NotificationId{
-            get { return _notificationId; }
-            set {  _notificationId = value; }
+        public int NotificationId
+        {
+            get { return notificationId; }
+            set { notificationId = value; }
         }
 
-        public int UserId { get { return _userId; }
-        set { _userId = value; }
+        public int UserId
+        {
+            get { return userId; } set { userId = value; }
         }
 
-        public string Activity { 
-            get { return _activity; }
-            set { _activity = value; }
+        public string Activity
+        {
+            get { return activity; }
+            set { activity = value; }
         }
 
         public DateTime Timestamp
         {
-            get { return _timestamp; }
-            set { _timestamp = value; }
+            get { return timestamp; }
+            set { timestamp = value; }
         }
 
         public string Details
         {
-            get { return _details; }
-            set { _details = value; }
+            get { return details; }
+            set { details = value; }
         }
 
         public bool IsRead
         {
-            get { return this._isRead; }
-            set { this._isRead = value; }
+            get { return this.isRead; }
+            set { this.isRead = value; }
         }
 
         public override bool Equals(object? obj)
         {
             return obj is Notification notification &&
-                   _notificationId == notification._notificationId &&
-                   _userId == notification._userId &&
-                   _activity == notification._activity &&
-                   _timestamp == notification._timestamp &&
-                   _details == notification._details &&
-                   _isRead == notification._isRead &&
+                   notificationId == notification.notificationId &&
+                   userId == notification.userId &&
+                   activity == notification.activity &&
+                   timestamp == notification.timestamp &&
+                   details == notification.details &&
+                   isRead == notification.isRead &&
                    NotificationId == notification.NotificationId &&
                    UserId == notification.UserId &&
                    Activity == notification.Activity &&

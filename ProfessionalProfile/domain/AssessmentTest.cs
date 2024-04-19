@@ -8,68 +8,69 @@ namespace ProfessionalProfile.Domain
 {
     public class AssessmentTest
     {
-        private int _assessmentTestId;
-        private string _testName;
-        private int _userId;
-        private string _description;
-        private int _skill_id;
+        private int assessmentTestId;
+        private string testName;
+        private int userId;
+        private string description;
+        private int skillid;
 
-        public AssessmentTest(int assest_id, string testName, int userId, string description, int skillsAssessed)
+        public AssessmentTest(int assestid, string testName, int userId, string description, int skillsAssessed)
         {
-            this._assessmentTestId = assest_id;
-            this._testName = testName;
-            this._userId = userId;
-            this._description = description;
-            this._skill_id = skillsAssessed;
+            this.assessmentTestId = assestid;
+            this.testName = testName;
+            this.userId = userId;
+            this.description = description;
+            this.skillid = skillsAssessed;
         }
 
         public int AssessmentTestId
         {
-            get { return _assessmentTestId; }
-            set { _assessmentTestId = value; }
+            get { return assessmentTestId; }
+            set { assessmentTestId = value; }
         }
 
         public string TestName
         {
-            get { return _testName; }
-            set { _testName = value; }
+            get { return testName; }
+            set { testName = value; }
         }
 
         public int UserId
         {
-            get { return _userId; }
-            set { _userId = value; }
+            get { return userId; }
+            set { userId = value; }
         }
 
         public string Description
         {
-            get { return _description; }
-            set { _description = value; }
+            get { return description; }
+            set { description = value; }
         }
 
-        public int Skill_id{
-            get {  return _skill_id; }
-            set { _skill_id = value;}
+        public int Skillid
+        {
+            get { return skillid; }
+            set { skillid = value; }
         }
 
         public override bool Equals(object? obj)
         {
             return obj is AssessmentTest test &&
-                   _assessmentTestId == test._assessmentTestId &&
-                   _testName == test._testName &&
-                   _userId == test._userId &&
-                   _description == test._description &&
-                   _skill_id == test._skill_id &&
+                   assessmentTestId == test.assessmentTestId &&
+                   testName == test.testName &&
+                   userId == test.userId &&
+                   description == test.description &&
+                   skillid == test.skillid &&
                    AssessmentTestId == test.AssessmentTestId &&
                    TestName == test.TestName &&
                    UserId == test.UserId &&
                    Description == test.Description &&
-                   Skill_id == test.Skill_id;
+                   Skillid == test.Skillid;
         }
 
         public override string ToString()
         {
-            return _testName + "\n" + _description;
+            return testName + "\n" + description;
         }
     }
 }

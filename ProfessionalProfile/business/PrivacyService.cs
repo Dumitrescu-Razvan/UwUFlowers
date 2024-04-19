@@ -8,9 +8,9 @@ using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.Business
 {
-    class PrivacyService
+    internal class PrivacyService
     {
-        PrivacyRepo PrivacyRepo { get; set; }
+        internal PrivacyRepo PrivacyRepo { get; set; }
 
         public PrivacyService()
         {
@@ -31,8 +31,10 @@ namespace ProfessionalProfile.Business
         {
             Privacy result = PrivacyRepo.GetById(userId);
 
-            if (result != null) return result;
-           
+            if (result != null)
+            {
+                return result;
+            }
             this.AddPrivacy(new Privacy(userId, true, true, true, true, true, true));
             return PrivacyRepo.GetById(userId);
         }

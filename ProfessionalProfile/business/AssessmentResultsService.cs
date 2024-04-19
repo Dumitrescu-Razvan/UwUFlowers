@@ -19,12 +19,12 @@ namespace ProfessionalProfile.Business
             AssessmentTestRepo = new AssessmentTestRepo();
         }
 
-        public List<AssessmentResult> getResultsByUserId(int userId)
+        public List<AssessmentResult> GetResultsByUserId(int userId)
         {
             return this.AssessmentResultRepo.GetAssessmentResultsByUserId(userId);
         }
 
-        public AssessmentTest getTestById(int testId)
+        public AssessmentTest GetTestById(int testId)
         {
             return this.AssessmentTestRepo.GetById(testId);
         }

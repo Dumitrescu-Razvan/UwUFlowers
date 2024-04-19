@@ -25,13 +25,11 @@ namespace ProfessionalProfile.Business
             this.SkillRepo = new SkillRepo();
         }
 
-        //TODO: get test as dto
-
-        public AssessmentTestDTO getTestDTO(int testId)
+        public AssessmentTestDTO GetTestDTO(int testId)
         {
             AssessmentTest test = AssessmentTestRepo.GetById(testId);
             List<QuestionDTO> questionDTOs = GetQuestionDTOs(testId);
-            Skill skill = SkillRepo.GetById(test.Skill_id);
+            Skill skill = SkillRepo.GetById(test.Skillid);
 
             return new AssessmentTestDTO(test.TestName, test.Description, questionDTOs, skill.Name);
         }
@@ -60,25 +58,25 @@ namespace ProfessionalProfile.Business
             return questionDTOs;
         }
 
-        public int computeTestResult(AssessmentTestDTO testDTO, List<string> answers)
+        public int ComputeTestResult(AssessmentTestDTO testDTO, List<string> answers)
         {
             int correctAnswers = 0;
-            int totalQuestions = testDTO.questions.Count;
+            int totalQuestions = testDTO.Questions.Count;
 
             for (int i = 0; i < totalQuestions; i++)
             {
-                QuestionDTO questionDTO = testDTO.questions[i];
+                QuestionDTO questionDTO = testDTO.Questions[i];
 
                 if (answers[i] == questionDTO.CorrectAnswer.AnswerText)
+                {
                     correctAnswers++;
+                }
             }
-
-
             int score = (correctAnswers * 100) / totalQuestions;
             return score;
         }
 
-        public void addTestResult(int testId, int userId, int score, DateTime testDate)
+        public void AddTestResult(int testId, int userId, int score, DateTime testDate)
         {
             AssessmentResult assessmentResult = new AssessmentResult(0, testId, userId, score, testDate);
 

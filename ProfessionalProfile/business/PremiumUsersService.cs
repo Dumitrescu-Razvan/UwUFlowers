@@ -7,7 +7,7 @@ using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.Business
 {
-    class PremiumUsersService
+    internal class PremiumUsersService
     {
         public PremiumUsersRepo PremiumUsersRepo { get; set; }
 
@@ -21,7 +21,7 @@ namespace ProfessionalProfile.Business
             return PremiumUsersRepo.GetAll();
         }
 
-        public bool isPremiumUser(int userId)
+        public bool IsPremiumUser(int userId)
         {
             return this.PremiumUsersRepo.GetAll().Contains(userId);
         }

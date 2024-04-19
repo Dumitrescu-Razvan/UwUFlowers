@@ -7,24 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="profile page\ProfilePage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="view\NotificationsPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="PrivacySettingsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="profile page\ProfilePage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="view\NotificationsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PrivacySettingsPage.xaml">

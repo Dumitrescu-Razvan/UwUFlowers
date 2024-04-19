@@ -23,7 +23,7 @@ namespace ProfessionalProfile.Business
             this.SkillRepo = new SkillRepo();
         }
 
-        public List<Skill> getAllSkills()
+        public List<Skill> GetAllSkills()
         {
             List<Skill> skills = new List<Skill>();
             skills.Add(new Skill(1, "Python"));
@@ -32,7 +32,7 @@ namespace ProfessionalProfile.Business
             return skills;
         }
 
-        public void createAssessmentTest(AssessmentTestDTO assessmentTestDTO, int userId)
+        public void CreateAssessmentTest(AssessmentTestDTO assessmentTestDTO, int userId)
         {
             int skillId = SkillRepo.GetIdByName(assessmentTestDTO.SkillTested);
             AssessmentTest assessmentTest = new AssessmentTest(0, assessmentTestDTO.TestName, userId, assessmentTestDTO.Description, skillId);
@@ -40,13 +40,13 @@ namespace ProfessionalProfile.Business
             AssessmentTestRepo.Add(assessmentTest);
             int assessmentTestId = AssessmentTestRepo.GetIdByName(assessmentTestDTO.TestName);
 
-            foreach (QuestionDTO questionDTO in assessmentTestDTO.questions)
+            foreach (QuestionDTO questionDTO in assessmentTestDTO.Questions)
             {
-                createQuestion(questionDTO, assessmentTestId);
+                CreateQuestion(questionDTO, assessmentTestId);
             }
         }
 
-        public void createQuestion(QuestionDTO questionDTO, int assessmentId)
+        public void CreateQuestion(QuestionDTO questionDTO, int assessmentId)
         {
             Question question = new Question(0, questionDTO.QuestionText, assessmentId);
             QuestionRepo.Add(question);
@@ -58,6 +58,5 @@ namespace ProfessionalProfile.Business
                 AnswerRepo.Add(answer);
             }
         }
-
     }
 }

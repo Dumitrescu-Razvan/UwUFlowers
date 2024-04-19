@@ -23,18 +23,18 @@ namespace ProfessionalProfile.Business
             this.SkillRepo = new SkillRepo();
         }
 
-        public List<AssessmentTest> getAllAssessmentTests()
+        public List<AssessmentTest> GetAllAssessmentTests()
         {
             return AssessmentTestRepo.GetAll();
         }
 
-        public AssessmentTest getAssessmentByName(string testName)
+        public AssessmentTest GetAssessmentByName(string testName)
         {
             int id = AssessmentTestRepo.GetIdByName(testName);
             return AssessmentTestRepo.GetById(id);
         }
 
-        public Skill getSkillById(int id)
+        public Skill GetSkillById(int id)
         {
             return SkillRepo.GetById(id);
         }

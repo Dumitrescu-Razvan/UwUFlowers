@@ -8,9 +8,9 @@ using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.Business
 {
-    class NotificationsService
+    internal class NotificationsService
     {
-        NotificationRepo NotificationRepo { get; }
+        internal NotificationRepo NotificationRepo { get; }
 
         public NotificationsService(NotificationRepo notificationRepo)
         {

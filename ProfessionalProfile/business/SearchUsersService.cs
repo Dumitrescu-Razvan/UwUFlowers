@@ -8,7 +8,7 @@ using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.Business
 {
-    class SearchUsersService
+    internal class SearchUsersService
     {
         public UserRepo UserRepo { get; }
 
@@ -21,14 +21,14 @@ namespace ProfessionalProfile.Business
         {
             List<User> allUsers = UserRepo.GetAll();
             List<User> searchResults = allUsers.FindAll((user) =>
-                (user.FirstName.ToLower().Contains(search.ToLower()) || 
+                (user.FirstName.ToLower().Contains(search.ToLower()) ||
                 user.LastName.ToLower().Contains(search.ToLower())) &&
                 user.UserId != loggedUserId);
 
             return searchResults;
         }
 
-        public User getUserById(int userId)
+        public User GetUserById(int userId)
         {
             return UserRepo.GetById(userId);
         }

@@ -17,34 +17,33 @@ namespace ProfessionalProfile.Business_card_page
 {
     public partial class BusinessCardPage : Window
     {
-        UserRepo usersRepo = new UserRepo();
-        SkillRepo skillRepo = new SkillRepo();
-        BusinessCardRepo businessCardRepo = new BusinessCardRepo();
+        private UserRepo usersRepo = new UserRepo();
+        private SkillRepo skillRepo = new SkillRepo();
+        private BusinessCardRepo businessCardRepo = new BusinessCardRepo();
 
-        public BusinessCardPage(int UserId)
+        public BusinessCardPage(int userId)
         {
             InitializeComponent();
 
-            //this.DownloadCardButton.Visibility = Visibility.Hidden;
-            //this.DownloadCardButton.Visibility = Visibility.Hidden;
-
-            BussinesCard businessCard = businessCardRepo.GetByUserId(UserId);
-            User user = usersRepo.GetById(UserId);
-            List<Skill> skills = skillRepo.GetByUserId(UserId);
+            BussinesCard businessCard = businessCardRepo.GetByUserId(userId);
+            User user = usersRepo.GetById(userId);
+            List<Skill> skills = skillRepo.GetByUserId(userId);
 
             if (businessCard == null)
             {
-                BussinesCard newCard = new BussinesCard(0, user.Summary, "htpps://business_card_" +  user.FirstName, user.UserId, skills);
+                BussinesCard newCard = new BussinesCard(0, user.Summary, "htpps://business_card_" + user.FirstName, user.UserId, skills);
                 businessCardRepo.Add(newCard);
             }
-            businessCard = businessCardRepo.GetByUserId(UserId);
+            businessCard = businessCardRepo.GetByUserId(userId);
 
             List<string> cardSkills = new List<string>();
 
             foreach (Skill skill in skills)
             {
                 if (!cardSkills.Contains(skill.Name.ToLower()))
+                {
                     cardSkills.Add(skill.Name);
+                }
             }
 
             FullName = user.FirstName + " " + user.LastName;
@@ -54,7 +53,6 @@ namespace ProfessionalProfile.Business_card_page
             WebsiteURL = businessCard.UniqueUrl;
             KeySkills = string.Join(",",  cardSkills);
             Description = businessCard.Summary;
-            // Achievement = "I have developed 5 applications that are used by millions of people.";
 
             DataContext = this;
         }
@@ -100,21 +98,6 @@ namespace ProfessionalProfile.Business_card_page
         {
             try
             {
-                //// Capture the content of the current WPF window
-                //RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap((int)this.ActualWidth, (int)this.ActualHeight, 96, 96, PixelFormats.Pbgra32);
-                //renderTargetBitmap.Render(this);
-
-                //// Create a BitmapEncoder to save the captured content as an image
-                //BitmapEncoder encoder = new PngBitmapEncoder();
-                //encoder.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
-
-                //// Save the image to a file
-                //string fileName = "C:\\Users\\higye\\OneDrive\\Imagini\\business_card.png";
-                //using (FileStream stream = new FileStream(fileName, FileMode.Create))
-                //{
-                //    encoder.Save(stream);
-                //}
-                // Capture the content of the current WPF window
                 RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap((int)this.ActualWidth, (int)this.ActualHeight, 96, 96, PixelFormats.Pbgra32);
                 renderTargetBitmap.Render(this);
 
@@ -135,7 +118,6 @@ namespace ProfessionalProfile.Business_card_page
                         encoder.Save(stream);
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -144,7 +126,6 @@ namespace ProfessionalProfile.Business_card_page
             }
         }
     }
-
 }
 
 

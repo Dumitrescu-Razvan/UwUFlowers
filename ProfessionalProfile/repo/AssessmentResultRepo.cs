@@ -9,18 +9,18 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    internal class AssessmentResultRepo : RepoInterface<AssessmentResult>
+    internal class AssessmentResultRepo : IRepoInterface<AssessmentResult>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public AssessmentResultRepo()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         public void Add(AssessmentResult item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -39,14 +39,13 @@ namespace ProfessionalProfile.Repo
 
         public void Delete(int id)
         {
-            
         }
 
         public List<AssessmentResult> GetAll()
         {
             List<AssessmentResult> assessmentResults = new List<AssessmentResult>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -81,7 +80,6 @@ namespace ProfessionalProfile.Repo
 
         public void Update(AssessmentResult item)
         {
-            
         }
     }
 }

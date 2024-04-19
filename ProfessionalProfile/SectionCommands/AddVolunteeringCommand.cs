@@ -14,35 +14,33 @@ namespace ProfessionalProfile.SectionCommands
 {
     public class AddVolunteeringCommand : SectionCommandBase
     {
-        private readonly VolunteeringRepo _volunteeringRepo;
-        private readonly VolunteeringViewModel _volunteeringViewModel;
-        private readonly int _userId;
+        private readonly VolunteeringRepo volunteeringRepo;
+        private readonly VolunteeringViewModel volunteeringViewModel;
+        private readonly int userId;
 
         public AddVolunteeringCommand(VolunteeringRepo volunteeringRepo, VolunteeringViewModel volunteeringViewModel, int userId)
         {
-            _volunteeringRepo = volunteeringRepo;
-            _volunteeringViewModel = volunteeringViewModel;
-            _userId = userId;
-            _volunteeringViewModel.PropertyChanged += OnViewModelPropertyChanged;
-            
+            volunteeringRepo = volunteeringRepo;
+            volunteeringViewModel = volunteeringViewModel;
+            userId = userId;
+            volunteeringViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
-
         public override void Execute(object parameter)
         {
-            Volunteering volunteering = new Volunteering(4, _userId, _volunteeringViewModel.Organisation, _volunteeringViewModel.Role, _volunteeringViewModel.Description);
-          
-            _volunteeringRepo.Add(volunteering);
+            Volunteering volunteering = new Volunteering(4, userId, volunteeringViewModel.Organisation, volunteeringViewModel.Role, volunteeringViewModel.Description);
+
+            volunteeringRepo.Add(volunteering);
             MessageBox.Show("Volunteering added successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public override bool CanExecute(object parameter)
         {
-            return !string.IsNullOrEmpty(_volunteeringViewModel.Organisation) &&
-                !string.IsNullOrEmpty(_volunteeringViewModel.Role) &&
-                !string.IsNullOrEmpty(_volunteeringViewModel.Description) &&
+            return !string.IsNullOrEmpty(volunteeringViewModel.Organisation) &&
+                !string.IsNullOrEmpty(volunteeringViewModel.Role) &&
+                !string.IsNullOrEmpty(volunteeringViewModel.Description) &&
                 base.CanExecute(parameter);
         }
-        
+
         private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(VolunteeringViewModel.Organisation) ||

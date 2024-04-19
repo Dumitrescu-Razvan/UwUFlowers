@@ -9,18 +9,18 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    public class NotificationRepo : RepoInterface<Notification>
+    public class NotificationRepo : IRepoInterface<Notification>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public NotificationRepo()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         public void Add(Notification item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -46,7 +46,7 @@ namespace ProfessionalProfile.Repo
         {
             List<Notification> notifications = new List<Notification>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -72,7 +72,7 @@ namespace ProfessionalProfile.Repo
             return notifications;
         }
 
-        public List<Notification> getAllByUserId(int userId)
+        public List<Notification> GetAllByUserId(int userId)
         {
             List<Notification> allNotifications = this.GetAll();
 

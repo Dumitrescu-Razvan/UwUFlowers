@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProfessionalProfile.SectionExceptions
 {
-    public class CustomSectionException: Exception
+    public class CustomSectionException : Exception
     {
         public CustomSectionException()
         {

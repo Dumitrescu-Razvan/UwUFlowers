@@ -19,14 +19,14 @@ namespace ProfessionalProfile.View
     /// <summary>
     /// Interaction logic for TakeTestWindow.xaml
     /// </summary>
-    /// 
+    ///
 
     public class QuestionComponent : UserControl
     {
         public TextBox QuestionText { get; set; }
         public List<TextBox> AnswerTextBoxes { get; set; }
         public TextBox CorrectAnswerTextBox { get; set; }
-        public Label yourAnswerLabel { get; set; }
+        public Label YourAnswerLabel { get; set; }
 
         public QuestionComponent(QuestionDTO questionDTO)
         {
@@ -56,9 +56,9 @@ namespace ProfessionalProfile.View
                 AnswerTextBoxes.Add(answerTextBox);
             }
 
-            this.yourAnswerLabel = new Label();
-            this.yourAnswerLabel.Content = "Your answer:";
-            this.yourAnswerLabel.Margin = new Thickness(0, 10, 0, 0);
+            this.YourAnswerLabel = new Label();
+            this.YourAnswerLabel.Content = "Your answer:";
+            this.YourAnswerLabel.Margin = new Thickness(0, 10, 0, 0);
 
             this.CorrectAnswerTextBox.Text = "Enter correct answer:";
             this.CorrectAnswerTextBox.GotFocus += TextBox_GotFocus;
@@ -71,7 +71,7 @@ namespace ProfessionalProfile.View
                 stackPanel.Children.Add(answerTextBox);
             }
 
-            stackPanel.Children.Add(this.yourAnswerLabel);
+            stackPanel.Children.Add(this.YourAnswerLabel);
             stackPanel.Children.Add(this.CorrectAnswerTextBox);
 
             Content = stackPanel;
@@ -81,7 +81,7 @@ namespace ProfessionalProfile.View
         {
             TextBox textBox = (TextBox)sender;
 
-            textBox.Text = "";
+            textBox.Text = string.Empty;
         }
     }
 
@@ -89,22 +89,22 @@ namespace ProfessionalProfile.View
     {
         private int TestId { get; }
         private int UserId { get; }
-        private TakeTestService takeTestService { get; }
-        private List<QuestionComponent> questionComponents { get; }
+        private TakeTestService TakeTestService { get; }
+        private List<QuestionComponent> QuestionComponents { get; }
         public TakeTestWindow(int testId, int userId)
         {
             InitializeComponent();
             this.TestId = testId;
-            this.takeTestService = new TakeTestService();
-            this.questionComponents = new List<QuestionComponent>();
+            this.TakeTestService = new TakeTestService();
+            this.QuestionComponents = new List<QuestionComponent>();
 
-            loadTest();
+            LoadTest();
             UserId=userId;
         }
 
-        private void loadTest()
+        private void LoadTest()
         {
-            AssessmentTestDTO assessmentTestDTO = takeTestService.getTestDTO(TestId);
+            AssessmentTestDTO assessmentTestDTO = TakeTestService.getTestDTO(TestId);
 
             this.TestNameLabel.Content = assessmentTestDTO.TestName;
 
@@ -112,30 +112,31 @@ namespace ProfessionalProfile.View
             {
                 QuestionComponent questionComponent = new QuestionComponent(questionDTO);
                 this.QuestionsList.Children.Add(questionComponent);
-                this.questionComponents.Add(questionComponent);
+                this.QuestionComponents.Add(questionComponent);
             }
         }
 
         private void SubmitTestButton_Click(object sender, RoutedEventArgs e)
         {
-            AssessmentTestDTO assessmentTestDTO = takeTestService.getTestDTO(TestId);
+            AssessmentTestDTO assessmentTestDTO = TakeTestService.getTestDTO(TestId);
 
-            int score = takeTestService.computeTestResult(assessmentTestDTO, getAnswers());
-            takeTestService.addTestResult(TestId, this.UserId, score, DateTime.Now);
+            int score = TakeTestService.computeTestResult(assessmentTestDTO, GetAnswers());
+            TakeTestService.addTestResult(TestId, this.UserId, score, DateTime.Now);
 
             MessageBox.Show("Your score is: " + score + "%");
 
             // disable all answer textboxes
-
-            foreach (var questionComponent in questionComponents)
+            foreach (var questionComponent in QuestionComponents)
+            {
                 questionComponent.CorrectAnswerTextBox.IsEnabled = false;
+            }
         }
 
-        private List<string> getAnswers()
+        private List<string> GetAnswers()
         {
             List<string> answers = new List<string>();
 
-            foreach (var questionComponent in questionComponents)
+            foreach (var questionComponent in QuestionComponents)
             {
                 string correctAnswer = questionComponent.CorrectAnswerTextBox.Text;
                 answers.Add(correctAnswer);

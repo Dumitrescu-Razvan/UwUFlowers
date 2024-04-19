@@ -9,19 +9,18 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    public class AnswerRepo : RepoInterface<Answer>
+    public class AnswerRepo : IRepoInterface<Answer>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public AnswerRepo()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
-
 
         public void Add(Answer item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -41,7 +40,7 @@ namespace ProfessionalProfile.Repo
         {
             List<Answer> answers = new List<Answer>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -65,7 +64,6 @@ namespace ProfessionalProfile.Repo
             return answers;
         }
 
-
         public void Delete(int id)
         {
         }
@@ -82,7 +80,6 @@ namespace ProfessionalProfile.Repo
 
         public void Update(Answer item)
         {
-           
         }
     }
 }

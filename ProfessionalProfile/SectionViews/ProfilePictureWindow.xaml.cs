@@ -19,7 +19,7 @@ namespace ProfessionalProfile.SectionViews
     /// </summary>
     public partial class ProfilePictureWindow : Window
     {
-        int userId;
+        private int userId;
         public ProfilePictureWindow(int userId)
         {
             InitializeComponent();

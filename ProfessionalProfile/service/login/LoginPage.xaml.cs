@@ -19,11 +19,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ProfessionalProfile.Domain;
-using ProfessionalProfile.profile_page;
+using ProfessionalProfile.Profile_page;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionViews;
-using ProfessionalProfile.service.signUp;
-using ProfessionalProfile.service.webBrowser;
+using ProfessionalProfile.Service.SignUp;
+using ProfessionalProfile.Service.WebBrowser;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace ProfessionalProfile.Service.Login
@@ -34,8 +34,13 @@ namespace ProfessionalProfile.Service.Login
     public partial class LoginPage : Window
     {
         private UserRepo usersRepo;
-        string clientIdLinkedin, redirectUrlLinkedin, clientSecretLinkedin, clientIdFacebook, redirectUrlFacebook, clientSecretFacebook;
-        
+        private string clientIdLinkedin;
+        private string redirectUrlLinkedin;
+        private string clientSecretLinkedin;
+        private string clientIdFacebook;
+        private string redirectUrlFacebook;
+        private string clientSecretFacebook;
+
         public LoginPage()
         {
             InitializeComponent();
@@ -46,22 +51,20 @@ namespace ProfessionalProfile.Service.Login
             clientIdFacebook = "968501770998125";
             redirectUrlFacebook = "http://localhost:8000/lab3";
             clientSecretFacebook = "9e46f4bab93249c84fa750eb6284c784";
-
-
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            if (textBox.Text == "Enter your email" || textBox.Text == "")
+            if (textBox.Text == "Enter your email" || textBox.Text == string.Empty)
             {
-                textBox.Text = "";
+                textBox.Text = string.Empty;
                 textBox.Foreground = System.Windows.Media.Brushes.Black;
             }
         }
-        private void goToSignup(object sender, RoutedEventArgs e)
+        private void GoToSignup(object sender, RoutedEventArgs e)
         {
             SignUpPage signUpPage = new SignUpPage();
-            //this.Hide();
+            // this.Hide();
             signUpPage.Show();
         }
 
@@ -93,8 +96,8 @@ namespace ProfessionalProfile.Service.Login
             passwordPlaceholder.Visibility = Visibility.Collapsed;
             passwordBox.Focus();
         }
-     
-        static string ComputeSHA256Hash(string input)
+
+        private static string ComputeSHA256Hash(string input)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
@@ -110,8 +113,7 @@ namespace ProfessionalProfile.Service.Login
             }
         }
 
-        
-        private void handleLogin(object sender, RoutedEventArgs e)
+        private void HandleLogin(object sender, RoutedEventArgs e)
         {
             if (this.emailBox.Text.Length == 0 || this.passwordBox.Password.Length == 0)
             {
@@ -119,10 +121,10 @@ namespace ProfessionalProfile.Service.Login
             }
             else
             {
-                this.errorLabel.Content = "";
+                this.errorLabel.Content = string.Empty;
                 this.errorLabel.Visibility = Visibility.Collapsed;
 
-                //this.titleBox.Text = this.emailBox.Text + " " + ComputeSHA256Hash(this.passwordBox.Password);
+                // this.titleBox.Text = this.emailBox.Text + " " + ComputeSHA256Hash(this.passwordBox.Password);
                 string email, password;
                 email = this.emailBox.Text;
                 password = ComputeSHA256Hash(this.passwordBox.Password);
@@ -132,7 +134,7 @@ namespace ProfessionalProfile.Service.Login
                 List<User> allUsers = this.usersRepo.GetAll();
                 foreach (var user in allUsers)
                 {
-                    if(user.Email == email && user.Password == password)
+                    if (user.Email == email && user.Password == password)
                     {
                         loggedInUser = (User)user;
                         break;
@@ -146,36 +148,28 @@ namespace ProfessionalProfile.Service.Login
                 }
                 else
                 {
-                    //this.titleBox.Text = "Welcome back " + loggedInUser.FirstName;
-                    //CertificateWindow window = new CertificateWindow(loggedInUser.UserId);
+                    // this.titleBox.Text = "Welcome back " + loggedInUser.FirstName;
+                    // CertificateWindow window = new CertificateWindow(loggedInUser.UserId);
                     ProfilePage window = new ProfilePage(loggedInUser.UserId, loggedInUser.UserId);
                     this.Hide();
                     window.Show();
-
                 }
-
-
             }
-
         }
-        
-        private void facebookLogin(object sender, RoutedEventArgs e)
-        {
 
+        private void FacebookLogin(object sender, RoutedEventArgs e)
+        {
             string scope = "email public_profile";
             HttpClient httpClient = new HttpClient();
 
             string authorizationUrl = $"https://www.facebook.com/v12.0/dialog/oauth?client_id={clientIdFacebook}&redirect_uri={redirectUrlFacebook}&scope={scope}";
 
             BrowserPage browserPage = new BrowserPage(true);
-            //this.Hide();
+            // this.Hide();
             browserPage.Show();
             browserPage.webBrowser.Navigate("about:blank");
             browserPage.webBrowser.Navigate(authorizationUrl);
-            //browserPage.Show();
-
-
-
+            // browserPage.Show();
         }
         private void LinkedInLogin(object sender, RoutedEventArgs e)
         {
@@ -188,16 +182,11 @@ namespace ProfessionalProfile.Service.Login
 
             // Navigate to the authorization URL in the embedded web browser control
             BrowserPage browserPage = new BrowserPage(true);
-            
+
             browserPage.Show();
             browserPage.webBrowser.Navigate("about:blank");
             browserPage.webBrowser.Navigate(fullAuthorizationUrl);
-            //browserPage.Show();
-
-
-
+            // browserPage.Show();
         }
-
-        
     }
 }

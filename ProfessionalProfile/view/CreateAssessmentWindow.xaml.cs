@@ -19,7 +19,7 @@ namespace ProfessionalProfile.View
     /// <summary>
     /// Interaction logic for CreateAssessmentWindow.xaml
     /// </summary>
-    /// 
+    ///
 
     public class QuestionControl : UserControl
     {
@@ -35,7 +35,7 @@ namespace ProfessionalProfile.View
 
             this.QuestionText.Text = "Enter question here:";
             this.QuestionText.Margin = new Thickness(0, 20, 0, 10);
-            this.QuestionText.GotFocus += TextBox_GotFocus; 
+            this.QuestionText.GotFocus += TextBox_GotFocus;
 
             for (int i = 0; i < 4; i++)
             {
@@ -65,26 +65,26 @@ namespace ProfessionalProfile.View
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBox textBox = (TextBox) sender;
+            TextBox textBox = (TextBox)sender;
 
-            textBox.Text = "";
+            textBox.Text = string.Empty;
         }
     }
 
     public partial class CreateAssessmentWindow : Window
     {
-        public List<QuestionControl> questionControls;
+        public List<QuestionControl> QuestionControls;
         public CreateAssessmentService CreateAssessmentService;
-        public int userId;
+        public int UserId;
 
         public CreateAssessmentWindow(int userId)
         {
             InitializeComponent();
-            this.userId = userId;
-            this.questionControls = new List<QuestionControl>();
+            this.UserId = userId;
+            this.QuestionControls = new List<QuestionControl>();
             QuestionControl firstQuestion = new QuestionControl();
             questionsListLayout.Children.Add(firstQuestion);
-            this.questionControls.Add(firstQuestion);
+            this.QuestionControls.Add(firstQuestion);
 
             this.CreateAssessmentService = new CreateAssessmentService();
 
@@ -97,66 +97,64 @@ namespace ProfessionalProfile.View
             SkillsList.SelectedItem = skills[0].Name;
         }
 
-        private void assessmentName_GotFocus(object sender, RoutedEventArgs e)
+        private void AssessmentName_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox assessmentNameBox = (TextBox)sender;
 
-            assessmentNameBox.Text = "";
+            assessmentNameBox.Text = string.Empty;
         }
-
 
         private void AddQuestionButton_Click(object sender, RoutedEventArgs e)
         {
             QuestionControl newQuestion = new QuestionControl();
 
-            questionControls.Add(newQuestion);
+            QuestionControls.Add(newQuestion);
             questionsListLayout.Children.Add(newQuestion);
         }
 
-        private void assessmentDescription_GotFocus(object sender, RoutedEventArgs e)
+        private void AssessmentDescription_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
 
-            textBox.Text = "";
+            textBox.Text = string.Empty;
         }
 
         private void SubmitAssessmentButton_Click(object sender, RoutedEventArgs e)
         {
             // TODO: set user id based on current user
+            string testName = this.assessmentName.Text;
+            string description = this.assessmentDescription.Text;
 
-            String TestName = this.assessmentName.Text;
-            String Description = this.assessmentDescription.Text;
+            List<QuestionDTO> questions = CreateListOfQuestions();
+            string skillTested = (string)SkillsList.SelectedItem;
 
-            List<QuestionDTO> questions = createListOfQuestions();
-            String SkillTested = (String)SkillsList.SelectedItem;
+            AssessmentTestDTO assessmentTestDTO = new AssessmentTestDTO(testName, description, questions, skillTested);
 
-            AssessmentTestDTO assessmentTestDTO = new AssessmentTestDTO(TestName, Description, questions, SkillTested);
-
-            this.CreateAssessmentService.createAssessmentTest(assessmentTestDTO, this.userId);
+            this.CreateAssessmentService.createAssessmentTest(assessmentTestDTO, this.UserId);
 
             MessageBox.Show("Assessment created successfully");
 
             // TODO: clear fields after submission
             this.questionsListLayout.Children.Clear();
-            this.questionControls.Clear();
+            this.QuestionControls.Clear();
 
             QuestionControl firstQuestion = new QuestionControl();
             questionsListLayout.Children.Add(firstQuestion);
-            this.questionControls.Add(firstQuestion);
+            this.QuestionControls.Add(firstQuestion);
 
             SkillsList.SelectedItem = SkillsList.Items[0];
             this.assessmentName.Text = "Enter a creative name: ";
             this.assessmentDescription.Text = "Enter a brief description of the assessment:";
         }
 
-        private List<QuestionDTO> createListOfQuestions()
+        private List<QuestionDTO> CreateListOfQuestions()
         {
             List<QuestionDTO> questionDTOs = new List<QuestionDTO>();
 
-            foreach (var question in this.questionControls)
+            foreach (var question in this.QuestionControls)
             {
-                List<AnswerDTO> answerDTOs = createListOfAnswers(question);
-                String questionName = question.QuestionText.Text;
+                List<AnswerDTO> answerDTOs = CreateListOfAnswers(question);
+                string questionName = question.QuestionText.Text;
                 AnswerDTO correctAnswer = new AnswerDTO(question.CorrectAnswerTextBox.Text, true);
 
                 QuestionDTO questionDTO = new QuestionDTO(questionName, answerDTOs, correctAnswer);
@@ -166,7 +164,7 @@ namespace ProfessionalProfile.View
             return questionDTOs;
         }
 
-        private List<AnswerDTO> createListOfAnswers(QuestionControl currentQuestion)
+        private List<AnswerDTO> CreateListOfAnswers(QuestionControl currentQuestion)
         {
             List<AnswerDTO> answerDTOs = new List<AnswerDTO>();
 

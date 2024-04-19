@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ProfessionalProfile.profile_page;
+using ProfessionalProfile.Profile_page;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionViewModels;
 
@@ -22,7 +22,7 @@ namespace ProfessionalProfile.SectionViews
     /// </summary>
     public partial class SkillWindow : Window
     {
-        int userId;
+        private int userId;
         public SkillWindow(int userId)
         {
             InitializeComponent();

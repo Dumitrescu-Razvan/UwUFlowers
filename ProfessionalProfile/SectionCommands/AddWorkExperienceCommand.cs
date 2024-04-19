@@ -14,26 +14,25 @@ namespace ProfessionalProfile.SectionCommands
 {
     public class AddWorkExperienceCommand : SectionCommandBase
     {
-        private readonly WorkExperienceRepo _workExperienceRepo;
-        private readonly WorkExperienceViewModel _workExperienceViewModel;
-        private readonly int _userId;
+        private readonly WorkExperienceRepo workExperienceRepo;
+        private readonly WorkExperienceViewModel workExperienceViewModel;
+        private readonly int userId;
 
         public AddWorkExperienceCommand(WorkExperienceViewModel workExperienceViewModel, WorkExperienceRepo workExperienceRepo, int userId)
         {
-            _workExperienceRepo = workExperienceRepo;
-            _workExperienceViewModel = workExperienceViewModel;
-            _userId = userId;
-            _workExperienceViewModel.PropertyChanged += OnViewModelPropertyChanged;
-            
+            workExperienceRepo = workExperienceRepo;
+            workExperienceViewModel = workExperienceViewModel;
+            userId = userId;
+            workExperienceViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
 
         public override void Execute(object parameter)
         {
-            WorkExperience workExperience = new WorkExperience(4, _userId, _workExperienceViewModel.JobTitle, _workExperienceViewModel.Company, _workExperienceViewModel.Location, _workExperienceViewModel.EmploymentPeriod, _workExperienceViewModel.Responsibilities, _workExperienceViewModel.Achievements, _workExperienceViewModel.Description);
+            WorkExperience workExperience = new WorkExperience(4, userId, workExperienceViewModel.JobTitle, workExperienceViewModel.Company, workExperienceViewModel.Location, workExperienceViewModel.EmploymentPeriod, workExperienceViewModel.Responsibilities, workExperienceViewModel.Achievements, workExperienceViewModel.Description);
 
             try
             {
-                _workExperienceRepo.Add(workExperience);
+                workExperienceRepo.Add(workExperience);
                 MessageBox.Show("Work Experience added successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (CustomSectionException ex)
@@ -42,17 +41,15 @@ namespace ProfessionalProfile.SectionCommands
             }
         }
 
-
-
         public override bool CanExecute(object parameter)
         {
-            return !string.IsNullOrEmpty(_workExperienceViewModel.JobTitle) &&
-                !string.IsNullOrEmpty(_workExperienceViewModel.Company) &&
-                !string.IsNullOrEmpty(_workExperienceViewModel.Location) &&
-                !string.IsNullOrEmpty(_workExperienceViewModel.EmploymentPeriod) &&
-                !string.IsNullOrEmpty(_workExperienceViewModel.Responsibilities) &&
-                !string.IsNullOrEmpty(_workExperienceViewModel.Achievements) &&
-                !string.IsNullOrEmpty(_workExperienceViewModel.Description) &&
+            return !string.IsNullOrEmpty(workExperienceViewModel.JobTitle) &&
+                !string.IsNullOrEmpty(workExperienceViewModel.Company) &&
+                !string.IsNullOrEmpty(workExperienceViewModel.Location) &&
+                !string.IsNullOrEmpty(workExperienceViewModel.EmploymentPeriod) &&
+                !string.IsNullOrEmpty(workExperienceViewModel.Responsibilities) &&
+                !string.IsNullOrEmpty(workExperienceViewModel.Achievements) &&
+                !string.IsNullOrEmpty(workExperienceViewModel.Description) &&
                 base.CanExecute(parameter);
         }
 

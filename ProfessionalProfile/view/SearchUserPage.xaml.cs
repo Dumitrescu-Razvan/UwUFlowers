@@ -22,7 +22,7 @@ namespace ProfessionalProfile.View
     /// <summary>
     /// Interaction logic for SearchUserPage.xaml
     /// </summary>
-    /// 
+    ///
 
     public class ListItem
     {
@@ -42,7 +42,7 @@ namespace ProfessionalProfile.View
 
     public partial class SearchUserPage : Window
     {
-        private SearchUsersService searchUsersService { get; }
+        private SearchUsersService SearchUsersService { get; }
         private NotificationsService NotificationsService { get; }
         private int userId;
 
@@ -53,7 +53,7 @@ namespace ProfessionalProfile.View
             InitializeComponent();
 
             this.userId = userId;
-            this.searchUsersService = new SearchUsersService(new repo.UserRepo());
+            this.SearchUsersService = new SearchUsersService(new repo.UserRepo());
             this.NotificationsService = new NotificationsService(new NotificationRepo());
             Users = new ObservableCollection<ListItem>();
         }
@@ -63,7 +63,7 @@ namespace ProfessionalProfile.View
             this.UsersListBox.ItemsSource = null;
 
             string searchKey = this.SearchTextBox.Text;
-            List<User> matchedUsers = this.getAllMatchedUsers(searchKey);
+            List<User> matchedUsers = this.GetAllMatchedUsers(searchKey);
 
             Users = new ObservableCollection<ListItem>();
 
@@ -75,7 +75,7 @@ namespace ProfessionalProfile.View
                 return;
             }
 
-            foreach(User user in matchedUsers)
+            foreach (User user in matchedUsers)
             {
                 Users.Add(new ListItem(user.UserId, user.FirstName + " " + user.LastName));
             }
@@ -84,22 +84,22 @@ namespace ProfessionalProfile.View
             this.ViewProfileButton.IsEnabled = true;
         }
 
-        private List<User> getAllMatchedUsers(string searchString)
+        private List<User> GetAllMatchedUsers(string searchString)
         {
-            return this.searchUsersService.SearchUsers(searchString, this.userId);
+            return this.SearchUsersService.SearchUsers(searchString, this.userId);
         }
 
         private void SearchTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
 
-            textBox.Text = "";
+            textBox.Text = string.Empty;
         }
 
         private void ViewProfileButton_Click(object sender, RoutedEventArgs e)
         {
             ListItem selectedUser = (ListItem)this.UsersListBox.SelectedItem;
-            User user = this.searchUsersService.getUserById(this.userId);
+            User user = this.SearchUsersService.getUserById(this.userId);
 
             Notification profileViewNotification = new Notification(0, selectedUser.Id, user.FirstName + " " + user.LastName + " viewed your profile!", DateTime.Now, "Profile visited", true);
             this.NotificationsService.AddNotification(profileViewNotification);

@@ -10,7 +10,7 @@ using ProfessionalProfile.SectionCommands;
 
 namespace ProfessionalProfile.SectionViewModels
 {
-    public class EditWorkExperienceViewModel: SectionViewModelBase
+    public class EditWorkExperienceViewModel : SectionViewModelBase
     {
         public EditWorkExperienceViewModel(WorkExperienceRepo workExperienceRepo, int userId, int workExperienceId)
         {
@@ -27,79 +27,114 @@ namespace ProfessionalProfile.SectionViewModels
 
         private WorkExperience workExperience;
 
-        private string _jobTitle;
+        private string jobTitle;
         public string JobTitle
         {
-            get { return _jobTitle; }
+            get
+            {
+                return jobTitle;
+            }
+
             set
             {
-                _jobTitle = value;
+                jobTitle = value;
+
                 OnPropertyChanged("JobTitle");
             }
         }
 
-        private string _company;
+        private string company;
         public string Company
         {
-            get { return _company; }
+            get
+            {
+                return company;
+            }
+
             set
             {
-                _company = value;
+                company = value;
+
                 OnPropertyChanged("Company");
             }
         }
 
-        private string _location;
+        private string location;
         public string Location
         {
-            get { return _location; }
+            get
+            {
+                return location;
+            }
+
             set
             {
-                _location = value;
+                location = value;
+
                 OnPropertyChanged("Location");
             }
         }
 
-        private string _employmentPeriod;
+        private string employmentPeriod;
         public string EmploymentPeriod
         {
-            get { return _employmentPeriod; }
+            get
+            {
+                return employmentPeriod;
+            }
+
             set
             {
-                _employmentPeriod = value;
+                employmentPeriod = value;
+
                 OnPropertyChanged("EmploymentPeriod");
             }
         }
 
-        private string _responsibilities;
+        private string responsibilities;
         public string Responsibilities
         {
-            get { return _responsibilities; }
+            get
+            {
+                return responsibilities;
+            }
+
             set
             {
-                _responsibilities = value;
+                responsibilities = value;
+
                 OnPropertyChanged("Responsibilities");
             }
         }
 
-        private string _achievements;
+        private string achievements;
         public string Achievements
         {
-            get { return _achievements; }
+            get
+            {
+                return achievements;
+            }
+
             set
             {
-                _achievements = value;
+                achievements = value;
+
                 OnPropertyChanged("Achievements");
             }
         }
 
-        private string _description;
+        private string description;
         public string Description
         {
-            get { return _description; }
+            get
+            {
+                return description;
+            }
+
             set
             {
-                _description = value;
+                description = value;
+
                 OnPropertyChanged("Description");
             }
         }

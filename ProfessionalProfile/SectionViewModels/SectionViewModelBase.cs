@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProfessionalProfile.SectionViewModels
 {
-    public class SectionViewModelBase: INotifyPropertyChanged
+    public class SectionViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

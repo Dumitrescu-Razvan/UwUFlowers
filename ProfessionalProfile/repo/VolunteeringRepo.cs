@@ -9,18 +9,18 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    public class VolunteeringRepo : RepoInterface<Volunteering>
+    public class VolunteeringRepo : IRepoInterface<Volunteering>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public VolunteeringRepo()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         public void Add(Volunteering item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -38,7 +38,7 @@ namespace ProfessionalProfile.Repo
 
         public void Delete(int id)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -55,7 +55,7 @@ namespace ProfessionalProfile.Repo
         {
             List<Volunteering> volunteerings = new List<Volunteering>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -102,7 +102,7 @@ namespace ProfessionalProfile.Repo
         {
             Volunteering volunteering = null;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -136,7 +136,7 @@ namespace ProfessionalProfile.Repo
 
         public void Update(Volunteering item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 

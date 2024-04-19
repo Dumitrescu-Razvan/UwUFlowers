@@ -9,18 +9,18 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    internal class QuestionRepo : RepoInterface<Question>
+    internal class QuestionRepo : IRepoInterface<Question>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public QuestionRepo()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         public void Add(Question item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -39,7 +39,7 @@ namespace ProfessionalProfile.Repo
         {
             int questionId = 0;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -59,16 +59,15 @@ namespace ProfessionalProfile.Repo
             return questionId;
         }
 
-
         public void Delete(int id)
         {
         }
 
-        public List<Question> getAllByTestId(int testID)
+        public List<Question> GetAllByTestId(int testID)
         {
             List<Question> questions = new List<Question>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -80,14 +79,11 @@ namespace ProfessionalProfile.Repo
                 {
                     while (reader.Read())
                     {
-
-                        int QuestionId = (int)reader["QuestionId"];
-                        string QuestionText = (string)reader["QuestionText"];
-                        int TestId = (int)reader["AssessmentTestId"];
+                        int questionId = (int)reader["QuestionId"];
+                        string questionText = (string)reader["QuestionText"];
+                        int testId = (int)reader["AssessmentTestId"];
                         // You may need to retrieve other properties depending on your schema
-
-
-                        Question question = new Question(QuestionId, QuestionText, TestId);
+                        Question question = new Question(questionId, questionText, testId);
 
                         questions.Add(question);
                     }

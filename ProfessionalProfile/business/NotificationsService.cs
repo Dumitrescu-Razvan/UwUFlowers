@@ -19,7 +19,7 @@ namespace ProfessionalProfile.Business
 
         public List<Notification> GetNotifications(int userId)
         {
-            List<Notification> notifications = this.NotificationRepo.getAllByUserId(userId);
+            List<Notification> notifications = this.NotificationRepo.GetAllByUserId(userId);
 
             notifications.Sort((firstNotification, secondNotification) =>
             {

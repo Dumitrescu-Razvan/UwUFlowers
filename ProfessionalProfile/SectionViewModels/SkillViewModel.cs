@@ -9,15 +9,20 @@ using ProfessionalProfile.SectionCommands;
 
 namespace ProfessionalProfile.SectionViewModels
 {
-    public class SkillViewModel: SectionViewModelBase
+    public class SkillViewModel : SectionViewModelBase
     {
-        private string _skillName;
+        private string skillName;
         public string SkillName
         {
-            get { return _skillName; }
+            get
+            {
+                return skillName;
+            }
+
             set
             {
-                _skillName = value;
+                skillName = value;
+
                 OnPropertyChanged("SkillName");
             }
         }

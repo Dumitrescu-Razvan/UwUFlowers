@@ -8,26 +8,26 @@ using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
-{   
-    internal class BusinessCardRepo : RepoInterface<BussinesCard>
+{
+    internal class BusinessCardRepo : IRepoInterface<BussinesCard>
     {
-        private string _connectionString;
+        private string connectionString;
 
         public BusinessCardRepo()
         {
             // IsRead connection string from app.config
-            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         public void Add(BussinesCard item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
                 string sql = "EXEC InsertBusinessCard @UserId, @Summary, @UniqueUrl";
                 SqlCommand command = new SqlCommand(sql, connection);
-                
+
                 command.Parameters.AddWithValue("@UserId", item.UserId);
                 command.Parameters.AddWithValue("@Summary", item.Summary);
                 command.Parameters.AddWithValue("@UniqueUrl", item.UniqueUrl);
@@ -38,7 +38,7 @@ namespace ProfessionalProfile.Repo
 
         public void Delete(int id)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -55,7 +55,7 @@ namespace ProfessionalProfile.Repo
         {
             List<BussinesCard> bussinesCards = new List<BussinesCard>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -70,7 +70,7 @@ namespace ProfessionalProfile.Repo
                         string summary = (string)reader["Summary"];
                         string uniqueUrl = (string)reader["UniqueUrl"];
                         int userId = (int)reader["UserId"];
-                        
+
                         BussinesCard bussinesCard = new BussinesCard(bcId, summary, uniqueUrl, userId, new List<Skill>());
                         bussinesCards.Add(bussinesCard);
                     }
@@ -84,7 +84,7 @@ namespace ProfessionalProfile.Repo
         {
             BussinesCard bussinesCard = null;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -123,7 +123,7 @@ namespace ProfessionalProfile.Repo
         {
             BussinesCard bussinesCard = null;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -159,7 +159,7 @@ namespace ProfessionalProfile.Repo
 
         public void Update(BussinesCard item)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -185,7 +185,7 @@ namespace ProfessionalProfile.Repo
         {
             List<string> skills = new List<string>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 

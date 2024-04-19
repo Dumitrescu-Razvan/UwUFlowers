@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProfessionalProfile.Repo
 {
-    public interface RepoInterface<T>
+    public interface IRepoInterface<T>
     {
         public T GetById(int id);
         public List<T> GetAll();

@@ -6,49 +6,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using ProfessionalProfile.Domain;
-using ProfessionalProfile.profile_page;
+using ProfessionalProfile.Profile_page;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionExceptions;
 using ProfessionalProfile.SectionViewModels;
-
 
 namespace ProfessionalProfile.SectionCommands
 {
     public class AddCertificateCommand : SectionCommandBase
     {
-        private readonly CertificateRepo _certificateRepo;
-        private readonly CertificateViewModel _certificateViewModel;
-        private readonly int _userId;
+        private readonly CertificateRepo certificateRepo;
+        private readonly CertificateViewModel certificateViewModel;
+        private readonly int userId;
         private bool isLoggedIn;
 
         public AddCertificateCommand(SectionViewModels.CertificateViewModel certificateViewModel, CertificateRepo certificateRepo, int userId, bool isLoggedIn)
         {
-            _certificateRepo = certificateRepo;
-            _certificateViewModel = certificateViewModel;
-            _userId = userId;
+            certificateRepo = certificateRepo;
+            certificateViewModel = certificateViewModel;
+            userId = userId;
             this.isLoggedIn = isLoggedIn;
-            _certificateViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            certificateViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
-
-        
 
         public override void Execute(object parameter)
         {
             Certificate certificate = new Certificate(
                     4,
-                    _userId,
-                    _certificateViewModel.CertificateName,
-                    _certificateViewModel.IssuedBy,
-                    _certificateViewModel.Description,
-                    _certificateViewModel.IssuedDate,
-                    _certificateViewModel.ExpirationDate
-                );
+                    userId,
+                    certificateViewModel.CertificateName,
+                    certificateViewModel.IssuedBy,
+                    certificateViewModel.Description,
+                    certificateViewModel.IssuedDate,
+                    certificateViewModel.ExpirationDate);
 
             try
             {
-                _certificateRepo.Add(certificate);
+                certificateRepo.Add(certificate);
                 MessageBox.Show("Certificate added successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                ProfilePage profilePage = new ProfilePage(_userId, _userId);
+                ProfilePage profilePage = new ProfilePage(userId, userId);
                 profilePage.Show();
             }
             catch (CustomSectionException ex)
@@ -59,9 +55,9 @@ namespace ProfessionalProfile.SectionCommands
 
         public override bool CanExecute(object parameter)
         {
-            return !string.IsNullOrEmpty(_certificateViewModel.CertificateName) &&
-                !string.IsNullOrEmpty(_certificateViewModel.IssuedBy) &&
-                !string.IsNullOrEmpty(_certificateViewModel.Description) &&
+            return !string.IsNullOrEmpty(certificateViewModel.CertificateName) &&
+                !string.IsNullOrEmpty(certificateViewModel.IssuedBy) &&
+                !string.IsNullOrEmpty(certificateViewModel.Description) &&
                 base.CanExecute(parameter);
         }
         private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)

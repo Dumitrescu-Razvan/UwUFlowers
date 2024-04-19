@@ -28,7 +28,6 @@ namespace ProfessionalProfile.SectionViews
 
             EditEducationViewModel viewModel = new EditEducationViewModel(new EducationRepo(), userId, educationId);
             DataContext = viewModel;
-
         }
 
         private void CloseWindow(object sender, RoutedEventArgs e)

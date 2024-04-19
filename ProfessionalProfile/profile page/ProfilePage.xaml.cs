@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ProfessionalProfile.business;
+using ProfessionalProfile.Business;
 using ProfessionalProfile.business_card_page;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.projects_page;

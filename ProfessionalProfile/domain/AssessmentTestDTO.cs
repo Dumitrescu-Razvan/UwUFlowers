@@ -8,17 +8,17 @@ namespace ProfessionalProfile.Domain
 {
     public class AssessmentTestDTO
     {
-        public String TestName {  get; set; }
-        public String Description { get; set; }
-        public List<QuestionDTO> questions { get; set; }
-        public String SkillTested { get; set; }
+        public string TestName { get; set; }
+        public string Description { get; set; }
+        public List<QuestionDTO> Questions { get; set; }
+        public string SkillTested { get; set; }
 
-        public AssessmentTestDTO(String  TestName, String Description, List<QuestionDTO> questions, string skillTested)
+        public AssessmentTestDTO(string testName, string description, List<QuestionDTO> questions, string skillTested)
         {
-            this.TestName = TestName;
-            this.Description = Description;
-            this.questions = questions;
-            SkillTested=skillTested;
+            this.TestName = testName;
+            this.Description = description;
+            this.Questions = questions;
+            SkillTested = skillTested;
         }
     }
 }

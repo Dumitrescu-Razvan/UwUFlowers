@@ -8,52 +8,53 @@ namespace ProfessionalProfile.Domain
 {
     public class Answer
     {
-        private int _answerId;
-        private string _answerText;
-        private int _questionId;
-        private bool _isCorrect;
+        private int answerId;
+        private string answerText;
+        private int questionId;
+        private bool isCorrect;
 
         public Answer(int answerId, string answerText, int questionId,  bool isCorrect)
         {
-            _answerId = answerId;
-            _questionId = questionId;
-            _answerText = answerText;
-            _isCorrect = isCorrect;
+            answerId = answerId;
+            questionId = questionId;
+            answerText = answerText;
+            isCorrect = isCorrect;
         }
 
         public int AnswerId
         {
-            get { return _answerId; }
-            set {  _answerId = value; }
+            get { return answerId; }
+            set { answerId = value; }
            }
 
         public int QuestionId
         {
-            get { return _questionId; }
-            set { _questionId = value; }
+            get { return questionId; }
+            set { questionId = value; }
         }
 
         public string AnswerText
         {
-            get { return _answerText; }
-            set { _answerText = value; }
+            get { return answerText; }
+            set { answerText = value; }
         }
 
         public bool IsCorrect
-        { get { return _isCorrect; } set { _isCorrect = value; } }
+        {
+            get { return isCorrect; } set { isCorrect = value; }
+        }
 
         public override bool Equals(object? obj)
         {
             return obj is Answer answer &&
-                   _answerId == answer._answerId &&
-                   _questionId == answer._questionId &&
-                   _answerText == answer._answerText &&
-                   _isCorrect == answer._isCorrect &&
+                   answerId == answer.answerId &&
+                   questionId == answer.questionId &&
+                   answerText == answer.answerText &&
+                   isCorrect == answer.isCorrect &&
                    AnswerId == answer.AnswerId &&
                    QuestionId == answer.QuestionId &&
                    AnswerText == answer.AnswerText &&
                    IsCorrect == answer.IsCorrect;
         }
-
     }
 }

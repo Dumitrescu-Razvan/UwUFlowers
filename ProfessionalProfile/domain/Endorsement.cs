@@ -8,51 +8,51 @@ namespace ProfessionalProfile.Domain
 {
     public class Endorsement
     {
-        private int _endorsementId;
-        private int _endorserId;
-        private int _recipient_id;
-        private int _skillId;
+        private int endorsementId;
+        private int endorserId;
+        private int recipientid;
+        private int skillId;
 
-        public Endorsement(int endorsementId, int endorser_id, int recipient_id, int skillId)
+        public Endorsement(int endorsementId, int endorserid, int recipientid, int skillId)
         {
-            this._endorsementId = endorsementId;
-            this._endorserId = endorser_id;
-            this._recipient_id = recipient_id;
-            this._skillId = skillId;
+            this.endorsementId = endorsementId;
+            this.endorserId = endorserid;
+            this.recipientid = recipientid;
+            this.skillId = skillId;
         }
 
         public int EndorsementId
         {
-            get { return _endorsementId; }
+            get { return endorsementId; }
 
-            set { _endorsementId = value; }
+            set { endorsementId = value; }
         }
 
         public int EdorserId
         {
-            get { return _endorserId; }
-            set { _endorserId = value;}
+            get { return endorserId; }
+            set { endorserId = value; }
         }
 
         public int RecipientId
         {
-            get { return _recipient_id; }
-            set { this._recipient_id = value; }
+            get { return recipientid; }
+            set { this.recipientid = value; }
         }
 
         public int SkillId
         {
-            get { return _skillId; }
-            set { _skillId = value; }
+            get { return skillId; }
+            set { skillId = value; }
         }
 
         public override bool Equals(object? obj)
         {
             return obj is Endorsement endorsement &&
-                   _endorsementId == endorsement._endorsementId &&
-                   _endorserId == endorsement._endorserId &&
-                   _recipient_id == endorsement._recipient_id &&
-                   _skillId == endorsement._skillId &&
+                   endorsementId == endorsement.endorsementId &&
+                   endorserId == endorsement.endorserId &&
+                   recipientid == endorsement.recipientid &&
+                   skillId == endorsement.skillId &&
                    EndorsementId == endorsement.EndorsementId &&
                    EdorserId == endorsement.EdorserId &&
                    RecipientId == endorsement.RecipientId &&

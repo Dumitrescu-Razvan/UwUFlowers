@@ -8,40 +8,41 @@ namespace ProfessionalProfile.Domain
 {
     public class Question
     {
-        private int _questionId;
-        private string _questionText;
-        private int _assesmentTestId;
+        private int questionId;
+        private string questionText;
+        private int assesmentTestId;
 
         public Question(int questionId, string questionText, int assesmentTestId)
         {
-            _questionId = questionId;
-            _questionText = questionText;
-            _assesmentTestId = assesmentTestId;
+            questionId = questionId;
+            questionText = questionText;
+            assesmentTestId = assesmentTestId;
         }
 
-        public int QuestionId{
-            get {  return _questionId; }
-            set { _questionId = value; }
+        public int QuestionId
+        {
+            get { return questionId; }
+            set { questionId = value; }
         }
 
         public int AssesmentTestId
         {
-            get { return _assesmentTestId;}
-            set { _assesmentTestId = value;}
+            get { return assesmentTestId; }
+            set { assesmentTestId = value; }
         }
 
         public string QuestionText
         {
-            get { return _questionText; }
-            set { _questionText = value; }
+            get { return questionText; }
+            set { questionText = value; }
         }
 
         public override bool Equals(object? obj)
         {
             return obj is Question question &&
-                   _questionId == question._questionId &&
-                   _questionText == question._questionText &&
-                   _assesmentTestId == question._assesmentTestId &&
+                   questionId == question.questionId &&
+                   questionText == question.questionText &&
+                   assesmentTestId == question.assesmentTestId &&
                    QuestionId == question.QuestionId &&
                    AssesmentTestId == question.AssesmentTestId &&
                    QuestionText == question.QuestionText;
@@ -49,7 +50,7 @@ namespace ProfessionalProfile.Domain
 
         public override string ToString()
         {
-            return _questionText;
+            return questionText;
         }
     }
 }

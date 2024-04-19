@@ -8,40 +8,39 @@ namespace ProfessionalProfile.Domain
 {
     public class Skill
     {
-        private int _skillId;
-        private string _name;
-        
+        private int skillId;
+        private string name;
 
         public Skill(int skillId, string name)
         {
-            this._skillId = skillId;
-            this._name = name;
+            this.skillId = skillId;
+            this.name = name;
         }
 
         public int SkillId
         {
-            get { return _skillId; }
-            set { _skillId = value; }
+            get { return skillId; }
+            set { skillId = value; }
         }
 
         public string Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return name; }
+            set { name = value; }
         }
 
         public override bool Equals(object? obj)
         {
             return obj is Skill skill &&
-                   _skillId == skill._skillId &&
-                   _name == skill._name &&
+                   skillId == skill.skillId &&
+                   name == skill.name &&
                    SkillId == skill.SkillId &&
                    Name == skill.Name;
         }
 
         public override string ToString()
         {
-            return _name;
+            return name;
         }
     }
 }

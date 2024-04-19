@@ -8,40 +8,54 @@ namespace ProfessionalProfile.Domain
 {
     public class Volunteering
     {
-        private int _volunteeringId; 
-        private int _userId;
-        private string _organisation;
-        private string _role;
-        private string _description;
-        
+        private int volunteeringId;
+        private int userId;
+        private string organisation;
+        private string role;
+        private string description;
 
         public Volunteering(int volunteeringId, int userId, string organisation, string role, string description)
         {
-            _volunteeringId = volunteeringId;
-            _organisation = organisation;
-            _role = role;
-            _description = description;
-            _userId = userId;
+            volunteeringId = volunteeringId;
+            organisation = organisation;
+            role = role;
+            description = description;
+            userId = userId;
         }
 
-        public int VolunteeringId { get {  return _volunteeringId; } set { this._volunteeringId = value; } }
+        public int VolunteeringId
+        {
+            get { return volunteeringId; } set { this.volunteeringId = value; }
+        }
 
-        public string Organisation { get { return _organisation; } set { this._organisation = value; } }
+        public string Organisation
+        {
+            get { return organisation; } set { this.organisation = value; }
+        }
 
-        public string Role { get { return _role;} set { this._role = value; } }
+        public string Role
+        {
+            get { return role; } set { this.role = value; }
+        }
 
-        public string Description { get { return _description;} set { this._description = value; } }    
+        public string Description
+        {
+            get { return description; } set { this.description = value; }
+        }
 
-        public int UserId {  get { return _userId; } set {  _userId = value; } }
+        public int UserId
+        {
+            get { return userId; } set { userId = value; }
+        }
 
         public override bool Equals(object? obj)
         {
             return obj is Volunteering volunteering &&
-                   _volunteeringId == volunteering._volunteeringId &&
-                   _organisation == volunteering._organisation &&
-                   _role == volunteering._role &&
-                   _description == volunteering._description &&
-                   _userId == volunteering._userId &&
+                   volunteeringId == volunteering.volunteeringId &&
+                   organisation == volunteering.organisation &&
+                   role == volunteering.role &&
+                   description == volunteering.description &&
+                   userId == volunteering.userId &&
                    VolunteeringId == volunteering.VolunteeringId &&
                    Organisation == volunteering.Organisation &&
                    Role == volunteering.Role &&
@@ -51,7 +65,7 @@ namespace ProfessionalProfile.Domain
 
         public override string ToString()
         {
-            return _role + "\n" + _organisation + "\n" + _description;
+            return role + "\n" + organisation + "\n" + description;
         }
     }
 }

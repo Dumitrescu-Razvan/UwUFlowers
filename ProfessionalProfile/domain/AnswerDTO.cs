@@ -10,12 +10,10 @@ namespace ProfessionalProfile.Domain
     {
         public string AnswerText { get; set; }
         public bool IsCorrect { get; set; }
-
-
         public AnswerDTO(string answerText, bool isCorrect)
         {
-            AnswerText=answerText;
-            IsCorrect=isCorrect;
+            AnswerText = answerText;
+            IsCorrect = isCorrect;
         }
     }
 }

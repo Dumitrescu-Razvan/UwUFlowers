@@ -33,7 +33,6 @@ namespace ProfessionalProfile.Business_card_page
             List<Skill> skills = skillRepo.GetByUserId(UserId);
 
             if (businessCard == null)
-
             {
                 BussinesCard newCard = new BussinesCard(0, user.Summary, "htpps://business_card_" +  user.FirstName, user.UserId, skills);
                 businessCardRepo.Add(newCard);

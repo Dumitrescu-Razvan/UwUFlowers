@@ -8,61 +8,58 @@ namespace ProfessionalProfile.Domain
 {
     public class AssessmentResult
     {
-        private int _assesmentResultId;
-        private int _assesmentTestId;
-        private int _score;
-        private int _userId;
-        private DateTime _testDate;
+        private int assesmentResultId;
+        private int assesmentTestId;
+        private int score;
+        private int userId;
+        private DateTime testDate;
 
-        public AssessmentResult(int assesmentResultId, int assesmentt_id, int userId, int score,  DateTime testDate)
+        public AssessmentResult(int assesmentResultId, int assesmenttid, int userId, int score,  DateTime testDate)
         {
-            this._assesmentResultId = assesmentResultId;
-            this._assesmentTestId = assesmentt_id;
-            this._score = score;
-            this._userId = userId;
-            this._testDate = testDate;
+            this.assesmentResultId = assesmentResultId;
+            this.assesmentTestId = assesmenttid;
+            this.score = score;
+            this.userId = userId;
+            this.testDate = testDate;
         }
 
-        public int AssessmentResultId {
-            get { return _assesmentResultId; }
-            set { _assesmentResultId = value; }
+        public int AssessmentResultId
+        {
+            get { return assesmentResultId; }
+            set { assesmentResultId = value; }
         }
 
         public int AssessmentTestId
         {
-            get { return _assesmentTestId; }
-            set { _assesmentTestId = value; }
+            get { return assesmentTestId; }
+            set { assesmentTestId = value; }
         }
 
         public int Score
         {
-            get { return _score; }
-            set { _score = value; }
-        }   
+            get { return score; }
+            set { score = value; }
+        }
 
         public int UserId
         {
-            get { return _userId; }
-            set { _userId = value; }
+            get { return userId; }
+            set { userId = value; }
         }
 
         public DateTime TestDate
         {
-            get { return this._testDate; }
-            set
-            {
-                this._testDate = value;
-            }
+            get { return this.testDate; } set { this.testDate = value; }
         }
 
         public override bool Equals(object? obj)
         {
             return obj is AssessmentResult result &&
-                    _assesmentResultId == result._assesmentResultId &&
-                    _assesmentTestId == result._assesmentTestId &&
-                    _score == result._score &&
-                    _userId == result._userId &&
-                    _testDate == result._testDate &&
+                    assesmentResultId == result.assesmentResultId &&
+                    assesmentTestId == result.assesmentTestId &&
+                    score == result.score &&
+                    userId == result.userId &&
+                    testDate == result.testDate &&
                     AssessmentResultId == result.AssessmentResultId &&
                     AssessmentTestId == result.AssessmentTestId &&
                     Score == result.Score &&
@@ -72,7 +69,7 @@ namespace ProfessionalProfile.Domain
 
         public override string ToString()
         {
-            return _score.ToString();
+            return score.ToString();
         }
     }
 }

@@ -23,7 +23,6 @@ namespace ProfessionalProfile.View
     /// Interaction logic for SearchUserPage.xaml
     /// </summary>
     ///
-
     public class ListItem
     {
         public int Id { get; set; }

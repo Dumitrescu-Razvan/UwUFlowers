@@ -22,7 +22,7 @@ namespace ProfessionalProfile.Repo
 
         public void Add(WorkExperience item)
         {
-            SectionValidator.validateWorkExperience(item);
+            SectionValidator.ValidateWorkExperience(item);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -153,7 +153,7 @@ namespace ProfessionalProfile.Repo
 
         public void Update(WorkExperience item)
         {
-            SectionValidator.validateWorkExperience(item);
+            SectionValidator.ValidateWorkExperience(item);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

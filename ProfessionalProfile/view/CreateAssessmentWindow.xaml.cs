@@ -129,7 +129,7 @@ namespace ProfessionalProfile.View
 
             AssessmentTestDTO assessmentTestDTO = new AssessmentTestDTO(testName, description, questions, skillTested);
 
-            this.CreateAssessmentService.createAssessmentTest(assessmentTestDTO, this.UserId);
+            this.CreateAssessmentService.CreateAssessmentTest(assessmentTestDTO, this.UserId);
 
             MessageBox.Show("Assessment created successfully");
 

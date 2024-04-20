@@ -28,8 +28,8 @@ namespace ProfessionalProfile.SectionViews
             InitializeComponent();
             WindowState = WindowState.Maximized;
             this.userId = userId;
-            EducationViewModel viewModel = new EducationViewModel(new EducationRepo(), userId);
-            DataContext = viewModel;
+            EducationViewModel ViewModel = new EducationViewModel(new EducationRepo(), userId);
+            DataContext = ViewModel;
         }
 
         private void OpenWorkExperienceWindow(object sender, RoutedEventArgs e)

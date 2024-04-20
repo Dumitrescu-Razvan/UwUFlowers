@@ -29,8 +29,8 @@ namespace ProfessionalProfile.SectionViews
             WindowState = WindowState.Maximized;
             this.UserId = userId;
             this.isLoggedIn = isLoggedIn;
-            CertificateViewModel viewModel = new CertificateViewModel(new CertificateRepo(), userId, isLoggedIn);
-            DataContext = viewModel;
+            CertificateViewModel ViewModel = new CertificateViewModel(new CertificateRepo(), userId, isLoggedIn);
+            DataContext = ViewModel;
         }
 
         public int UserId { get => userId; set => userId = value; }

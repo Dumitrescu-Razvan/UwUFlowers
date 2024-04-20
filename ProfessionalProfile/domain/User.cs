@@ -18,10 +18,10 @@ namespace ProfessionalProfile.Domain
         private DateTime dateOfBirth;
         private bool darkTheme;
         private string address;
-        private string websiteURL;
+        private string WebsiteURL;
         private string picture;
 
-        public User(int userId, string firstName, string lastName, string email, string password, string phone, string summary, DateTime dateOfBirth, bool darkTheme, string address, string websiteURL, string picture)
+        public User(int userId, string firstName, string lastName, string email, string password, string phone, string summary, DateTime dateOfBirth, bool darkTheme, string address, string WebsiteURL, string picture)
         {
             this.userId = userId;
             this.firstName = firstName;
@@ -33,7 +33,7 @@ namespace ProfessionalProfile.Domain
             this.dateOfBirth = dateOfBirth;
             this.darkTheme = darkTheme;
             this.address = address;
-            this.websiteURL = websiteURL;
+            this.WebsiteURL = WebsiteURL;
             this.picture = picture;
         }
 
@@ -90,8 +90,8 @@ namespace ProfessionalProfile.Domain
         }
         public string WebsiteURL
         {
-            get { return this.websiteURL; }
-            set { this.websiteURL = value; }
+            get { return this.WebsiteURL; }
+            set { this.WebsiteURL = value; }
         }
 
         public string Picture
@@ -113,7 +113,7 @@ namespace ProfessionalProfile.Domain
                    dateOfBirth == user.dateOfBirth &&
                    darkTheme == user.darkTheme &&
                    address == user.address &&
-                   websiteURL == user.websiteURL &&
+                   WebsiteURL == user.WebsiteURL &&
                    picture == user.picture &&
                    Picture == user.Picture &&
                    UserId == user.UserId &&

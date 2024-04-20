@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProfessionalProfile.Repo;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionViews
 {
@@ -26,8 +26,8 @@ namespace ProfessionalProfile.SectionViews
             InitializeComponent();
             WindowState = WindowState.Maximized;
 
-            EditCertificateViewModel ViewModel = new EditCertificateViewModel(new CertificateRepo(), userId, certificateId);
-            DataContext = ViewModel;
+            EditCertificateviewModel viewModel = new EditCertificateviewModel(new CertificateRepo(), userId, certificateId);
+            DataContext = viewModel;
         }
 
         // press cancel button to close the window

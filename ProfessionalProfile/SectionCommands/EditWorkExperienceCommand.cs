@@ -8,36 +8,36 @@ using System.Windows;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionExceptions;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionCommands
 {
     public class EditWorkExperienceCommand : SectionCommandBase
     {
-        private readonly EditWorkExperienceViewModel ViewModel;
+        private readonly EditWorkExperienceviewModel viewModel;
         private readonly WorkExperienceRepo workExperienceRepo;
         private readonly int userId;
         private readonly int workExperienceId;
 
-        public EditWorkExperienceCommand(EditWorkExperienceViewModel ViewModel, WorkExperienceRepo workExperienceRepo, int userId, int workExperienceId)
+        public EditWorkExperienceCommand(EditWorkExperienceviewModel viewModel, WorkExperienceRepo workExperienceRepo, int userId, int workExperienceId)
         {
-            ViewModel = ViewModel;
+            viewModel = viewModel;
             workExperienceRepo = workExperienceRepo;
             userId = userId;
             workExperienceId = workExperienceId;
 
-            ViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            viewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
 
-        private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private void OnviewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(ViewModel.JobTitle) ||
-                               e.PropertyName == nameof(ViewModel.Company) ||
-                                              e.PropertyName == nameof(ViewModel.Location) ||
-                                                             e.PropertyName == nameof(ViewModel.EmploymentPeriod) ||
-                                                                            e.PropertyName == nameof(ViewModel.Responsibilities) ||
-                                                                                           e.PropertyName == nameof(ViewModel.Achievements) ||
-                                                                                                          e.PropertyName == nameof(ViewModel.Description))
+            if (e.PropertyName == nameof(viewModel.JobTitle) ||
+                               e.PropertyName == nameof(viewModel.Company) ||
+                                              e.PropertyName == nameof(viewModel.Location) ||
+                                                             e.PropertyName == nameof(viewModel.EmploymentPeriod) ||
+                                                                            e.PropertyName == nameof(viewModel.Responsibilities) ||
+                                                                                           e.PropertyName == nameof(viewModel.Achievements) ||
+                                                                                                          e.PropertyName == nameof(viewModel.Description))
             {
                 OnCanExecuteChanged();
             }
@@ -48,13 +48,13 @@ namespace ProfessionalProfile.SectionCommands
             WorkExperience updatedWorkExperience = new WorkExperience(
                                workExperienceId,
                                               userId,
-                                                             ViewModel.JobTitle,
-                                                                            ViewModel.Company,
-                                                                                           ViewModel.Location,
-                                                                                                          ViewModel.EmploymentPeriod,
-                                                                                                                         ViewModel.Responsibilities,
-                                                                                                                                        ViewModel.Achievements,
-                                                                                                                                                       ViewModel.Description);
+                                                             viewModel.JobTitle,
+                                                                            viewModel.Company,
+                                                                                           viewModel.Location,
+                                                                                                          viewModel.EmploymentPeriod,
+                                                                                                                         viewModel.Responsibilities,
+                                                                                                                                        viewModel.Achievements,
+                                                                                                                                                       viewModel.Description);
 
             try
             {
@@ -69,13 +69,13 @@ namespace ProfessionalProfile.SectionCommands
 
         public override bool CanExecute(object parameter)
         {
-            return !string.IsNullOrEmpty(ViewModel.JobTitle) &&
-                !string.IsNullOrEmpty(ViewModel.Company) &&
-                !string.IsNullOrEmpty(ViewModel.Location) &&
-                !string.IsNullOrEmpty(ViewModel.EmploymentPeriod) &&
-                !string.IsNullOrEmpty(ViewModel.Responsibilities) &&
-                !string.IsNullOrEmpty(ViewModel.Achievements) &&
-                !string.IsNullOrEmpty(ViewModel.Description) &&
+            return !string.IsNullOrEmpty(viewModel.JobTitle) &&
+                !string.IsNullOrEmpty(viewModel.Company) &&
+                !string.IsNullOrEmpty(viewModel.Location) &&
+                !string.IsNullOrEmpty(viewModel.EmploymentPeriod) &&
+                !string.IsNullOrEmpty(viewModel.Responsibilities) &&
+                !string.IsNullOrEmpty(viewModel.Achievements) &&
+                !string.IsNullOrEmpty(viewModel.Description) &&
                 base.CanExecute(parameter);
         }
     }

@@ -8,38 +8,38 @@ using System.Windows;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionExceptions;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionCommands
 {
     public class EditEducationCommand : SectionCommandBase
     {
-        private readonly EditEducationViewModel ViewModel;
+        private readonly EditEducationviewModel viewModel;
         private readonly EducationRepo educationRepo;
         private readonly int userId;
         private readonly int educationId;
 
-        public EditEducationCommand(EditEducationViewModel ViewModel, EducationRepo educationRepo, int userId, int educationId)
+        public EditEducationCommand(EditEducationviewModel viewModel, EducationRepo educationRepo, int userId, int educationId)
         {
-            ViewModel = ViewModel;
+            viewModel = viewModel;
             educationRepo = educationRepo;
             userId = userId;
             educationId = educationId;
-            ViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            viewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
 
         public override void Execute(object parameter)
         {
             double gpa;
-            if (double.TryParse(ViewModel.GPA, out gpa))
+            if (double.TryParse(viewModel.GPA, out gpa))
             {
                 Education updatedEducation = new Education(
                                    educationId,
                                                   userId,
-                                                                 ViewModel.Degree,
-                                                                                ViewModel.Institution,
-                                                                                               ViewModel.FieldOfStudy,
-                                                                                                              ViewModel.GraduationDate,
+                                                                 viewModel.Degree,
+                                                                                viewModel.Institution,
+                                                                                               viewModel.FieldOfStudy,
+                                                                                                              viewModel.GraduationDate,
                                                                                                                              gpa);
                 try
                 {
@@ -59,19 +59,19 @@ namespace ProfessionalProfile.SectionCommands
 
         public override bool CanExecute(object parameter)
         {
-            return !string.IsNullOrEmpty(ViewModel.Degree) &&
-                !string.IsNullOrEmpty(ViewModel.Institution) &&
-                !string.IsNullOrEmpty(ViewModel.FieldOfStudy) &&
-                !string.IsNullOrEmpty(ViewModel.GPA) &&
+            return !string.IsNullOrEmpty(viewModel.Degree) &&
+                !string.IsNullOrEmpty(viewModel.Institution) &&
+                !string.IsNullOrEmpty(viewModel.FieldOfStudy) &&
+                !string.IsNullOrEmpty(viewModel.GPA) &&
                 base.CanExecute(parameter);
         }
 
-        private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private void OnviewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(ViewModel.Degree) ||
-                               e.PropertyName == nameof(ViewModel.Institution) ||
-                                              e.PropertyName == nameof(ViewModel.FieldOfStudy) ||
-                                                             e.PropertyName == nameof(ViewModel.GPA))
+            if (e.PropertyName == nameof(viewModel.Degree) ||
+                               e.PropertyName == nameof(viewModel.Institution) ||
+                                              e.PropertyName == nameof(viewModel.FieldOfStudy) ||
+                                                             e.PropertyName == nameof(viewModel.GPA))
             {
                 OnCanExecuteChanged();
             }

@@ -40,7 +40,7 @@ namespace ProfessionalProfile.View
         {
             this.previousResultsListBox.Items.Clear();
 
-            List<AssessmentResult> assessmentResults = this.AssessmentResultsService.getResultsByUserId(this.UserId);
+            List<AssessmentResult> assessmentResults = this.AssessmentResultsService.GetResultsByUserId(this.UserId);
 
             if (assessmentResults.Count == 0)
             {
@@ -52,14 +52,14 @@ namespace ProfessionalProfile.View
 
             foreach (AssessmentResult result in assessmentResults)
             {
-                AssessmentTest test = this.AssessmentResultsService.getTestById(result.AssessmentTestId);
+                AssessmentTest test = this.AssessmentResultsService.GetTestById(result.AssessmentTestId);
                 this.previousResultsListBox.Items.Add(test.TestName + " - " + result.Score + " - " + result.TestDate.ToShortDateString());
             }
         }
 
         private void PopulateTestsNames()
         {
-            List<AssessmentTest> tests = SelectTestService.getAllAssessmentTests();
+            List<AssessmentTest> tests = SelectTestService.GetAllAssessmentTests();
 
             foreach (AssessmentTest test in tests)
             {
@@ -76,8 +76,8 @@ namespace ProfessionalProfile.View
                 return;
             }
 
-            AssessmentTest test = SelectTestService.getAssessmentByName(selectedItem);
-            Skill skill = SelectTestService.getSkillById(test.Skill_id);
+            AssessmentTest test = SelectTestService.GetAssessmentByName(selectedItem);
+            Skill skill = SelectTestService.GetSkillById(test.Skillid);
 
             this.assessmentDescriptionBox.Text = test.Description;
             this.skillTestedLabel.Content = "Skill tested: " + skill.Name;
@@ -93,7 +93,7 @@ namespace ProfessionalProfile.View
 
             string testName = (string)assessmentNames.SelectedItem;
 
-            AssessmentTest test = SelectTestService.getAssessmentByName(testName);
+            AssessmentTest test = SelectTestService.GetAssessmentByName(testName);
 
             // TODO: Open the test window
             TakeTestWindow takeTestWindow = new TakeTestWindow(test.AssessmentTestId, this.UserId);

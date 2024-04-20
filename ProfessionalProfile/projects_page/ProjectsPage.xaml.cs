@@ -45,8 +45,8 @@ namespace ProfessionalProfile.Projects_page
 
             if (isVisiting)
             {
-                AddFromGitHub.Visibility = Visibility.Hidden;
-                AddManually.Visibility = Visibility.Hidden;
+                addFromGitHub.Visibility = Visibility.Hidden;
+                addManually.Visibility = Visibility.Hidden;
             }
         }
         private void AddFromGitHub_Click(object sender, RoutedEventArgs e)

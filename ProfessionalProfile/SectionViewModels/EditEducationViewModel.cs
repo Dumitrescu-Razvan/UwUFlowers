@@ -8,11 +8,11 @@ using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionCommands;
 
-namespace ProfessionalProfile.SectionViewModels
+namespace ProfessionalProfile.SectionviewModels
 {
-    public class EditEducationViewModel : SectionViewModelBase
+    public class EditEducationviewModel : SectionviewModelBase
     {
-        public EditEducationViewModel(EducationRepo educationRepo, int userId, int educationId)
+        public EditEducationviewModel(EducationRepo educationRepo, int userId, int educationId)
         {
             education = educationRepo.GetById(educationId);
             Degree = education.Degree;

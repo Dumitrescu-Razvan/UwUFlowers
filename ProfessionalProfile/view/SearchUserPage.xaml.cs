@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProfessionalProfile.Business;
 using ProfessionalProfile.Domain;
-using ProfessionalProfile.profile_page;
+using ProfessionalProfile.Profile_page;
 using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.View
@@ -23,7 +23,6 @@ namespace ProfessionalProfile.View
     /// Interaction logic for SearchUserPage.xaml
     /// </summary>
     ///
-
     public class ListItem
     {
         public int Id { get; set; }
@@ -53,7 +52,7 @@ namespace ProfessionalProfile.View
             InitializeComponent();
 
             this.userId = userId;
-            this.SearchUsersService = new SearchUsersService(new repo.UserRepo());
+            this.SearchUsersService = new SearchUsersService(new Repo.UserRepo());
             this.NotificationsService = new NotificationsService(new NotificationRepo());
             Users = new ObservableCollection<ListItem>();
         }
@@ -99,7 +98,7 @@ namespace ProfessionalProfile.View
         private void ViewProfileButton_Click(object sender, RoutedEventArgs e)
         {
             ListItem selectedUser = (ListItem)this.UsersListBox.SelectedItem;
-            User user = this.SearchUsersService.getUserById(this.userId);
+            User user = this.SearchUsersService.GetUserById(this.userId);
 
             Notification profileViewNotification = new Notification(0, selectedUser.Id, user.FirstName + " " + user.LastName + " Viewed your profile!", DateTime.Now, "Profile visited", true);
             this.NotificationsService.AddNotification(profileViewNotification);

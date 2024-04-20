@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProfessionalProfile.Repo;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionViews
 {
@@ -27,8 +27,8 @@ namespace ProfessionalProfile.SectionViews
             InitializeComponent();
             WindowState = WindowState.Maximized;
             this.userId = userId;
-            VolunteeringViewModel ViewModel = new VolunteeringViewModel(new VolunteeringRepo(), userId);
-            DataContext = ViewModel;
+            VolunteeringviewModel viewModel = new VolunteeringviewModel(new VolunteeringRepo(), userId);
+            DataContext = viewModel;
         }
 
         private void OpenSkillWindow(object sender, RoutedEventArgs e)

@@ -8,27 +8,27 @@ using System.Windows;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionExceptions;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionCommands
 {
     public class AddWorkExperienceCommand : SectionCommandBase
     {
         private readonly WorkExperienceRepo workExperienceRepo;
-        private readonly WorkExperienceViewModel workExperienceViewModel;
+        private readonly WorkExperienceviewModel workExperienceviewModel;
         private readonly int userId;
 
-        public AddWorkExperienceCommand(WorkExperienceViewModel workExperienceViewModel, WorkExperienceRepo workExperienceRepo, int userId)
+        public AddWorkExperienceCommand(WorkExperienceviewModel workExperienceviewModel, WorkExperienceRepo workExperienceRepo, int userId)
         {
             workExperienceRepo = workExperienceRepo;
-            workExperienceViewModel = workExperienceViewModel;
+            workExperienceviewModel = workExperienceviewModel;
             userId = userId;
-            workExperienceViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            workExperienceviewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
 
         public override void Execute(object parameter)
         {
-            WorkExperience workExperience = new WorkExperience(4, userId, workExperienceViewModel.JobTitle, workExperienceViewModel.Company, workExperienceViewModel.Location, workExperienceViewModel.EmploymentPeriod, workExperienceViewModel.Responsibilities, workExperienceViewModel.Achievements, workExperienceViewModel.Description);
+            WorkExperience workExperience = new WorkExperience(4, userId, workExperienceviewModel.JobTitle, workExperienceviewModel.Company, workExperienceviewModel.Location, workExperienceviewModel.EmploymentPeriod, workExperienceviewModel.Responsibilities, workExperienceviewModel.Achievements, workExperienceviewModel.Description);
 
             try
             {
@@ -43,25 +43,25 @@ namespace ProfessionalProfile.SectionCommands
 
         public override bool CanExecute(object parameter)
         {
-            return !string.IsNullOrEmpty(workExperienceViewModel.JobTitle) &&
-                !string.IsNullOrEmpty(workExperienceViewModel.Company) &&
-                !string.IsNullOrEmpty(workExperienceViewModel.Location) &&
-                !string.IsNullOrEmpty(workExperienceViewModel.EmploymentPeriod) &&
-                !string.IsNullOrEmpty(workExperienceViewModel.Responsibilities) &&
-                !string.IsNullOrEmpty(workExperienceViewModel.Achievements) &&
-                !string.IsNullOrEmpty(workExperienceViewModel.Description) &&
+            return !string.IsNullOrEmpty(workExperienceviewModel.JobTitle) &&
+                !string.IsNullOrEmpty(workExperienceviewModel.Company) &&
+                !string.IsNullOrEmpty(workExperienceviewModel.Location) &&
+                !string.IsNullOrEmpty(workExperienceviewModel.EmploymentPeriod) &&
+                !string.IsNullOrEmpty(workExperienceviewModel.Responsibilities) &&
+                !string.IsNullOrEmpty(workExperienceviewModel.Achievements) &&
+                !string.IsNullOrEmpty(workExperienceviewModel.Description) &&
                 base.CanExecute(parameter);
         }
 
-        private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private void OnviewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(WorkExperienceViewModel.JobTitle) ||
-                               e.PropertyName == nameof(WorkExperienceViewModel.Company) ||
-                                              e.PropertyName == nameof(WorkExperienceViewModel.Location) ||
-                                                             e.PropertyName == nameof(WorkExperienceViewModel.EmploymentPeriod) ||
-                                                                            e.PropertyName == nameof(WorkExperienceViewModel.Responsibilities) ||
-                                                                                           e.PropertyName == nameof(WorkExperienceViewModel.Achievements) ||
-                                                                                                          e.PropertyName == nameof(WorkExperienceViewModel.Description))
+            if (e.PropertyName == nameof(WorkExperienceviewModel.JobTitle) ||
+                               e.PropertyName == nameof(WorkExperienceviewModel.Company) ||
+                                              e.PropertyName == nameof(WorkExperienceviewModel.Location) ||
+                                                             e.PropertyName == nameof(WorkExperienceviewModel.EmploymentPeriod) ||
+                                                                            e.PropertyName == nameof(WorkExperienceviewModel.Responsibilities) ||
+                                                                                           e.PropertyName == nameof(WorkExperienceviewModel.Achievements) ||
+                                                                                                          e.PropertyName == nameof(WorkExperienceviewModel.Description))
             {
                 OnCanExecuteChanged();
             }

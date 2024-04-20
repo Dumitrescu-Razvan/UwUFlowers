@@ -33,7 +33,7 @@ namespace ProfessionalProfile.View
             this.NotificationsService = new NotificationsService(new NotificationRepo());
             this.SearchUsersService = new SearchUsersService(new UserRepo());
             this.userId = userId;
-            this.CurrentUser = SearchUsersService.getUserById(userId);
+            this.CurrentUser = SearchUsersService.GetUserById(userId);
 
             this.nameLabel.Content = "Hi, " + CurrentUser.FirstName + " " + CurrentUser.LastName;
             this.PopulateNotifications();

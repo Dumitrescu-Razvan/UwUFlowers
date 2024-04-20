@@ -103,7 +103,7 @@ namespace ProfessionalProfile.Profile_page
 
             // Populate sample data we will fetch this from the user object later
             CurrentUserId = userVisitingId; // this will be fetched from the logged in user
-            this.UserId = UserProfileId;
+            this.UserId = userProfileId;
             User user = usersRepo.GetById(UserId);
             UserName = user.FirstName + " " + user.LastName;
             Email = user.Email;

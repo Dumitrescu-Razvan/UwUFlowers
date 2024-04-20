@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProfessionalProfile.SectionViewModels
+namespace ProfessionalProfile.SectionviewModels
 {
-    public class SectionViewModelBase : INotifyPropertyChanged
+    public class SectionviewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

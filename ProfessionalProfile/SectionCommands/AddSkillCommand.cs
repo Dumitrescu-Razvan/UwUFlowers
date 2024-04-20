@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 using System.Windows;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionCommands
 {
     public class AddSkillCommand : SectionCommandBase
     {
-        private readonly SkillViewModel skillViewModel;
+        private readonly SkillviewModel skillviewModel;
         private readonly SkillRepo skillRepo;
         private readonly int userId;
 
-        public AddSkillCommand(SkillViewModel skillViewModel, SkillRepo skillRepo, int userId)
+        public AddSkillCommand(SkillviewModel skillviewModel, SkillRepo skillRepo, int userId)
         {
-            skillViewModel = skillViewModel;
+            skillviewModel = skillviewModel;
             skillRepo = skillRepo;
             userId = userId;
-            skillViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            skillviewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
         public override void Execute(object parameter)
         {
-            string modifiedSkillName = skillViewModel.SkillName.ToLower().Replace(" ", string.Empty);
+            string modifiedSkillName = skillviewModel.SkillName.ToLower().Replace(" ", string.Empty);
             Skill skill = new Skill(4, modifiedSkillName);
 
             skillRepo.Add(skill);
@@ -35,13 +35,13 @@ namespace ProfessionalProfile.SectionCommands
 
         public override bool CanExecute(object parameter)
         {
-            return !string.IsNullOrEmpty(skillViewModel.SkillName) &&
+            return !string.IsNullOrEmpty(skillviewModel.SkillName) &&
                 base.CanExecute(parameter);
         }
 
-        private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private void OnviewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(SkillViewModel.SkillName))
+            if (e.PropertyName == nameof(SkillviewModel.SkillName))
             {
                 OnCanExecuteChanged();
             }

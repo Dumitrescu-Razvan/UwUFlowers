@@ -10,9 +10,9 @@
         <Label Content="Create your own assessment" HorizontalAlignment="Center" Margin="0,10,0,405" FontSize="14" FontWeight="Bold"/>
         <StackPanel Margin="10,44,422,56">
             <Label Content="Describe the assessment" HorizontalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="assessmentName" TextWrapping="Wrap" Text="Enter a creative name:" Width="227" GotFocus="assessmentName_GotFocus"/>
+            <TextBox x:Name="assessmentName" TextWrapping="Wrap" Text="Enter a creative name:" Width="227" GotFocus="AssessmentName_GotFocus"/>
             <ComboBox x:Name="SkillsList" Width="120" Margin="0,10,0,0"/>
-            <TextBox x:Name="assessmentDescription" TextWrapping="Wrap" Text="Enter a brief description of the assessment:" Width="228" Height="228" Margin="0,10,0,24" GotFocus="assessmentDescription_GotFocus"/>
+            <TextBox x:Name="assessmentDescription" TextWrapping="Wrap" Text="Enter a brief description of the assessment:" Width="228" Height="228" Margin="0,10,0,24" GotFocus="AssessmentDescription_GotFocus"/>
         </StackPanel>
         <ScrollViewer Margin="419,44,10,24">
             <StackPanel x:Name="questionsListLayout" Margin="5,5,5,5"/>

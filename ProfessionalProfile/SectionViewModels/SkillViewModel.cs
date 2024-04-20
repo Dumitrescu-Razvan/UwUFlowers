@@ -7,9 +7,9 @@ using System.Windows.Input;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionCommands;
 
-namespace ProfessionalProfile.SectionViewModels
+namespace ProfessionalProfile.SectionviewModels
 {
-    public class SkillViewModel : SectionViewModelBase
+    public class SkillviewModel : SectionviewModelBase
     {
         private string skillName;
         public string SkillName
@@ -29,7 +29,7 @@ namespace ProfessionalProfile.SectionViewModels
 
         public ICommand AddSkillButton { get; }
 
-        public SkillViewModel(SkillRepo skillRepo, int userId)
+        public SkillviewModel(SkillRepo skillRepo, int userId)
         {
             AddSkillButton = new AddSkillCommand(this, skillRepo, userId);
         }

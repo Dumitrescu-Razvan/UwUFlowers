@@ -7,9 +7,9 @@ using System.Windows.Input;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionCommands;
 
-namespace ProfessionalProfile.SectionViewModels
+namespace ProfessionalProfile.SectionviewModels
 {
-    public class WorkExperienceViewModel : SectionViewModelBase
+    public class WorkExperienceviewModel : SectionviewModelBase
     {
         private string jobTitle;
         public string JobTitle
@@ -125,7 +125,7 @@ namespace ProfessionalProfile.SectionViewModels
 
         public ICommand AddWorkExperienceButton { get; }
 
-        public WorkExperienceViewModel(WorkExperienceRepo workExperienceRepo, int userId)
+        public WorkExperienceviewModel(WorkExperienceRepo workExperienceRepo, int userId)
         {
             AddWorkExperienceButton = new AddWorkExperienceCommand(this, workExperienceRepo, userId);
         }

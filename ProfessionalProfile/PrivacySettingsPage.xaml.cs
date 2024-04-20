@@ -44,7 +44,7 @@ namespace ProfessionalProfile.View
 
             this.helloLabel.Content = "Hello " + currentUser.FirstName + " " + currentUser.LastName;
 
-            if (privacy.canViewEducation)
+            if (privacy.CanViewEducation)
             {
                 educationPublicCheckBox.IsChecked = true;
             }
@@ -53,7 +53,7 @@ namespace ProfessionalProfile.View
                 educationPrivateCheckBox.IsChecked = true;
             }
 
-            if (privacy.canViewWorkExperience)
+            if (privacy.CanViewWorkExperience)
             {
                 workExperiencePublicCheckBox.IsChecked = true;
             }
@@ -62,7 +62,7 @@ namespace ProfessionalProfile.View
                 workExperiencePrivateCheckBox.IsChecked = true;
             }
 
-            if (privacy.canViewSkills)
+            if (privacy.CanViewSkills)
             {
                 skillsPublicCheckBox.IsChecked = true;
             }
@@ -71,7 +71,7 @@ namespace ProfessionalProfile.View
                 skillsPrivateCheckBox.IsChecked = true;
             }
 
-            if (privacy.canViewCertificates)
+            if (privacy.CanViewCertificates)
             {
                 certificationsPublicCheckBox.IsChecked = true;
             }
@@ -80,7 +80,7 @@ namespace ProfessionalProfile.View
                 certificationsPrivateCheckBox.IsChecked = true;
             }
 
-            if (privacy.canViewVolunteering)
+            if (privacy.CanViewVolunteering)
             {
                 volunteeringPublicCheckBox.IsChecked = true;
             }
@@ -89,7 +89,7 @@ namespace ProfessionalProfile.View
                 volunteeringPrivateCheckBox.IsChecked = true;
             }
 
-            if (privacy.canViewProjects)
+            if (privacy.CanViewProjects)
             {
                 projectsPublicCheckBox.IsChecked = true;
             }

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProfessionalProfile.Repo;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionViews
 {
@@ -27,8 +27,8 @@ namespace ProfessionalProfile.SectionViews
             InitializeComponent();
             WindowState = WindowState.Maximized;
             this.userId = userId;
-            WorkExperienceViewModel ViewModel = new WorkExperienceViewModel(new WorkExperienceRepo(), userId);
-            DataContext = ViewModel;
+            WorkExperienceviewModel viewModel = new WorkExperienceviewModel(new WorkExperienceRepo(), userId);
+            DataContext = viewModel;
         }
 
         private void OpenCertificateWindow(object sender, RoutedEventArgs e)

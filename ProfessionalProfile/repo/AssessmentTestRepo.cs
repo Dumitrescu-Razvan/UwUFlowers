@@ -32,7 +32,7 @@ namespace ProfessionalProfile.Repo
                 command.Parameters.AddWithValue("@Name", item.TestName);
                 command.Parameters.AddWithValue("@UserId", item.UserId);
                 command.Parameters.AddWithValue("@Description", item.Description);
-                command.Parameters.AddWithValue("@SkillId", item.Skill_id);
+                command.Parameters.AddWithValue("@SkillId", item.Skillid);
 
                 command.ExecuteNonQuery();
             }

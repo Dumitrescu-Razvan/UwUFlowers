@@ -8,11 +8,11 @@ using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionCommands;
 
-namespace ProfessionalProfile.SectionViewModels
+namespace ProfessionalProfile.SectionviewModels
 {
-    internal class EditCertificateViewModel : SectionViewModelBase
+    internal class EditCertificateviewModel : SectionviewModelBase
     {
-        public EditCertificateViewModel(CertificateRepo certificateRepo, int userId, int certificateId)
+        public EditCertificateviewModel(CertificateRepo certificateRepo, int userId, int certificateId)
         {
             certificate = certificateRepo.GetById(certificateId);
             CertificateName = certificate.Name;

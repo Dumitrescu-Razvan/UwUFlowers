@@ -8,11 +8,11 @@ using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionCommands;
 
-namespace ProfessionalProfile.SectionViewModels
+namespace ProfessionalProfile.SectionviewModels
 {
-    public class EditWorkExperienceViewModel : SectionViewModelBase
+    public class EditWorkExperienceviewModel : SectionviewModelBase
     {
-        public EditWorkExperienceViewModel(WorkExperienceRepo workExperienceRepo, int userId, int workExperienceId)
+        public EditWorkExperienceviewModel(WorkExperienceRepo workExperienceRepo, int userId, int workExperienceId)
         {
             workExperience = workExperienceRepo.GetById(workExperienceId);
             JobTitle = workExperience.JobTitle;

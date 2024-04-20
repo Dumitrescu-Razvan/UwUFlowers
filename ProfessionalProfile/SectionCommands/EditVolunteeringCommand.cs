@@ -8,32 +8,32 @@ using System.Windows;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionExceptions;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionCommands
 {
     public class EditVolunteeringCommand : SectionCommandBase
     {
-        private readonly EditVolunteeringViewModel ViewModel;
+        private readonly EditVolunteeringviewModel viewModel;
         private readonly VolunteeringRepo volunteeringRepo;
         private readonly int userId;
         private readonly int volunteeringId;
 
-        public EditVolunteeringCommand(EditVolunteeringViewModel ViewModel, VolunteeringRepo volunteeringRepo, int userId, int volunteeringId)
+        public EditVolunteeringCommand(EditVolunteeringviewModel viewModel, VolunteeringRepo volunteeringRepo, int userId, int volunteeringId)
         {
-            ViewModel = ViewModel;
+            viewModel = viewModel;
             volunteeringRepo = volunteeringRepo;
             userId = userId;
             volunteeringId = volunteeringId;
 
-            ViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            viewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
 
-        private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private void OnviewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(ViewModel.Organisation) ||
-                               e.PropertyName == nameof(ViewModel.Role) ||
-                                             e.PropertyName == nameof(ViewModel.Description))
+            if (e.PropertyName == nameof(viewModel.Organisation) ||
+                               e.PropertyName == nameof(viewModel.Role) ||
+                                             e.PropertyName == nameof(viewModel.Description))
             {
                 OnCanExecuteChanged();
             }
@@ -44,7 +44,7 @@ namespace ProfessionalProfile.SectionCommands
             Volunteering updatedVolunteering = new Volunteering(
                                                volunteeringId,
                                               userId,
-                                              ViewModel.Organisation, ViewModel.Role, ViewModel.Description);
+                                              viewModel.Organisation, viewModel.Role, viewModel.Description);
 
             try
             {
@@ -59,9 +59,9 @@ namespace ProfessionalProfile.SectionCommands
 
         public override bool CanExecute(object parameter)
         {
-            return !string.IsNullOrEmpty(ViewModel.Organisation) &&
-                !string.IsNullOrEmpty(ViewModel.Role) &&
-                !string.IsNullOrEmpty(ViewModel.Description);
+            return !string.IsNullOrEmpty(viewModel.Organisation) &&
+                !string.IsNullOrEmpty(viewModel.Role) &&
+                !string.IsNullOrEmpty(viewModel.Description);
         }
     }
 }

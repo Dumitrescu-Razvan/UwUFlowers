@@ -1,7 +1,7 @@
-<Window x:Class="ProfessionalProfile.projects_page.AddManualProject" 
+<Window x:Class="ProfessionalProfile.Projects_page.AddManualProject" 
 		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-		xmlns:local="clr-namespace:ProfessionalProfile.projects_page"
+		xmlns:local="clr-namespace:ProfessionalProfile.Projects_page"
 		Title="Add Manual Project" Height="300" Width="400">
 	<Grid>
 		<Grid.RowDefinitions>

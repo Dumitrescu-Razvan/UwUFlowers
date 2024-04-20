@@ -8,36 +8,36 @@ using System.Windows;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionExceptions;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionCommands
 {
     public class AddEducationCommand : SectionCommandBase
     {
         private readonly EducationRepo educationRepo;
-        private readonly EducationViewModel educationViewModel;
+        private readonly EducationviewModel educationviewModel;
         private readonly int userId;
 
-        public AddEducationCommand(EducationViewModel educationViewModel, EducationRepo educationRepo, int userId)
+        public AddEducationCommand(EducationviewModel educationviewModel, EducationRepo educationRepo, int userId)
         {
             educationRepo = educationRepo;
-            educationViewModel = educationViewModel;
+            educationviewModel = educationviewModel;
             userId = userId;
-            educationViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            educationviewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
 
         public override void Execute(object parameter)
         {
             double gpa;
-            if (double.TryParse(educationViewModel.GPA, out gpa))
+            if (double.TryParse(educationviewModel.GPA, out gpa))
             {
                 Education education = new Education(
                                                 4,
                                                 userId,
-                                                educationViewModel.Degree,
-                                                educationViewModel.Institution,
-                                                educationViewModel.FieldOfStudy,
-                                                educationViewModel.GraduationDate,
+                                                educationviewModel.Degree,
+                                                educationviewModel.Institution,
+                                                educationviewModel.FieldOfStudy,
+                                                educationviewModel.GraduationDate,
                                                 gpa);
 
                 try
@@ -58,19 +58,19 @@ namespace ProfessionalProfile.SectionCommands
 
         public override bool CanExecute(object parameter)
         {
-            return !string.IsNullOrEmpty(educationViewModel.Degree) &&
-                !string.IsNullOrEmpty(educationViewModel.Institution) &&
-                !string.IsNullOrEmpty(educationViewModel.FieldOfStudy) &&
-                !string.IsNullOrEmpty(educationViewModel.GPA) &&
+            return !string.IsNullOrEmpty(educationviewModel.Degree) &&
+                !string.IsNullOrEmpty(educationviewModel.Institution) &&
+                !string.IsNullOrEmpty(educationviewModel.FieldOfStudy) &&
+                !string.IsNullOrEmpty(educationviewModel.GPA) &&
                 base.CanExecute(parameter);
         }
 
-        private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private void OnviewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(EducationViewModel.Degree) ||
-                               e.PropertyName == nameof(EducationViewModel.Institution) ||
-                                              e.PropertyName == nameof(EducationViewModel.FieldOfStudy) ||
-                                                             e.PropertyName == nameof(EducationViewModel.GPA))
+            if (e.PropertyName == nameof(EducationviewModel.Degree) ||
+                               e.PropertyName == nameof(EducationviewModel.Institution) ||
+                                              e.PropertyName == nameof(EducationviewModel.FieldOfStudy) ||
+                                                             e.PropertyName == nameof(EducationviewModel.GPA))
             {
                 OnCanExecuteChanged();
             }

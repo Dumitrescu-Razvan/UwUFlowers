@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProfessionalProfile.Profile_page;
 using ProfessionalProfile.Repo;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionViews
 {
@@ -28,8 +28,8 @@ namespace ProfessionalProfile.SectionViews
             InitializeComponent();
             WindowState = WindowState.Maximized;
             this.userId = userId;
-            EducationViewModel ViewModel = new EducationViewModel(new EducationRepo(), userId);
-            DataContext = ViewModel;
+            EducationviewModel viewModel = new EducationviewModel(new EducationRepo(), userId);
+            DataContext = viewModel;
         }
 
         private void OpenWorkExperienceWindow(object sender, RoutedEventArgs e)

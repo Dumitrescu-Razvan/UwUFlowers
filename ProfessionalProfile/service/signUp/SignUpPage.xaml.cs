@@ -182,8 +182,8 @@ namespace ProfessionalProfile.Service.SignUp
             string authorizationUrl = $"https://www.facebook.com/v12.0/dialog/oauth?client_id={clientIdFacebook}&redirect_uri={redirectUrlFacebook}&scope={scope}";
 
             BrowserPage browserPage = new BrowserPage(false);
-            browserPage.webBrowser.Navigate("about:blank");
-            browserPage.webBrowser.Navigate(authorizationUrl);
+            browserPage.WebBrowser.Navigate("about:blank");
+            browserPage.WebBrowser.Navigate(authorizationUrl);
             this.Hide();
             browserPage.Show();
         }
@@ -198,11 +198,11 @@ namespace ProfessionalProfile.Service.SignUp
             // Construct the full authorization URL with parameters
             string fullAuthorizationUrl = $"{authorizationUrl}?response_type=code&client_id={this.clientIdLinkedin}&redirect_uri={redirectUrlLinkedin}&scope={scope}";
 
-            // Navigate to the authorization URL in the embedded web browser control
+            // Navigate to the authorization URL in the embedded Web browser control
             BrowserPage browserPage = new BrowserPage(false);
             // this.Hide();
-            browserPage.webBrowser.Navigate("about:blank");
-            browserPage.webBrowser.Navigate(fullAuthorizationUrl);
+            browserPage.WebBrowser.Navigate("about:blank");
+            browserPage.WebBrowser.Navigate(fullAuthorizationUrl);
             browserPage.Show();
         }
     }

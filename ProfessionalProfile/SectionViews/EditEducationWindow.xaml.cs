@@ -26,8 +26,8 @@ namespace ProfessionalProfile.SectionViews
             InitializeComponent();
             WindowState = WindowState.Maximized;
 
-            EditEducationViewModel viewModel = new EditEducationViewModel(new EducationRepo(), userId, educationId);
-            DataContext = viewModel;
+            EditEducationViewModel ViewModel = new EditEducationViewModel(new EducationRepo(), userId, educationId);
+            DataContext = ViewModel;
         }
 
         private void CloseWindow(object sender, RoutedEventArgs e)

@@ -28,8 +28,8 @@ namespace ProfessionalProfile.SectionViews
             InitializeComponent();
             WindowState = WindowState.Maximized;
             this.userId = userId;
-            SkillViewModel viewModel = new SkillViewModel(new SkillRepo(), userId);
-            DataContext = viewModel;
+            SkillViewModel ViewModel = new SkillViewModel(new SkillRepo(), userId);
+            DataContext = ViewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

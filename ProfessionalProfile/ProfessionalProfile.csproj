@@ -17,8 +17,8 @@
     <None Remove="profile page\dude.png" />
     <None Remove="profile page\github.png" />
     <None Remove="profile page\linkdin.png" />
-    <None Remove="service\loginAssets\facebook.png" />
-    <None Remove="service\loginAssets\Linkedin.png" />
+    <None Remove="Service\loginAssets\facebook.png" />
+    <None Remove="Service\loginAssets\Linkedin.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,8 +34,8 @@
     <Resource Include="profile page\dude.png" />
     <Resource Include="profile page\github.png" />
     <Resource Include="profile page\linkdin.png" />
-    <Resource Include="service\loginAssets\facebook.png" />
-    <Resource Include="service\loginAssets\Linkedin.png" />
+    <Resource Include="Service\loginAssets\facebook.png" />
+    <Resource Include="Service\loginAssets\Linkedin.png" />
   </ItemGroup>
 
 </Project>

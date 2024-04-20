@@ -368,7 +368,7 @@ namespace ProfessionalProfile.Profile_page
             // Get the URL from the Hyperlink
             string url = e.Uri.AbsoluteUri;
 
-            // Open the URL in the default web browser
+            // Open the URL in the default Web browser
             System.Diagnostics.Process.Start(new ProcessStartInfo
             {
                 FileName = url,

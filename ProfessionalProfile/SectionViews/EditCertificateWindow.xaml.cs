@@ -26,8 +26,8 @@ namespace ProfessionalProfile.SectionViews
             InitializeComponent();
             WindowState = WindowState.Maximized;
 
-            EditCertificateViewModel viewModel = new EditCertificateViewModel(new CertificateRepo(), userId, certificateId);
-            DataContext = viewModel;
+            EditCertificateViewModel ViewModel = new EditCertificateViewModel(new CertificateRepo(), userId, certificateId);
+            DataContext = ViewModel;
         }
 
         // press cancel button to close the window

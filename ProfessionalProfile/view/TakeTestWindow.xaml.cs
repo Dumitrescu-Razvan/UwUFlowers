@@ -20,7 +20,6 @@ namespace ProfessionalProfile.View
     /// Interaction logic for TakeTestWindow.xaml
     /// </summary>
     ///
-
     public class QuestionComponent : UserControl
     {
         public TextBox QuestionText { get; set; }
@@ -99,12 +98,12 @@ namespace ProfessionalProfile.View
             this.QuestionComponents = new List<QuestionComponent>();
 
             LoadTest();
-            UserId=userId;
+            UserId = userId;
         }
 
         private void LoadTest()
         {
-            AssessmentTestDTO assessmentTestDTO = TakeTestService.getTestDTO(TestId);
+            AssessmentTestDTO assessmentTestDTO = TakeTestService.GetTestDTO(TestId);
 
             this.TestNameLabel.Content = assessmentTestDTO.TestName;
 
@@ -118,10 +117,10 @@ namespace ProfessionalProfile.View
 
         private void SubmitTestButton_Click(object sender, RoutedEventArgs e)
         {
-            AssessmentTestDTO assessmentTestDTO = TakeTestService.getTestDTO(TestId);
+            AssessmentTestDTO assessmentTestDTO = TakeTestService.GetTestDTO(TestId);
 
-            int score = TakeTestService.computeTestResult(assessmentTestDTO, GetAnswers());
-            TakeTestService.addTestResult(TestId, this.UserId, score, DateTime.Now);
+            int score = TakeTestService.ComputeTestResult(assessmentTestDTO, GetAnswers());
+            TakeTestService.AddTestResult(TestId, this.UserId, score, DateTime.Now);
 
             MessageBox.Show("Your score is: " + score + "%");
 

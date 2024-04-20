@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProfessionalProfile.Profile_page;
 using ProfessionalProfile.Repo;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionViews
 {
@@ -28,8 +28,8 @@ namespace ProfessionalProfile.SectionViews
             InitializeComponent();
             WindowState = WindowState.Maximized;
             this.userId = userId;
-            SkillViewModel ViewModel = new SkillViewModel(new SkillRepo(), userId);
-            DataContext = ViewModel;
+            SkillviewModel viewModel = new SkillviewModel(new SkillRepo(), userId);
+            DataContext = viewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

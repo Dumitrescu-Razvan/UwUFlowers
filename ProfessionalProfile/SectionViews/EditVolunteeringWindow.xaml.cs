@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProfessionalProfile.Repo;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionViews
 {
@@ -26,8 +26,8 @@ namespace ProfessionalProfile.SectionViews
             InitializeComponent();
             WindowState = WindowState.Maximized;
 
-            EditVolunteeringViewModel ViewModel = new EditVolunteeringViewModel(new VolunteeringRepo(), userId, volunteeringId);
-            DataContext = ViewModel;
+            EditVolunteeringviewModel viewModel = new EditVolunteeringviewModel(new VolunteeringRepo(), userId, volunteeringId);
+            DataContext = viewModel;
         }
 
         private void CloseWindow(object sender, RoutedEventArgs e)

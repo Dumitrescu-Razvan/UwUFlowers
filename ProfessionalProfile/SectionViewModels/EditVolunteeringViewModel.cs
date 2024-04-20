@@ -8,11 +8,11 @@ using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionCommands;
 
-namespace ProfessionalProfile.SectionViewModels
+namespace ProfessionalProfile.SectionviewModels
 {
-    public class EditVolunteeringViewModel : SectionViewModelBase
+    public class EditVolunteeringviewModel : SectionviewModelBase
     {
-        public EditVolunteeringViewModel(VolunteeringRepo volunteeringRepo, int userId, int volunteeringId)
+        public EditVolunteeringviewModel(VolunteeringRepo volunteeringRepo, int userId, int volunteeringId)
         {
             volunteering = volunteeringRepo.GetById(volunteeringId);
             Organisation = volunteering.Organisation;

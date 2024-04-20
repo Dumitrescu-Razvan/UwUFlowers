@@ -7,9 +7,9 @@ using System.Windows.Input;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionCommands;
 
-namespace ProfessionalProfile.SectionViewModels
+namespace ProfessionalProfile.SectionviewModels
 {
-    public class VolunteeringViewModel : SectionViewModelBase
+    public class VolunteeringviewModel : SectionviewModelBase
     {
         private string organisation;
         public string Organisation
@@ -61,7 +61,7 @@ namespace ProfessionalProfile.SectionViewModels
 
         public ICommand AddVolunteeringButton { get; }
 
-        public VolunteeringViewModel(VolunteeringRepo volunteeringRepo, int userId)
+        public VolunteeringviewModel(VolunteeringRepo volunteeringRepo, int userId)
         {
             AddVolunteeringButton = new AddVolunteeringCommand(volunteeringRepo, this, userId);
         }

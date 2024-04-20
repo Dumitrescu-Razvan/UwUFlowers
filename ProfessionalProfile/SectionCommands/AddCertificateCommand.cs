@@ -9,24 +9,24 @@ using ProfessionalProfile.Domain;
 using ProfessionalProfile.Profile_page;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionExceptions;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionCommands
 {
     public class AddCertificateCommand : SectionCommandBase
     {
         private readonly CertificateRepo certificateRepo;
-        private readonly CertificateViewModel certificateViewModel;
+        private readonly CertificateviewModel certificateviewModel;
         private readonly int userId;
         private bool isLoggedIn;
 
-        public AddCertificateCommand(SectionViewModels.CertificateViewModel certificateViewModel, CertificateRepo certificateRepo, int userId, bool isLoggedIn)
+        public AddCertificateCommand(SectionviewModels.CertificateviewModel certificateviewModel, CertificateRepo certificateRepo, int userId, bool isLoggedIn)
         {
             certificateRepo = certificateRepo;
-            certificateViewModel = certificateViewModel;
+            certificateviewModel = certificateviewModel;
             userId = userId;
             this.isLoggedIn = isLoggedIn;
-            certificateViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            certificateviewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
 
         public override void Execute(object parameter)
@@ -34,11 +34,11 @@ namespace ProfessionalProfile.SectionCommands
             Certificate certificate = new Certificate(
                     4,
                     userId,
-                    certificateViewModel.CertificateName,
-                    certificateViewModel.IssuedBy,
-                    certificateViewModel.Description,
-                    certificateViewModel.IssuedDate,
-                    certificateViewModel.ExpirationDate);
+                    certificateviewModel.CertificateName,
+                    certificateviewModel.IssuedBy,
+                    certificateviewModel.Description,
+                    certificateviewModel.IssuedDate,
+                    certificateviewModel.ExpirationDate);
 
             try
             {
@@ -55,16 +55,16 @@ namespace ProfessionalProfile.SectionCommands
 
         public override bool CanExecute(object parameter)
         {
-            return !string.IsNullOrEmpty(certificateViewModel.CertificateName) &&
-                !string.IsNullOrEmpty(certificateViewModel.IssuedBy) &&
-                !string.IsNullOrEmpty(certificateViewModel.Description) &&
+            return !string.IsNullOrEmpty(certificateviewModel.CertificateName) &&
+                !string.IsNullOrEmpty(certificateviewModel.IssuedBy) &&
+                !string.IsNullOrEmpty(certificateviewModel.Description) &&
                 base.CanExecute(parameter);
         }
-        private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private void OnviewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(CertificateViewModel.CertificateName) ||
-                e.PropertyName == nameof(CertificateViewModel.IssuedBy) ||
-                e.PropertyName == nameof(CertificateViewModel.Description))
+            if (e.PropertyName == nameof(CertificateviewModel.CertificateName) ||
+                e.PropertyName == nameof(CertificateviewModel.IssuedBy) ||
+                e.PropertyName == nameof(CertificateviewModel.Description))
             {
                 OnCanExecuteChanged();
             }

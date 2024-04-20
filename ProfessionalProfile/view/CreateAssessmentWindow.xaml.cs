@@ -20,7 +20,6 @@ namespace ProfessionalProfile.View
     /// Interaction logic for CreateAssessmentWindow.xaml
     /// </summary>
     ///
-
     public class QuestionControl : UserControl
     {
         public TextBox QuestionText { get; set; }
@@ -88,7 +87,7 @@ namespace ProfessionalProfile.View
 
             this.CreateAssessmentService = new CreateAssessmentService();
 
-            List<Skill> skills = this.CreateAssessmentService.getAllSkills();
+            List<Skill> skills = this.CreateAssessmentService.GetAllSkills();
             foreach (Skill skill in skills)
             {
                 SkillsList.Items.Add(skill.Name);

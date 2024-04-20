@@ -7,9 +7,9 @@ using System.Windows.Input;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionCommands;
 
-namespace ProfessionalProfile.SectionViewModels
+namespace ProfessionalProfile.SectionviewModels
 {
-    public class EducationViewModel : SectionViewModelBase
+    public class EducationviewModel : SectionviewModelBase
     {
         private string degree;
         public string Degree
@@ -93,7 +93,7 @@ namespace ProfessionalProfile.SectionViewModels
 
         public ICommand AddEducationButton { get; }
 
-        public EducationViewModel(EducationRepo educationRepo, int userId)
+        public EducationviewModel(EducationRepo educationRepo, int userId)
         {
             AddEducationButton = new AddEducationCommand(this, educationRepo, userId);
         }

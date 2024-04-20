@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProfessionalProfile.Repo;
-using ProfessionalProfile.SectionViewModels;
+using ProfessionalProfile.SectionviewModels;
 
 namespace ProfessionalProfile.SectionViews
 {
@@ -29,8 +29,8 @@ namespace ProfessionalProfile.SectionViews
             WindowState = WindowState.Maximized;
             this.UserId = userId;
             this.isLoggedIn = isLoggedIn;
-            CertificateViewModel ViewModel = new CertificateViewModel(new CertificateRepo(), userId, isLoggedIn);
-            DataContext = ViewModel;
+            CertificateviewModel viewModel = new CertificateviewModel(new CertificateRepo(), userId, isLoggedIn);
+            DataContext = viewModel;
         }
 
         public int UserId { get => userId; set => userId = value; }

@@ -7,9 +7,9 @@ using System.Windows.Input;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.SectionCommands;
 
-namespace ProfessionalProfile.SectionViewModels
+namespace ProfessionalProfile.SectionviewModels
 {
-    public class CertificateViewModel : SectionViewModelBase
+    public class CertificateviewModel : SectionviewModelBase
     {
         private string certificateName;
         public string CertificateName
@@ -87,7 +87,7 @@ namespace ProfessionalProfile.SectionViewModels
 
         public ICommand AddCertificateButton { get; }
 
-        public CertificateViewModel(CertificateRepo certificateRepo, int userId, bool isLoggedIn)
+        public CertificateviewModel(CertificateRepo certificateRepo, int userId, bool isLoggedIn)
         {
             AddCertificateButton = new AddCertificateCommand(this, certificateRepo, userId, isLoggedIn);
         }

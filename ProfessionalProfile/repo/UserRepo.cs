@@ -83,10 +83,10 @@ namespace ProfessionalProfile.Repo
                         DateTime dateOfBirth = (DateTime)reader["DateOfBirth"];
                         bool darkTheme = (bool)reader["DarkTheme"];
                         string address = (string)reader["Address"];
-                        string WebsiteURL = (string)reader["WebsiteURL"];
+                        string websiteURL = (string)reader["WebsiteURL"];
                         string picture = (string)reader["Picture"];
 
-                        User user = new User(userId, firstName, lastName, email, password, phone, summary, dateOfBirth, darkTheme, address, WebsiteURL, picture);
+                        User user = new User(userId, firstName, lastName, email, password, phone, summary, dateOfBirth, darkTheme, address, websiteURL, picture);
                         users.Add(user);
                     }
                 }
@@ -126,10 +126,10 @@ namespace ProfessionalProfile.Repo
                             DateTime dateOfBirth = (DateTime)reader["DateOfBirth"];
                             bool darkTheme = (bool)reader["DarkTheme"];
                             string address = (string)reader["Address"];
-                            string WebsiteURL = (string)reader["WebsiteURL"];
+                            string websiteURL = (string)reader["WebsiteURL"];
                             string picture = (string)reader["Picture"];
 
-                            user = new User(userId, firstName, lastName, email, password, phone, summary, dateOfBirth, darkTheme, address, WebsiteURL, picture);
+                            user = new User(userId, firstName, lastName, email, password, phone, summary, dateOfBirth, darkTheme, address, websiteURL, picture);
                         }
                         catch (Exception ex)
                         {

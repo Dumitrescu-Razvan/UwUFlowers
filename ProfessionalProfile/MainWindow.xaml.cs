@@ -14,7 +14,6 @@ using ProfessionalProfile.Profile_page;
 using ProfessionalProfile.Projects_page;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.Service.Login;
-using ProfessionalProfile.Service.Login;
 using ProfessionalProfile.View;
 
 namespace ProfessionalProfile

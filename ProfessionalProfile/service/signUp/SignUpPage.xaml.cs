@@ -21,9 +21,9 @@ using System.Diagnostics.Metrics;
 
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
-using ProfessionalProfile.service.login;
+using ProfessionalProfile.Service.Login;
 
-using ProfessionalProfile.service.webBrowser;
+using ProfessionalProfile.Service.WebBrowser;
 using ProfessionalProfile.SectionViews;
 using ProfessionalProfile.Service.WebBrowser;
 

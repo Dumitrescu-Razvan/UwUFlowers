@@ -299,12 +299,12 @@
             </Border>
             <Button x:Name="SearchPageButton" Content="Search" HorizontalAlignment="Left" Margin="483,52,0,0" VerticalAlignment="Top" Width="70" Click="SearchPageButton_Click"/>
             <Button x:Name="ViewNotificationsButton" Content="Notifications" HorizontalAlignment="Left" Margin="483,84,0,0" VerticalAlignment="Top" Width="70" Click="ViewNotificationsButton_Click"/>
-            <Button x:Name="becomePremiumUserButton" Content="Become Premium Member" HorizontalAlignment="Left" Margin="28,70,0,0" Grid.Row="6" Click="becomePremiumUserButton_Click"/>
-            <Button x:Name="createAssessmentButton" Content="Create Assesments" HorizontalAlignment="Left" Margin="213,70,0,0" Grid.Row="6" VerticalAlignment="Top" Click="createAssessmentButton_Click" />
-            <Button x:Name="takeAssessmentButton" Content="Take Assesments" HorizontalAlignment="Left" Margin="368,70,0,0" Grid.Row="6" VerticalAlignment="Top" Click="takeAssessmentButton_Click" />
-            <Button x:Name="settingsButton" Content="Settings" HorizontalAlignment="Left" Margin="483,22,0,0" VerticalAlignment="Top" Width="70" Click="settingsButton_Click"/>
-            <Button x:Name="viewProjectsButton" Content="View Projects" HorizontalAlignment="Left" Margin="377,22,0,0" VerticalAlignment="Top" Click="viewProjectsButton_Click"/>
-            <Button x:Name="viewBusinessCardButton" Content="Business Card" HorizontalAlignment="Left" Margin="374,52,0,0" VerticalAlignment="Top" Click="viewBusinessCardButton_Click"/>
+            <Button x:Name="becomePremiumUserButton" Content="Become Premium Member" HorizontalAlignment="Left" Margin="28,70,0,0" Grid.Row="6" Click="BecomePremiumUserButton_Click"/>
+            <Button x:Name="createAssessmentButton" Content="Create Assesments" HorizontalAlignment="Left" Margin="213,70,0,0" Grid.Row="6" VerticalAlignment="Top" Click="CreateAssessmentButton_Click" />
+            <Button x:Name="takeAssessmentButton" Content="Take Assesments" HorizontalAlignment="Left" Margin="368,70,0,0" Grid.Row="6" VerticalAlignment="Top" Click="TakeAssessmentButton_Click" />
+            <Button x:Name="settingsButton" Content="Settings" HorizontalAlignment="Left" Margin="483,22,0,0" VerticalAlignment="Top" Width="70" Click="SettingsButton_Click"/>
+            <Button x:Name="viewProjectsButton" Content="View Projects" HorizontalAlignment="Left" Margin="377,22,0,0" VerticalAlignment="Top" Click="ViewProjectsButton_Click"/>
+            <Button x:Name="viewBusinessCardButton" Content="Business Card" HorizontalAlignment="Left" Margin="374,52,0,0" VerticalAlignment="Top" Click="ViewBusinessCardButton_Click"/>
 
         </Grid>
     </ScrollViewer>

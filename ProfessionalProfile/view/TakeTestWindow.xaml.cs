@@ -107,7 +107,7 @@ namespace ProfessionalProfile.View
 
             this.TestNameLabel.Content = assessmentTestDTO.TestName;
 
-            foreach (var questionDTO in assessmentTestDTO.questions)
+            foreach (var questionDTO in assessmentTestDTO.Questions)
             {
                 QuestionComponent questionComponent = new QuestionComponent(questionDTO);
                 this.QuestionsList.Children.Add(questionComponent);

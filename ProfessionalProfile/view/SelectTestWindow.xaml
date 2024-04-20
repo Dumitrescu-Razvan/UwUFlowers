@@ -18,7 +18,7 @@
                 <ColumnDefinition Width="747*"/>
             </Grid.ColumnDefinitions>
             <Label Content="Choose the assessment you want to take" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="2" Grid.RowSpan="2"/>
-            <ListBox x:Name="assessmentNames" Margin="10,22,0,60" SelectionChanged="assessmentNames_SelectionChanged" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Left" Width="324"/>
+            <ListBox x:Name="assessmentNames" Margin="10,22,0,60" SelectionChanged="AssessmentNames_SelectionChanged" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Left" Width="324"/>
             <Label x:Name="skillTestedLabel" Content="Skill tested:" HorizontalAlignment="Left" Margin="312,17,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1"/>
             <TextBox x:Name="assessmentDescriptionBox" HorizontalAlignment="Left" Margin="317,54,0,0" TextWrapping="Wrap" Text="Test description..." VerticalAlignment="Top" Width="193" Height="294" RenderTransformOrigin="0.5,0.5" IsEnabled="False" Grid.Column="2" Grid.Row="1">
                 <TextBox.RenderTransform>

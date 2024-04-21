@@ -14,9 +14,9 @@ namespace ProfessionalProfile.Domain
 
         public QuestionDTO(string questionText, List<AnswerDTO> answers, AnswerDTO correctAnswer)
         {
-            QuestionText = questionText;
-            Answers = answers;
-            CorrectAnswer = correctAnswer;
+            this.QuestionText = questionText;
+            this.Answers = answers;
+            this.CorrectAnswer = correctAnswer;
         }
     }
 }

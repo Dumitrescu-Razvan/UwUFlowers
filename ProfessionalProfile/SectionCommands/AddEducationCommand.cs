@@ -20,9 +20,9 @@ namespace ProfessionalProfile.SectionCommands
 
         public AddEducationCommand(EducationviewModel educationviewModel, EducationRepo educationRepo, int userId)
         {
-            educationRepo = educationRepo;
-            educationviewModel = educationviewModel;
-            userId = userId;
+            this.educationRepo = educationRepo;
+            this.educationviewModel = educationviewModel;
+            this.userId = userId;
             educationviewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
 

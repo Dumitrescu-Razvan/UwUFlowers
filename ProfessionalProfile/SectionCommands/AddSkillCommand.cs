@@ -19,9 +19,9 @@ namespace ProfessionalProfile.SectionCommands
 
         public AddSkillCommand(SkillviewModel skillviewModel, SkillRepo skillRepo, int userId)
         {
-            skillviewModel = skillviewModel;
-            skillRepo = skillRepo;
-            userId = userId;
+            this.skillviewModel = skillviewModel;
+            this.skillRepo = skillRepo;
+            this.userId = userId;
             skillviewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
         public override void Execute(object parameter)

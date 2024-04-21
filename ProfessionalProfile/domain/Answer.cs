@@ -15,10 +15,10 @@ namespace ProfessionalProfile.Domain
 
         public Answer(int answerId, string answerText, int questionId,  bool isCorrect)
         {
-            answerId = answerId;
-            questionId = questionId;
-            answerText = answerText;
-            isCorrect = isCorrect;
+            this.answerId = answerId;
+            this.questionId = questionId;
+            this.answerText = answerText;
+            this.isCorrect = isCorrect;
         }
 
         public int AnswerId

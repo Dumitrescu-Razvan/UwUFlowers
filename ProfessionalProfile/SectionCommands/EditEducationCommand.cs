@@ -21,10 +21,10 @@ namespace ProfessionalProfile.SectionCommands
 
         public EditEducationCommand(EditEducationviewModel viewModel, EducationRepo educationRepo, int userId, int educationId)
         {
-            viewModel = viewModel;
-            educationRepo = educationRepo;
-            userId = userId;
-            educationId = educationId;
+            this.viewModel = viewModel;
+            this.educationRepo = educationRepo;
+            this.userId = userId;
+            this.educationId = educationId;
             viewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
 

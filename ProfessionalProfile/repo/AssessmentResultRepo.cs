@@ -25,7 +25,7 @@ namespace ProfessionalProfile.Repo
                 connection.Open();
 
                 string sql = "INSERT INTO AssessmentResult (AssessmentTestId, Score, UserId, TestDate) " +
-                             "VALUES (@AssessmentTestId, @Score, @UserId, @TestDate)";
+                              "VALUES (@AssessmentTestId, @Score, @UserId, @TestDate)";
 
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@AssessmentTestId", item.AssessmentTestId);

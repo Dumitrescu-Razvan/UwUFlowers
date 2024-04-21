@@ -22,9 +22,9 @@ namespace ProfessionalProfile.SectionCommands
 
         public AddCertificateCommand(SectionviewModels.CertificateviewModel certificateviewModel, CertificateRepo certificateRepo, int userId, bool isLoggedIn)
         {
-            certificateRepo = certificateRepo;
-            certificateviewModel = certificateviewModel;
-            userId = userId;
+            this.certificateRepo = certificateRepo;
+            this.certificateviewModel = certificateviewModel;
+            this.userId = userId;
             this.isLoggedIn = isLoggedIn;
             certificateviewModel.PropertyChanged += OnviewModelPropertyChanged;
         }

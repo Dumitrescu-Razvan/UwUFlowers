@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dinuteodor/ISSProject2/UwUFlowers-1/TestProject/TestProject.csproj": {}
+    "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj": {}
   },
   "projects": {
-    "/Users/dinuteodor/ISSProject2/UwUFlowers-1/ProfessionalProfile/ProfessionalProfile.csproj": {
+    "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/ProfessionalProfile/ProfessionalProfile.csproj",
+        "projectUniqueName": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj",
         "projectName": "ProfessionalProfile",
-        "projectPath": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/ProfessionalProfile/ProfessionalProfile.csproj",
-        "packagesPath": "/Users/dinuteodor/.nuget/packages/",
-        "outputPath": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/ProfessionalProfile/obj/",
+        "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj",
+        "packagesPath": "C:\\Users\\dumit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/dinuteodor/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\dumit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -70,12 +75,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.3, 8.0.3]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -84,35 +83,40 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/dinuteodor/ISSProject2/UwUFlowers-1/TestProject/TestProject.csproj": {
+    "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/TestProject/TestProject.csproj",
+        "projectUniqueName": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj",
         "projectName": "TestProject",
-        "projectPath": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/TestProject/TestProject.csproj",
-        "packagesPath": "/Users/dinuteodor/.nuget/packages/",
-        "outputPath": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/TestProject/obj/",
+        "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj",
+        "packagesPath": "C:\\Users\\dumit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/dinuteodor/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\dumit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "/Users/dinuteodor/ISSProject2/UwUFlowers-1/ProfessionalProfile/ProfessionalProfile.csproj": {
-                "projectPath": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/ProfessionalProfile/ProfessionalProfile.csproj"
+              "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
+                "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj"
               }
             }
           }
@@ -160,18 +164,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.3, 8.0.3]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

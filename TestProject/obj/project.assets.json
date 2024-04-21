@@ -1446,11 +1446,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/TestProject/TestProject.csproj",
       "projectName": "TestProject",
       "projectPath": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/TestProject/TestProject.csproj",
       "packagesPath": "/Users/dinuteodor/.nuget/packages/",
       "outputPath": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/TestProject/obj/",
+=======
+      "projectUniqueName": "C:\\Users\\Dumi\\source\\repos\\SE-Professional-Profile\\TestProject\\TestProject.csproj",
+      "projectName": "TestProject",
+      "projectPath": "C:\\Users\\Dumi\\source\\repos\\SE-Professional-Profile\\TestProject\\TestProject.csproj",
+      "packagesPath": "C:\\Users\\Dumi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dumi\\source\\repos\\SE-Professional-Profile\\TestProject\\obj\\",
+>>>>>>> parent of 367571b (solved using business)
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/dinuteodor/.nuget/NuGet/NuGet.Config"
@@ -1466,8 +1474,13 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
+<<<<<<< HEAD
             "/Users/dinuteodor/ISSProject2/UwUFlowers-1/ProfessionalProfile/ProfessionalProfile.csproj": {
               "projectPath": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/ProfessionalProfile/ProfessionalProfile.csproj"
+=======
+            "C:\\Users\\Dumi\\source\\repos\\SE-Professional-Profile\\ProfessionalProfile\\ProfessionalProfile.csproj": {
+              "projectPath": "C:\\Users\\Dumi\\source\\repos\\SE-Professional-Profile\\ProfessionalProfile\\ProfessionalProfile.csproj"
+>>>>>>> parent of 367571b (solved using business)
             }
           }
         }

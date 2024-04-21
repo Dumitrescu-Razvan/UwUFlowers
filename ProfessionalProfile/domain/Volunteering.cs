@@ -16,11 +16,11 @@ namespace ProfessionalProfile.Domain
 
         public Volunteering(int volunteeringId, int userId, string organisation, string role, string description)
         {
-            volunteeringId = volunteeringId;
-            organisation = organisation;
-            role = role;
-            description = description;
-            userId = userId;
+            this.volunteeringId = volunteeringId;
+            this.organisation = organisation;
+            this.role = role;
+            this.description = description;
+            this.userId = userId;
         }
 
         public int VolunteeringId

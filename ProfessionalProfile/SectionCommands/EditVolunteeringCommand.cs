@@ -21,10 +21,10 @@ namespace ProfessionalProfile.SectionCommands
 
         public EditVolunteeringCommand(EditVolunteeringviewModel viewModel, VolunteeringRepo volunteeringRepo, int userId, int volunteeringId)
         {
-            viewModel = viewModel;
-            volunteeringRepo = volunteeringRepo;
-            userId = userId;
-            volunteeringId = volunteeringId;
+            this.viewModel = viewModel;
+            this.volunteeringRepo = volunteeringRepo;
+            this.userId = userId;
+            this.volunteeringId = volunteeringId;
 
             viewModel.PropertyChanged += OnviewModelPropertyChanged;
         }

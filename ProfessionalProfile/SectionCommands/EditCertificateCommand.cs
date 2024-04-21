@@ -21,10 +21,10 @@ namespace ProfessionalProfile.SectionCommands
 
         public EditCertificateCommand(EditCertificateviewModel certificateviewModel, CertificateRepo certificateRepo, int userId, int certificateId)
         {
-            certificateRepo = certificateRepo;
-            certificateviewModel = certificateviewModel;
-            certificateId = certificateId;
-            userId = userId;
+            this.certificateRepo = certificateRepo;
+            this.certificateviewModel = certificateviewModel;
+            this.certificateId = certificateId;
+            this.userId = userId;
             certificateviewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
 

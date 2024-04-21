@@ -20,9 +20,9 @@ namespace ProfessionalProfile.SectionCommands
 
         public AddVolunteeringCommand(VolunteeringRepo volunteeringRepo, VolunteeringviewModel volunteeringviewModel, int userId)
         {
-            volunteeringRepo = volunteeringRepo;
-            volunteeringviewModel = volunteeringviewModel;
-            userId = userId;
+            this.volunteeringRepo = volunteeringRepo;
+            this.volunteeringviewModel = volunteeringviewModel;
+            this.userId = userId;
             volunteeringviewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
         public override void Execute(object parameter)

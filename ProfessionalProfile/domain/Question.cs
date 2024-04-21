@@ -14,9 +14,9 @@ namespace ProfessionalProfile.Domain
 
         public Question(int questionId, string questionText, int assesmentTestId)
         {
-            questionId = questionId;
-            questionText = questionText;
-            assesmentTestId = assesmentTestId;
+            this.questionId = questionId;
+            this.questionText = questionText;
+            this.assesmentTestId = assesmentTestId;
         }
 
         public int QuestionId

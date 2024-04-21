@@ -80,12 +80,12 @@ namespace ProfessionalProfile.SectionviewModels
         {
             get
             {
-                return GPA;
+                return gpa;
             }
 
             set
             {
-                GPA = value;
+                gpa = value;
 
                 OnPropertyChanged("GPA");
             }

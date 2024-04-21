@@ -58,8 +58,8 @@ namespace ProfessionalProfile.Domain
 
         public double GPA
         {
-            get { return this.GPA; }
-            set { this.GPA = value; }
+            get { return this.gPA; }
+            set { this.gPA = value; }
         }
 
         public int UserId
@@ -82,8 +82,7 @@ namespace ProfessionalProfile.Domain
                    Degree == education.Degree &&
                    Institution == education.Institution &&
                    FieldOfStudy == education.FieldOfStudy &&
-                   GraduationDate == education.GraduationDate &&
-                   GPA == education.GPA;
+                   GraduationDate == education.GraduationDate;
         }
 
         public override string ToString()

@@ -20,7 +20,7 @@ namespace ProfessionalProfile.Domain
             this.summary = summary;
             this.keySkills = keySkills;
             this.uniqueUrl = uniqueUrl;
-            userId = userId;
+            this.userId = userId;
         }
 
         public int BcId

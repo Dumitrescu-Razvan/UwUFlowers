@@ -20,9 +20,9 @@ namespace ProfessionalProfile.SectionCommands
 
         public AddWorkExperienceCommand(WorkExperienceviewModel workExperienceviewModel, WorkExperienceRepo workExperienceRepo, int userId)
         {
-            workExperienceRepo = workExperienceRepo;
-            workExperienceviewModel = workExperienceviewModel;
-            userId = userId;
+            this.workExperienceRepo = workExperienceRepo;
+            this.workExperienceviewModel = workExperienceviewModel;
+            this.userId = userId;
             workExperienceviewModel.PropertyChanged += OnviewModelPropertyChanged;
         }
 

@@ -1441,46 +1441,39 @@
     ]
   },
   "packageFolders": {
-    "/Users/dinuteodor/.nuget/packages/": {}
+    "C:\\Users\\dumit\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/TestProject/TestProject.csproj",
+      "projectUniqueName": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj",
       "projectName": "TestProject",
-      "projectPath": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/TestProject/TestProject.csproj",
-      "packagesPath": "/Users/dinuteodor/.nuget/packages/",
-      "outputPath": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/TestProject/obj/",
-=======
-      "projectUniqueName": "C:\\Users\\Dumi\\source\\repos\\SE-Professional-Profile\\TestProject\\TestProject.csproj",
-      "projectName": "TestProject",
-      "projectPath": "C:\\Users\\Dumi\\source\\repos\\SE-Professional-Profile\\TestProject\\TestProject.csproj",
-      "packagesPath": "C:\\Users\\Dumi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dumi\\source\\repos\\SE-Professional-Profile\\TestProject\\obj\\",
->>>>>>> parent of 367571b (solved using business)
+      "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj",
+      "packagesPath": "C:\\Users\\dumit\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/dinuteodor/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\dumit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0-windows"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-<<<<<<< HEAD
-            "/Users/dinuteodor/ISSProject2/UwUFlowers-1/ProfessionalProfile/ProfessionalProfile.csproj": {
-              "projectPath": "/Users/dinuteodor/ISSProject2/UwUFlowers-1/ProfessionalProfile/ProfessionalProfile.csproj"
-=======
-            "C:\\Users\\Dumi\\source\\repos\\SE-Professional-Profile\\ProfessionalProfile\\ProfessionalProfile.csproj": {
-              "projectPath": "C:\\Users\\Dumi\\source\\repos\\SE-Professional-Profile\\ProfessionalProfile\\ProfessionalProfile.csproj"
->>>>>>> parent of 367571b (solved using business)
+            "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
+              "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj"
             }
           }
         }
@@ -1528,18 +1521,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.3, 8.0.3]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

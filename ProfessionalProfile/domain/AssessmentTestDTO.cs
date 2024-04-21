@@ -18,7 +18,7 @@ namespace ProfessionalProfile.Domain
             this.TestName = testName;
             this.Description = description;
             this.Questions = questions;
-            SkillTested = skillTested;
+            this.SkillTested = skillTested;
         }
     }
 }

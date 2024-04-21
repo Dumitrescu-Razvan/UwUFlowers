@@ -21,10 +21,10 @@ namespace ProfessionalProfile.SectionCommands
 
         public EditWorkExperienceCommand(EditWorkExperienceviewModel viewModel, WorkExperienceRepo workExperienceRepo, int userId, int workExperienceId)
         {
-            viewModel = viewModel;
-            workExperienceRepo = workExperienceRepo;
-            userId = userId;
-            workExperienceId = workExperienceId;
+            this.viewModel = viewModel;
+            this.workExperienceRepo = workExperienceRepo;
+            this.userId = userId;
+            this.workExperienceId = workExperienceId;
 
             viewModel.PropertyChanged += OnviewModelPropertyChanged;
         }

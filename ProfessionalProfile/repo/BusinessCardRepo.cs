@@ -28,6 +28,10 @@ namespace ProfessionalProfile.Repo
                 string sql = "EXEC InsertBusinessCard @UserId, @Summary, @UniqueUrl";
                 SqlCommand command = new SqlCommand(sql, connection);
 
+                Console.WriteLine(item.UserId);
+                Console.WriteLine(item.Summary);
+                Console.WriteLine(item.UniqueUrl);
+
                 command.Parameters.AddWithValue("@UserId", item.UserId);
                 command.Parameters.AddWithValue("@Summary", item.Summary);
                 command.Parameters.AddWithValue("@UniqueUrl", item.UniqueUrl);

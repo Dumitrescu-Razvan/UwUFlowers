@@ -12,8 +12,8 @@ namespace ProfessionalProfile.Domain
         public bool IsCorrect { get; set; }
         public AnswerDTO(string answerText, bool isCorrect)
         {
-            AnswerText = answerText;
-            IsCorrect = isCorrect;
+            this.AnswerText = answerText;
+            this.IsCorrect = isCorrect;
         }
     }
 }

@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.Interfaces;
 using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.Business
 {
-    internal class NotificationsService
+    public class NotificationsService
     {
-        internal NotificationRepo NotificationRepo { get; }
+        public INotificationRepoInterface<Notification> NotificationRepo { get; }
 
-        public NotificationsService(NotificationRepo notificationRepo)
+        public NotificationsService(INotificationRepoInterface<Notification> notificationRepo)
         {
             this.NotificationRepo = notificationRepo;
         }

@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.Interfaces;
 
 namespace ProfessionalProfile.Repo
 {
-    public class NotificationRepo : IRepoInterface<Notification>
+    public class NotificationRepo : INotificationRepoInterface<Notification>
     {
         private string connectionString;
 

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj": {}
+    "E:\\University\\ISS\\ISS_PE_MIercuri\\UwUFlowers\\TestProject\\TestProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
+    "E:\\University\\ISS\\ISS_PE_MIercuri\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj",
+        "projectUniqueName": "E:\\University\\ISS\\ISS_PE_MIercuri\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj",
         "projectName": "ProfessionalProfile",
-        "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj",
-        "packagesPath": "C:\\Users\\dumit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\obj\\",
+        "projectPath": "E:\\University\\ISS\\ISS_PE_MIercuri\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj",
+        "packagesPath": "C:\\Users\\dudut\\.nuget\\packages\\",
+        "outputPath": "E:\\University\\ISS\\ISS_PE_MIercuri\\UwUFlowers\\ProfessionalProfile\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\dumit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dudut\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -83,24 +83,24 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj": {
+    "E:\\University\\ISS\\ISS_PE_MIercuri\\UwUFlowers\\TestProject\\TestProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj",
+        "projectUniqueName": "E:\\University\\ISS\\ISS_PE_MIercuri\\UwUFlowers\\TestProject\\TestProject.csproj",
         "projectName": "TestProject",
-        "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj",
-        "packagesPath": "C:\\Users\\dumit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\obj\\",
+        "projectPath": "E:\\University\\ISS\\ISS_PE_MIercuri\\UwUFlowers\\TestProject\\TestProject.csproj",
+        "packagesPath": "C:\\Users\\dudut\\.nuget\\packages\\",
+        "outputPath": "E:\\University\\ISS\\ISS_PE_MIercuri\\UwUFlowers\\TestProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\dumit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dudut\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -115,8 +115,8 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
-                "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj"
+              "E:\\University\\ISS\\ISS_PE_MIercuri\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
+                "projectPath": "E:\\University\\ISS\\ISS_PE_MIercuri\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj"
               }
             }
           }
@@ -138,19 +138,31 @@
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.8.0, )"
+              "version": "[17.9.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
             },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[6.0.2, )"
             },
             "xunit": {
               "target": "Package",
               "version": "[2.7.1, )"
             },
-            "xunit.runner.visualstudio": {
+            "xunit.extensibility.core": {
               "target": "Package",
-              "version": "[2.5.3, )"
+              "version": "[2.7.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.5.8, )"
             }
           },
           "imports": [
@@ -169,7 +181,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dumit\\Source\\Repos\\UwUFlowerstesting\\TestProject\\TestProject.csproj": {}
+    "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dumit\\Source\\Repos\\UwUFlowerstesting\\ProfessionalProfile\\ProfessionalProfile.csproj": {
+    "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dumit\\Source\\Repos\\UwUFlowerstesting\\ProfessionalProfile\\ProfessionalProfile.csproj",
+        "projectUniqueName": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj",
         "projectName": "ProfessionalProfile",
-        "projectPath": "C:\\Users\\dumit\\Source\\Repos\\UwUFlowerstesting\\ProfessionalProfile\\ProfessionalProfile.csproj",
+        "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj",
         "packagesPath": "C:\\Users\\dumit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dumit\\Source\\Repos\\UwUFlowerstesting\\ProfessionalProfile\\obj\\",
+        "outputPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -87,14 +87,14 @@
         }
       }
     },
-    "C:\\Users\\dumit\\Source\\Repos\\UwUFlowerstesting\\TestProject\\TestProject.csproj": {
+    "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dumit\\Source\\Repos\\UwUFlowerstesting\\TestProject\\TestProject.csproj",
+        "projectUniqueName": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj",
         "projectName": "TestProject",
-        "projectPath": "C:\\Users\\dumit\\Source\\Repos\\UwUFlowerstesting\\TestProject\\TestProject.csproj",
+        "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj",
         "packagesPath": "C:\\Users\\dumit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dumit\\Source\\Repos\\UwUFlowerstesting\\TestProject\\obj\\",
+        "outputPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -115,8 +115,8 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\dumit\\Source\\Repos\\UwUFlowerstesting\\ProfessionalProfile\\ProfessionalProfile.csproj": {
-                "projectPath": "C:\\Users\\dumit\\Source\\Repos\\UwUFlowerstesting\\ProfessionalProfile\\ProfessionalProfile.csproj"
+              "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
+                "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj"
               }
             }
           }
@@ -139,6 +139,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.8.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
             },
             "coverlet.collector": {
               "target": "Package",

@@ -73,3 +73,17 @@ TestProject/obj/Debug/net8.0-windows/TestProject.GeneratedMSBuildEditorConfig.ed
 TestProject/obj/project.assets.json
 TestProject/obj/TestProject.csproj.nuget.dgspec.json
 TestProject/obj/TestProject.csproj.nuget.g.props
+TestProject/obj/Debug/net8.0-windows/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+TestProject/obj/Debug/net8.0-windows/TestProject.AssemblyInfo.cs
+TestProject/obj/Debug/net8.0-windows/TestProject.GeneratedMSBuildEditorConfig.editorconfig
+TestProject/obj/Debug/net8.0-windows/TestProject.GlobalUsings.g.cs
+TestProject/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+TestProject/obj/Debug/net8.0/TestProject.AssemblyInfo.cs
+TestProject/obj/Debug/net8.0/TestProject.csproj.FileListAbsolute.txt
+TestProject/obj/Debug/net8.0/TestProject.GeneratedMSBuildEditorConfig.editorconfig
+TestProject/obj/Debug/net8.0/TestProject.GlobalUsings.g.cs
+TestProject/obj/project.assets.json
+TestProject/obj/TestProject.csproj.nuget.dgspec.json
+TestProject/obj/TestProject.csproj.nuget.g.props
+TestProject/obj/TestProject.csproj.nuget.g.targets
+TestProject/TestProject.csproj

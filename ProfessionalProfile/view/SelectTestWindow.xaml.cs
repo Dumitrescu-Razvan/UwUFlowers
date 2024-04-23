@@ -30,7 +30,6 @@ namespace ProfessionalProfile.View
         {
             InitializeComponent();
             this.UserId = userId;
-
             SelectTestService = new SelectTestService();
             AssessmentResultRepo assessmentResultRepo = new AssessmentResultRepo();
             AssessmentTestRepo assessmentTestRepo = new AssessmentTestRepo();

@@ -21,7 +21,7 @@ namespace TestProject.Mocks
             _skillList = new List<Skill>();
             _userList = new List<User>();
         }
-
+        
         public void Add(Skill item)
         {
             _skillList.Add(item);
@@ -45,7 +45,6 @@ namespace TestProject.Mocks
             }
             return null;
         }
-
         public Skill GetById(int id)
         {
 
@@ -53,7 +52,6 @@ namespace TestProject.Mocks
 
         }
         
-
         public int GetIdByName(string name)
         {
             return _skillList.Find(x => x.Name == name).SkillId;
@@ -64,7 +62,6 @@ namespace TestProject.Mocks
            Skill skill = _skillList.Find(x => x.SkillId == item.SkillId);
             skill.Name = item.Name;
             skill.SkillId = item.SkillId;
-
         }
     }
 }

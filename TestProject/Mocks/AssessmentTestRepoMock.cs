@@ -23,7 +23,6 @@ namespace ProfessionalProfile.Repo
         public void Add(AssessmentTest item)
         {
             this.assessmentTests.Add(item);
-            
         }
 
         public int GetIdByName(string testName)

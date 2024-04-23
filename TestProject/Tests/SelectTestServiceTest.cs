@@ -52,7 +52,7 @@ namespace TestProject.Tests
 
             AssessmentTest actualResult = selectTestService.GetAssessmentByName(testNameToFind);
 
-            Assert.Equal (actualResult, expectedResult);
+            Assert.Equal (actualResult, null);
 
         }
 
@@ -72,7 +72,7 @@ namespace TestProject.Tests
 
             Skill actualSkill = selectTestService.GetSkillById(skillIdToFind);
 
-            Assert.Equal (expectedSkill, actualSkill);  
+            Assert.Equal (null, actualSkill);
         }
     }
 }

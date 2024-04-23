@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProfessionalProfile.Business;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.View
 {
@@ -94,7 +95,12 @@ namespace ProfessionalProfile.View
         {
             InitializeComponent();
             this.TestId = testId;
-            this.TakeTestService = new TakeTestService();
+            AssessmentTestRepo assessmentTestRepo = new AssessmentTestRepo();
+            QuestionRepo questionRepo = new QuestionRepo();
+            AnswerRepo answerRepo = new AnswerRepo();
+            AssessmentResultRepo assessmentResultRepo = new AssessmentResultRepo();
+            SkillRepo skillRepo = new SkillRepo();
+            this.TakeTestService = new TakeTestService(answerRepo, questionRepo, assessmentTestRepo, skillRepo, assessmentResultRepo);
             this.QuestionComponents = new List<QuestionComponent>();
 
             LoadTest();

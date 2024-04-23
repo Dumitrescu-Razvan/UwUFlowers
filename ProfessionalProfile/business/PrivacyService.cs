@@ -11,14 +11,16 @@ namespace ProfessionalProfile.Business
     public class PrivacyService
     {
         internal IRepoInterface<Privacy> PrivacyRepo { get; set; }
-
-        public PrivacyService()
+        public PrivacyService(IRepoInterface<Privacy> privacyRepo = null)
         {
-            PrivacyRepo = new PrivacyRepo();
-        }
-        public PrivacyService(IRepoInterface<Privacy> privacyRepo)
-        {
-            PrivacyRepo = privacyRepo;
+            if (privacyRepo == null)
+            {
+                PrivacyRepo = privacyRepo;
+            }
+            else
+            {
+                PrivacyRepo = privacyRepo;
+            }
         }
 
         public void AddPrivacy(Privacy privacy)

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProfessionalProfile.Business;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.View
 {
@@ -31,7 +32,9 @@ namespace ProfessionalProfile.View
             this.UserId = userId;
 
             SelectTestService = new SelectTestService();
-            AssessmentResultsService = new AssessmentResultsService();
+            AssessmentResultRepo assessmentResultRepo = new AssessmentResultRepo();
+            AssessmentTestRepo assessmentTestRepo = new AssessmentTestRepo();
+            AssessmentResultsService = new AssessmentResultsService(assessmentResultRepo, assessmentTestRepo);
             PopulateTestsNames();
             LoadPreviousResults();
         }

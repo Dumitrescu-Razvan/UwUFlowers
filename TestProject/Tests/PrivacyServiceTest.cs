@@ -47,6 +47,36 @@ namespace TestProject.TestServices
 
             Assert.Equal(expected, actual);
         }
-    }
+
+        [Fact]
+        public void PrivacyService_Check_Null_Service()
+        {
+            PrivacyRepoMock repoMock = new PrivacyRepoMock();
+            repoMock = null;
+            PrivacyService privacyService = new PrivacyService(repoMock);
+           // Assert.Equal(privacyService, null);
+        }
+        public void PrivacyService_GetPrivacy_PrivacyAdded()
+        {
+            Privacy privacy = new Privacy(1, true, true, true, true, true, true);
+            PrivacyService privacyService = new PrivacyService(new PrivacyRepoMock());
+            privacyService.AddPrivacy(privacy);
+
+            int expected = 1;
+            int actual = privacyService.GetPrivacy(1).UserId;
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void PrivacyService_GetPrivacy_PrivacyNotExisting()
+        {
+            PrivacyService privacyService = new PrivacyService(new PrivacyRepoMock());
+
+            Privacy expected = new Privacy(1, true, true, true, true, true, true);
+            Privacy actual = privacyService.GetPrivacy(1);
+            Assert.Equal(expected.UserId, actual.UserId);
+        }
+}   
 }
 

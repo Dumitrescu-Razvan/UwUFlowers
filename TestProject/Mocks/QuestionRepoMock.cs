@@ -51,7 +51,7 @@ namespace ProfessionalProfile.Repo
 
         public List<Question> GetAll()
         {
-            throw new NotImplementedException();
+            return questions;
         }
 
         public Question GetById(int id)

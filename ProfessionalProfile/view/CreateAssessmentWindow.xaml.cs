@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProfessionalProfile.Business;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.View
 {
@@ -84,8 +85,11 @@ namespace ProfessionalProfile.View
             QuestionControl firstQuestion = new QuestionControl();
             questionsListLayout.Children.Add(firstQuestion);
             this.QuestionControls.Add(firstQuestion);
-
-            this.CreateAssessmentService = new CreateAssessmentService();
+            AssessmentTestRepo assessmentTestRepo = new AssessmentTestRepo();
+            QuestionRepo questionRepo = new QuestionRepo();
+            AnswerRepo answerRepo = new AnswerRepo();
+            SkillRepo skillRepo = new SkillRepo();
+            this.CreateAssessmentService = new CreateAssessmentService(answerRepo, questionRepo, assessmentTestRepo, skillRepo);
 
             List<Skill> skills = this.CreateAssessmentService.GetAllSkills();
             foreach (Skill skill in skills)

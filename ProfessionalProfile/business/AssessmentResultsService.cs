@@ -14,11 +14,11 @@ namespace ProfessionalProfile.Business
         // private AssessmentResultRepo AssessmentResultRepo { get; }
         private IAssessmentResultRepoInterface<AssessmentResult> AssessmentResultRepo { get; }
         private IAssessmentTestRepoInterface<AssessmentTest> AssessmentTestRepo { get; }
-        public AssessmentResultsService()
+        /*public AssessmentResultsService()
         {
             this.AssessmentResultRepo = new AssessmentResultRepo();
             this.AssessmentTestRepo = new AssessmentTestRepo();
-        }
+        }*/
 
         public AssessmentResultsService(IAssessmentResultRepoInterface<AssessmentResult> assessmentResultRepo, IAssessmentTestRepoInterface<AssessmentTest> assessmentTestRepo)
         {

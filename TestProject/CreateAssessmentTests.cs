@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using TestProject.MockedRepo;
 
 namespace TestProject
@@ -56,7 +57,10 @@ namespace TestProject
             CreateAssessmentService createAssessment = new CreateAssessmentService(answerTestRepoMock, questionTestRepoMock, assessmentTestRepoMock, skillTestRepoMock);
 
             List<QuestionDTO> questionDTOs = new List<QuestionDTO>();
-            questionDTOs.Add(new QuestionDTO("QuestionText", new List<AnswerDTO>(), new AnswerDTO("CorrectAnswer", true)));
+            List<AnswerDTO> answerDtos = new List<AnswerDTO>();
+            AnswerDTO answerDto = new AnswerDTO("answer", true);
+            answerDtos.Add(answerDto);
+            questionDTOs.Add(new QuestionDTO("QuestionText", answerDtos, new AnswerDTO("CorrectAnswer", true)));
 
             AssessmentTestDTO assessmentTestDTO = new AssessmentTestDTO("TestName", "Description", questionDTOs, "Python");
 

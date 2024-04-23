@@ -16,13 +16,13 @@ namespace ProfessionalProfile.Business
         private IAssessmentTestRepoInterface<AssessmentTest> AssessmentTestRepo { get; }
         private ISkillRepoInterface<Skill> SkillRepo { get; }
 
-        public CreateAssessmentService()
+        /*public CreateAssessmentService()
         {
             this.AssessmentTestRepo = new AssessmentTestRepo();
             this.QuestionRepo = new QuestionRepo();
             this.AnswerRepo = new AnswerRepo();
             this.SkillRepo = new SkillRepo();
-        }
+        }*/
 
         public CreateAssessmentService(IAnswerRepoInterface<Answer> answerRepo, IQuestionRepoInterface<Question> questionRepo, IAssessmentTestRepoInterface<AssessmentTest> assessmentTestRepo, ISkillRepoInterface<Skill> skillRepo)
         {

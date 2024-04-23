@@ -6,12 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.RepoInterfaces;
 
 namespace ProfessionalProfile.Repo
 {
-    public class AssessmentTestRepo : IRepoInterface<AssessmentTest>
+    public class AssessmentTestRepo : IAssessmentTestRepoInterface<AssessmentTest>
     {
         private string connectionString;
+
+        public AssessmentTestRepo(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
 
         public AssessmentTestRepo()
         {

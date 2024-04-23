@@ -6,12 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.RepoInterfaces;
 
 namespace ProfessionalProfile.Repo
 {
-    internal class AssessmentResultRepo : IRepoInterface<AssessmentResult>
+    internal class AssessmentResultRepo : IAssessmentResultRepoInterface<AssessmentResult>
     {
         private string connectionString;
+
+        public AssessmentResultRepo(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
 
         public AssessmentResultRepo()
         {

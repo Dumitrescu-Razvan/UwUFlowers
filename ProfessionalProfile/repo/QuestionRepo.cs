@@ -6,12 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.RepoInterfaces;
 
 namespace ProfessionalProfile.Repo
 {
-    internal class QuestionRepo : IRepoInterface<Question>
+    public class QuestionRepo : IQuestionRepoInterface<Question>
     {
         private string connectionString;
+
+        public QuestionRepo(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
 
         public QuestionRepo()
         {

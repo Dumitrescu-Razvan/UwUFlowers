@@ -65,3 +65,15 @@ bin/
 TestProject/obj/Debug/net8.0-windows/TestProject.GeneratedMSBuildEditorConfig.editorconfig
 TestProject/bin/Debug/net8.0-windows/CoverletSourceRootsMapping_TestProject
 TestProject/obj/Debug/net8.0-windows/TestProject.AssemblyInfo.cs
+TestProject/obj/Debug/net8.0-windows/TestProject.GeneratedMSBuildEditorConfig.editorconfig
+TestProject/obj/Debug/net8.0-windows/TestProject.AssemblyInfo.cs
+TestProject/bin/Debug/net8.0-windows/CoverletSourceRootsMapping_TestProject
+ProfessionalProfile/bin/Debug/net8.0-windows/ProfessionalProfile.dll
+ProfessionalProfile/bin/Debug/net8.0-windows/ProfessionalProfile.exe
+ProfessionalProfile/bin/Debug/net8.0-windows/ProfessionalProfile.pdb
+TestProject/bin/Debug/net8.0-windows/CoverletSourceRootsMapping_TestProject
+TestProject/obj/Debug/net8.0-windows/TestProject.AssemblyInfo.cs
+TestProject/obj/Debug/net8.0-windows/TestProject.GeneratedMSBuildEditorConfig.editorconfig
+TestProject/obj/project.assets.json
+TestProject/obj/TestProject.csproj.nuget.dgspec.json
+TestProject/obj/TestProject.csproj.nuget.g.props

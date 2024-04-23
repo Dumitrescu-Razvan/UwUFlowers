@@ -5,15 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
+using ProfessionalProfile.RepoInterfaces;
 
 namespace ProfessionalProfile.Business
 {
     public class CreateAssessmentService
     {
-        private AnswerRepo AnswerRepo { get; }
-        private QuestionRepo QuestionRepo { get; }
-        private AssessmentTestRepo AssessmentTestRepo { get; }
-        private SkillRepo SkillRepo { get; }
+        private IAnswerRepoInterface<Answer> AnswerRepo { get; }
+        private IQuestionRepoInterface<Question> QuestionRepo { get; }
+        private IAssessmentTestRepoInterface<AssessmentTest> AssessmentTestRepo { get; }
+        private ISkillRepoInterface<Skill> SkillRepo { get; }
 
         public CreateAssessmentService()
         {
@@ -23,6 +24,14 @@ namespace ProfessionalProfile.Business
             this.SkillRepo = new SkillRepo();
         }
 
+        public CreateAssessmentService(IAnswerRepoInterface<Answer> answerRepo, IQuestionRepoInterface<Question> questionRepo, IAssessmentTestRepoInterface<AssessmentTest> assessmentTestRepo, ISkillRepoInterface<Skill> skillRepo)
+        {
+            this.AnswerRepo = answerRepo;
+            this.QuestionRepo = questionRepo;
+            this.AssessmentTestRepo = assessmentTestRepo;
+            this.SkillRepo = skillRepo;
+        }
+
         public List<Skill> GetAllSkills()
         {
             List<Skill> skills = new List<Skill>();
@@ -30,6 +39,11 @@ namespace ProfessionalProfile.Business
             skills.Add(new Skill(2, "C++"));
 
             return skills;
+        }
+
+        public List<Skill> ActualGetAllSkills()
+        {
+            return SkillRepo.GetAll();
         }
 
         public void CreateAssessmentTest(AssessmentTestDTO assessmentTestDTO, int userId)

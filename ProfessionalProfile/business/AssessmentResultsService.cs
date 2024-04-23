@@ -5,18 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
+using ProfessionalProfile.RepoInterfaces;
 
 namespace ProfessionalProfile.Business
 {
-    internal class AssessmentResultsService
+    public class AssessmentResultsService
     {
-        private AssessmentResultRepo AssessmentResultRepo { get; }
-        private AssessmentTestRepo AssessmentTestRepo { get; }
-
+        // private AssessmentResultRepo AssessmentResultRepo { get; }
+        private IAssessmentResultRepoInterface<AssessmentResult> AssessmentResultRepo { get; }
+        private IAssessmentTestRepoInterface<AssessmentTest> AssessmentTestRepo { get; }
         public AssessmentResultsService()
         {
-            AssessmentResultRepo = new AssessmentResultRepo();
-            AssessmentTestRepo = new AssessmentTestRepo();
+            this.AssessmentResultRepo = new AssessmentResultRepo();
+            this.AssessmentTestRepo = new AssessmentTestRepo();
+        }
+
+        public AssessmentResultsService(IAssessmentResultRepoInterface<AssessmentResult> assessmentResultRepo, IAssessmentTestRepoInterface<AssessmentTest> assessmentTestRepo)
+        {
+            this.AssessmentResultRepo = assessmentResultRepo;
+            this.AssessmentTestRepo = assessmentTestRepo;
         }
 
         public List<AssessmentResult> GetResultsByUserId(int userId)

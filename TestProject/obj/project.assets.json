@@ -629,6 +629,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Moq": "4.20.70",
           "System.Data.SqlClient": "4.8.6",
           "xunit.core": "2.7.1"
         },
@@ -1568,7 +1569,6 @@
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "Microsoft.NET.Test.Sdk >= 17.8.0",
-      "Moq >= 4.20.70",
       "ProfessionalProfile >= 1.0.0",
       "coverlet.collector >= 6.0.0",
       "xunit >= 2.7.1",
@@ -1576,23 +1576,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dumit\\.nuget\\packages\\": {},
+    "C:\\Users\\Catalin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj",
+      "projectUniqueName": "D:\\University\\ISS\\TestLab\\TestProject\\TestProject.csproj",
       "projectName": "TestProject",
-      "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\TestProject.csproj",
-      "packagesPath": "C:\\Users\\dumit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\TestProject\\obj\\",
+      "projectPath": "D:\\University\\ISS\\TestLab\\TestProject\\TestProject.csproj",
+      "packagesPath": "C:\\Users\\Catalin\\.nuget\\packages\\",
+      "outputPath": "D:\\University\\ISS\\TestLab\\TestProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\dumit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Catalin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1601,14 +1601,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
-              "projectPath": "C:\\Users\\dumit\\source\\repos\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj"
+            "D:\\University\\ISS\\TestLab\\ProfessionalProfile\\ProfessionalProfile.csproj": {
+              "projectPath": "D:\\University\\ISS\\TestLab\\ProfessionalProfile\\ProfessionalProfile.csproj"
             }
           }
         }
@@ -1631,10 +1632,6 @@
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.8.0, )"
-          },
-          "Moq": {
-            "target": "Package",
-            "version": "[4.20.70, )"
           },
           "coverlet.collector": {
             "target": "Package",
@@ -1665,7 +1662,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

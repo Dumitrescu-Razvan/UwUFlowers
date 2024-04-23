@@ -120,6 +120,8 @@ namespace TestProject.Tests
             //create questions
             var question1 = new Question(1, "Question1", 1);
             var question2 = new Question(2, "Question2", 1);
+            var question3 = new Question(3, "Question3", 1);
+            var question4 = new Question(4, "Question4", 2);
 
             //create answers
             var answer1 = new Answer(1, "1", 1, true);
@@ -132,6 +134,9 @@ namespace TestProject.Tests
             //add questions to repo
             QuestionRepoMock.Add(question1);
             QuestionRepoMock.Add(question2);
+            QuestionRepoMock.Add(question3);
+            QuestionRepoMock.Add(question4);
+
 
             //add answers to repo
             AnswerRepoMock.Add(answer1);

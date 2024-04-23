@@ -8,13 +8,17 @@ using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.Business
 {
-    internal class PrivacyService
+    public class PrivacyService
     {
-        internal PrivacyRepo PrivacyRepo { get; set; }
+        internal IRepoInterface<Privacy> PrivacyRepo { get; set; }
 
         public PrivacyService()
         {
             PrivacyRepo = new PrivacyRepo();
+        }
+        public PrivacyService(IRepoInterface<Privacy> privacyRepo)
+        {
+            PrivacyRepo = privacyRepo;
         }
 
         public void AddPrivacy(Privacy privacy)

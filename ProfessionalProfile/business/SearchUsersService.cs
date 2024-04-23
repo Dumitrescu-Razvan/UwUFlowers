@@ -8,11 +8,11 @@ using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.Business
 {
-    internal class SearchUsersService
+    public class SearchUsersService
     {
-        public UserRepo UserRepo { get; }
+        public IRepoInterface<User> UserRepo { get; }
 
-        public SearchUsersService(UserRepo userRepo)
+        public SearchUsersService(IRepoInterface<User> userRepo)
         {
             this.UserRepo = userRepo;
         }

@@ -13,6 +13,11 @@ namespace ProfessionalProfile.Repo
     {
         private string connectionString;
 
+        public BusinessCardRepo(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
         public BusinessCardRepo()
         {
             // IsRead connection string from app.config

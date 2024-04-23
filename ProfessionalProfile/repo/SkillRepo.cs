@@ -7,12 +7,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.RepoInterfaces;
 
 namespace ProfessionalProfile.Repo
 {
-    public class SkillRepo : IRepoInterface<Skill>
+    public class SkillRepo : ISkillRepoInterface<Skill>
     {
         private string connectionString;
+
+        public SkillRepo(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
 
         public SkillRepo()
         {

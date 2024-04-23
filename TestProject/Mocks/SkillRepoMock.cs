@@ -7,8 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.Repo;
 
-namespace ProfessionalProfile.Repo
+namespace TestProject.Mocks
 {
     public class SkillRepo : IRepoInterface<Skill>
     {
@@ -41,6 +42,7 @@ namespace ProfessionalProfile.Repo
             {
                 return _skillList;
             }
+            return null;
         }
 
         public Skill GetById(int id)

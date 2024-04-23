@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.RepoInterfaces;
 
 namespace ProfessionalProfile.Repo
 {
-    internal class QuestionRepoMock : IRepoInterface<Question>
+    internal class QuestionRepoMock : IQuestionRepoInterface<Question>
     {
         private List<Question> questions;
 

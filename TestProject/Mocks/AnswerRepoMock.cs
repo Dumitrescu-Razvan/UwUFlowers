@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
+using ProfessionalProfile.RepoInterfaces;
 
 namespace TestProject.Mocks
 {
-    public class AnswerRepoMock : IRepoInterface<Answer>
+    public class AnswerRepoMock : IAnswerRepoInterface<Answer>
     {
         private List<Answer> answerVector;
 

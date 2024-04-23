@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
+using ProfessionalProfile.RepoInterfaces;
 
 namespace ProfessionalProfile.Business
 {
     public class TakeTestService
     {
-        private AnswerRepo AnswerRepo { get; }
-        private QuestionRepo QuestionRepo { get; }
-        private AssessmentTestRepo AssessmentTestRepo { get; }
-        private SkillRepo SkillRepo { get; }
-        private AssessmentResultRepo AssessmentResultRepo { get; }
+        private IAnswerRepoInterface<Answer> AnswerRepo { get; }
+        private IQuestionRepoInterface<Question> QuestionRepo { get; }
+        private IAssessmentTestRepoInterface<AssessmentTest> AssessmentTestRepo { get; }
+        private ISkillRepoInterface<Skill> SkillRepo { get; }
+        private IAssessmentResultRepoInterface<AssessmentResult> AssessmentResultRepo { get; }
 
         public TakeTestService()
         {
@@ -23,6 +24,15 @@ namespace ProfessionalProfile.Business
             this.AnswerRepo = new AnswerRepo();
             this.AssessmentResultRepo = new AssessmentResultRepo();
             this.SkillRepo = new SkillRepo();
+        }
+
+        public TakeTestService(IAnswerRepoInterface<Answer> answerRepo, IQuestionRepoInterface<Question> questionRepo, IAssessmentTestRepoInterface<AssessmentTest> assessmentTestRepo, ISkillRepoInterface<Skill> skillRepo, IAssessmentResultRepoInterface<AssessmentResult> assessmentResultRepo)
+        {
+            this.AnswerRepo = answerRepo;
+            this.QuestionRepo = questionRepo;
+            this.AssessmentTestRepo = assessmentTestRepo;
+            this.SkillRepo = skillRepo;
+            this.AssessmentResultRepo = assessmentResultRepo;
         }
 
         public AssessmentTestDTO GetTestDTO(int testId)
@@ -71,6 +81,10 @@ namespace ProfessionalProfile.Business
                 {
                     correctAnswers++;
                 }
+            }
+            if (totalQuestions == 0)
+            {
+                return 0;
             }
             int score = (correctAnswers * 100) / totalQuestions;
             return score;

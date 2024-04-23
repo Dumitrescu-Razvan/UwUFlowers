@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using ProfessionalProfile.Business;
 using ProfessionalProfile.Repo;
-using TestProject;
+using TestProject.Mocks;
 using Moq;
 using Xunit;
 
-namespace TestProject
+namespace TestProject.Tests
 {
     public class PremiumUsersServiceTest
     {
@@ -15,7 +15,7 @@ namespace TestProject
         {
             // Arrange
             var mockRepo = new PremiumUsersRepoMock();
-            
+
             var service = new PremiumUsersService(mockRepo);
 
             service.AddPremiumUser(1);
@@ -34,7 +34,7 @@ namespace TestProject
         {
             // Arrange
             var mockRepo = new PremiumUsersRepoMock();
-            
+
             var service = new PremiumUsersService(mockRepo);
 
             service.AddPremiumUser(1);
@@ -53,7 +53,7 @@ namespace TestProject
         {
             // Arrange
             var mockRepo = new PremiumUsersRepoMock();
-            
+
             var service = new PremiumUsersService(mockRepo);
 
             // Act
@@ -69,10 +69,10 @@ namespace TestProject
         {
             // Arrange
             var mockRepo = new PremiumUsersRepoMock();
-            
+
             mockRepo.Add(1);
 
-           Assert.Throws<System.NotImplementedException>(() => mockRepo.GetById(1));
+            Assert.Throws<NotImplementedException>(() => mockRepo.GetById(1));
         }
 
         [Fact]
@@ -80,10 +80,10 @@ namespace TestProject
         {
             // Arrange
             var mockRepo = new PremiumUsersRepoMock();
-            
+
             mockRepo.Add(1);
 
-           Assert.Throws<System.NotImplementedException>(() => mockRepo.Update(1));
+            Assert.Throws<NotImplementedException>(() => mockRepo.Update(1));
         }
 
         [Fact]
@@ -91,10 +91,10 @@ namespace TestProject
         {
             // Arrange
             var mockRepo = new PremiumUsersRepoMock();
-            
+
             mockRepo.Add(1);
 
-           Assert.Throws<System.NotImplementedException>(() => mockRepo.Delete(1));
+            Assert.Throws<NotImplementedException>(() => mockRepo.Delete(1));
         }
     }
 }

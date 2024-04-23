@@ -9,7 +9,7 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    internal class PremiumUsersRepo : IRepoInterface<int>
+    public class PremiumUsersRepo : IRepoInterface<int>
     {
         private string connectionString;
 

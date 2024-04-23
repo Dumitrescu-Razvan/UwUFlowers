@@ -14,13 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-<<<<<<< HEAD
 using ProfessionalProfile.Business;
 using ProfessionalProfile.Business_card_page;
-=======
-using ProfessionalProfile.business;
-using ProfessionalProfile.business_card_page;
->>>>>>> parent of 367571b (solved using business)
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Projects_page;
 using ProfessionalProfile.Repo;

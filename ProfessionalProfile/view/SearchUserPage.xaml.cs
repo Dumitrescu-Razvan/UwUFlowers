@@ -12,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ProfessionalProfile.business;
+using ProfessionalProfile.Business;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Profile_page;
 using ProfessionalProfile.Repo;

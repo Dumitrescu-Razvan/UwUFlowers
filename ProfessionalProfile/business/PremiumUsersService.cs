@@ -7,13 +7,13 @@ using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.Business
 {
-    internal class PremiumUsersService
+    public class PremiumUsersService
     {
-        public PremiumUsersRepo PremiumUsersRepo { get; set; }
+        public IRepoInterface<int> PremiumUsersRepo { get; set; }
 
-        public PremiumUsersService()
+        public PremiumUsersService(IRepoInterface<int> repo = null)
         {
-            PremiumUsersRepo = new PremiumUsersRepo();
+            PremiumUsersRepo = repo ?? new PremiumUsersRepo();
         }
 
         public List<int> GetPremiumUsers()

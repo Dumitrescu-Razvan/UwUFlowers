@@ -5,15 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
+using ProfessionalProfile.RepoInterfaces;
 
 namespace ProfessionalProfile.Business
 {
     public class SelectTestService
     {
-        private AnswerRepo AnswerRepo { get; }
-        private QuestionRepo QuestionRepo { get; }
-        private AssessmentTestRepo AssessmentTestRepo { get; }
-        private SkillRepo SkillRepo { get; }
+        private IAnswerRepoInterface<Answer> AnswerRepo { get; }
+        private IQuestionRepoInterface<Question> QuestionRepo { get; }
+        private IAssessmentTestRepoInterface<AssessmentTest> AssessmentTestRepo { get; }
+        private ISkillRepoInterface<Skill> SkillRepo { get; }
 
         public SelectTestService()
         {
@@ -21,6 +22,14 @@ namespace ProfessionalProfile.Business
             this.QuestionRepo = new QuestionRepo();
             this.AnswerRepo = new AnswerRepo();
             this.SkillRepo = new SkillRepo();
+        }
+
+        public SelectTestService(IAnswerRepoInterface<Answer> answerRepo, IQuestionRepoInterface<Question> questionRepo, IAssessmentTestRepoInterface<AssessmentTest> assessmentTestRepo, ISkillRepoInterface<Skill> skillRepo)
+        {
+            this.AnswerRepo = answerRepo;
+            this.QuestionRepo = questionRepo;
+            this.AssessmentTestRepo = assessmentTestRepo;
+            this.SkillRepo = skillRepo;
         }
 
         public List<AssessmentTest> GetAllAssessmentTests()

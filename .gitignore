@@ -62,3 +62,6 @@ ProfessionalProfile/.vs/ProjectEvaluation/professionalprofile.metadata.v7.bin
 .vs/
 obj/
 bin/
+TestProject/obj/Debug/net8.0-windows/TestProject.GeneratedMSBuildEditorConfig.editorconfig
+TestProject/bin/Debug/net8.0-windows/CoverletSourceRootsMapping_TestProject
+TestProject/obj/Debug/net8.0-windows/TestProject.AssemblyInfo.cs

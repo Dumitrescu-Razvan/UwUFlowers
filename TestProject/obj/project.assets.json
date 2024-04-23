@@ -416,6 +416,9 @@
           }
         }
       },
+      "StyleCop.Analyzers/1.1.118": {
+        "type": "package"
+      },
       "System.Data.SqlClient/4.8.6": {
         "type": "package",
         "dependencies": {
@@ -630,6 +633,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "System.Data.SqlClient": "4.8.6",
+          "xunit": "2.7.1",
           "xunit.core": "2.7.1"
         },
         "compile": {
@@ -1171,6 +1175,31 @@
         "version.txt"
       ]
     },
+    "StyleCop.Analyzers/1.1.118": {
+      "sha512": "Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
+      "type": "package",
+      "path": "stylecop.analyzers/1.1.118",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "THIRD-PARTY-NOTICES.txt",
+        "analyzers/dotnet/cs/StyleCop.Analyzers.CodeFixes.dll",
+        "analyzers/dotnet/cs/StyleCop.Analyzers.dll",
+        "analyzers/dotnet/cs/de-DE/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/en-GB/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/es-MX/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/fr-FR/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/pl-PL/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/pt-BR/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/ru-RU/StyleCop.Analyzers.resources.dll",
+        "stylecop.analyzers.1.1.118.nupkg.sha512",
+        "stylecop.analyzers.nuspec",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
     "System.Data.SqlClient/4.8.6": {
       "sha512": "2Ij/LCaTQRyAi5lAv7UUTV9R2FobC8xN9mE0fXBZohum/xLl8IZVmE98Rq5ugQHjCgTBRKqpXRb4ORulRdA6Ig==",
       "type": "package",
@@ -1570,29 +1599,30 @@
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "Moq >= 4.20.70",
       "ProfessionalProfile >= 1.0.0",
+      "StyleCop.Analyzers >= 1.1.118",
       "coverlet.collector >= 6.0.0",
       "xunit >= 2.7.1",
       "xunit.runner.visualstudio >= 2.5.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dumi\\.nuget\\packages\\": {},
+    "C:\\Users\\dumid\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dumi\\Documents\\GitHub\\UwUFlowers\\TestProject\\TestProject.csproj",
+      "projectUniqueName": "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\TestProject\\TestProject.csproj",
       "projectName": "TestProject",
-      "projectPath": "C:\\Users\\Dumi\\Documents\\GitHub\\UwUFlowers\\TestProject\\TestProject.csproj",
-      "packagesPath": "C:\\Users\\Dumi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dumi\\Documents\\GitHub\\UwUFlowers\\TestProject\\obj\\",
+      "projectPath": "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\TestProject\\TestProject.csproj",
+      "packagesPath": "C:\\Users\\dumid\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\TestProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dumi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dumid\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1608,8 +1638,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\Dumi\\Documents\\GitHub\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
-              "projectPath": "C:\\Users\\Dumi\\Documents\\GitHub\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj"
+            "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
+              "projectPath": "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj"
             }
           }
         }
@@ -1636,6 +1666,12 @@
           "Moq": {
             "target": "Package",
             "version": "[4.20.70, )"
+          },
+          "StyleCop.Analyzers": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[1.1.118, )"
           },
           "coverlet.collector": {
             "target": "Package",
@@ -1666,7 +1702,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

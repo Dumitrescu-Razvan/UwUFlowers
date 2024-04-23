@@ -9,11 +9,11 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    public class AssessmentTestRepo : IRepoInterface<AssessmentTest>
+    public class AssessmentTestRepoMock : IRepoInterface<AssessmentTest>
     {
         private List<AssessmentTest> assessmentTests;
 
-        public AssessmentTestRepo()
+        public AssessmentTestRepoMock()
         {
             // IsRead connection string from app.config
             this.assessmentTests = new List<AssessmentTest>();

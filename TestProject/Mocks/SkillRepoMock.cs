@@ -11,11 +11,11 @@ using ProfessionalProfile.Repo;
 
 namespace TestProject.Mocks
 {
-    public class SkillRepo : IRepoInterface<Skill>
+    public class SkillRepoMock : IRepoInterface<Skill>
     {
         private List<Skill> _skillList;
         private List<User> _userList;
-        public SkillRepo()
+        public SkillRepoMock()
         {
             _skillList = new List<Skill>();
             _userList = new List<User>();

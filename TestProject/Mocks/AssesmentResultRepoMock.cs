@@ -9,10 +9,10 @@ using ProfessionalProfile.Domain;
 
 namespace ProfessionalProfile.Repo
 {
-    internal class AssessmentResultRepo : IRepoInterface<AssessmentResult>
+    internal class AssessmentResultRepoMock : IRepoInterface<AssessmentResult>
     {
         private List<AssessmentResult> assessmentResults;
-        public AssessmentResultRepo()
+        public AssessmentResultRepoMock()
         {
             assessmentResults = new List<AssessmentResult>();
         }

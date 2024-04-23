@@ -7,14 +7,15 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.Repo;
 
 namespace TestProject.Mocks
 {
-    public class AnswerRepo : IRepoInterface<Answer>
+    public class AnswerRepoMock : IRepoInterface<Answer>
     {
         private List<Answer> answerVector;
 
-        public AnswerRepo()
+        public AnswerRepoMock()
         {
             answerVector = new List<Answer>();
         }

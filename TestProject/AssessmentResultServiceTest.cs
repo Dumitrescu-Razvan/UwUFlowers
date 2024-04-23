@@ -9,6 +9,8 @@ using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
 using ProfessionalProfile.RepoInterfaces;
 using TestProject.MockedRepo;
+using Xunit;
+
 
 
 namespace TestProject
@@ -20,7 +22,7 @@ namespace TestProject
         {
             // Declare the mocked repositories that will be used
             AssesmmentResultRepoMock assessmentResultMockedRepositoryThatWillBeUsed = new AssesmmentResultRepoMock();
-            AssessmentTestRepoMock assessmentTestMockedRepositoryThatWillBeUsed = new AssessmentTestRepoMock();
+            MockedRepo.AssessmentTestRepoMock assessmentTestMockedRepositoryThatWillBeUsed = new MockedRepo.AssessmentTestRepoMock();
 
             // Create the AssessmentResults that will be used
             AssessmentResult assessmentResult = new AssessmentResult(1, 1, 1, 1, DateTime.Now);
@@ -70,7 +72,7 @@ namespace TestProject
         {
             // Declare the mocked repositories that will be used
             AssesmmentResultRepoMock assessmentResultMockedRepositoryThatWillBeUsed = new AssesmmentResultRepoMock();
-            AssessmentTestRepoMock assessmentTestMockedRepositoryThatWillBeUsed = new AssessmentTestRepoMock();
+            MockedRepo.AssessmentTestRepoMock assessmentTestMockedRepositoryThatWillBeUsed = new MockedRepo.AssessmentTestRepoMock();
 
             // Create the AssessmentTests that will be used
             AssessmentTest assessmentTest = new AssessmentTest(1, "TestName", 1, "Description", 1);
@@ -104,7 +106,7 @@ namespace TestProject
         {
             // Declare the mocked repositories that will be used
             AssesmmentResultRepoMock assessmentResultMockedRepositoryThatWillBeUsed = new AssesmmentResultRepoMock();
-            AssessmentTestRepoMock assessmentTestMockedRepositoryThatWillBeUsed = new AssessmentTestRepoMock();
+            MockedRepo.AssessmentTestRepoMock assessmentTestMockedRepositoryThatWillBeUsed = new MockedRepo.AssessmentTestRepoMock();
 
             // Create the AssessmentTests that will be used
             AssessmentTest assessmentTest = new AssessmentTest(1, "TestName", 1, "Description", 1);

@@ -8,7 +8,7 @@ using ProfessionalProfile.Repo;
 
 namespace ProfessionalProfile.Business
 {
-    internal class AssessmentResultsService
+    public class AssessmentResultsService
     {
         private AssessmentResultRepo AssessmentResultRepo { get; }
         private AssessmentTestRepo AssessmentTestRepo { get; }

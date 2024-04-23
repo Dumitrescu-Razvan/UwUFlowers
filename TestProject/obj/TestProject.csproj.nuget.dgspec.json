@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\TestProject\\TestProject.csproj": {}
+    "C:\\Users\\Admin\\Documents\\GitHub\\SEMESTER 4\\ISS\\david-ceva\\UwUFlowers\\TestProject\\TestProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
+    "C:\\Users\\Admin\\Documents\\GitHub\\SEMESTER 4\\ISS\\david-ceva\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\GitHub\\SEMESTER 4\\ISS\\david-ceva\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj",
         "projectName": "ProfessionalProfile",
-        "projectPath": "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj",
-        "packagesPath": "C:\\Users\\dumid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\ProfessionalProfile\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Documents\\GitHub\\SEMESTER 4\\ISS\\david-ceva\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\GitHub\\SEMESTER 4\\ISS\\david-ceva\\UwUFlowers\\ProfessionalProfile\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dumid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -92,21 +87,17 @@
         }
       }
     },
-    "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\TestProject\\TestProject.csproj": {
+    "C:\\Users\\Admin\\Documents\\GitHub\\SEMESTER 4\\ISS\\david-ceva\\UwUFlowers\\TestProject\\TestProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\TestProject\\TestProject.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\GitHub\\SEMESTER 4\\ISS\\david-ceva\\UwUFlowers\\TestProject\\TestProject.csproj",
         "projectName": "TestProject",
-        "projectPath": "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\TestProject\\TestProject.csproj",
-        "packagesPath": "C:\\Users\\dumid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\TestProject\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Documents\\GitHub\\SEMESTER 4\\ISS\\david-ceva\\UwUFlowers\\TestProject\\TestProject.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\GitHub\\SEMESTER 4\\ISS\\david-ceva\\UwUFlowers\\TestProject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dumid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -114,15 +105,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
-                "projectPath": "C:\\Users\\dumid\\OneDrive\\Documents\\GitHub\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj"
+              "C:\\Users\\Admin\\Documents\\GitHub\\SEMESTER 4\\ISS\\david-ceva\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Documents\\GitHub\\SEMESTER 4\\ISS\\david-ceva\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj"
               }
             }
           }

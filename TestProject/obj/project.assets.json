@@ -1576,23 +1576,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dumi\\.nuget\\packages\\": {},
+    "C:\\Users\\Catalin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dumi\\Documents\\GitHub\\UwUFlowers\\TestProject\\TestProject.csproj",
+      "projectUniqueName": "D:\\University\\ISS\\TestLab\\TestProject\\TestProject.csproj",
       "projectName": "TestProject",
-      "projectPath": "C:\\Users\\Dumi\\Documents\\GitHub\\UwUFlowers\\TestProject\\TestProject.csproj",
-      "packagesPath": "C:\\Users\\Dumi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dumi\\Documents\\GitHub\\UwUFlowers\\TestProject\\obj\\",
+      "projectPath": "D:\\University\\ISS\\TestLab\\TestProject\\TestProject.csproj",
+      "packagesPath": "C:\\Users\\Catalin\\.nuget\\packages\\",
+      "outputPath": "D:\\University\\ISS\\TestLab\\TestProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dumi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Catalin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1608,8 +1608,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\Dumi\\Documents\\GitHub\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj": {
-              "projectPath": "C:\\Users\\Dumi\\Documents\\GitHub\\UwUFlowers\\ProfessionalProfile\\ProfessionalProfile.csproj"
+            "D:\\University\\ISS\\TestLab\\ProfessionalProfile\\ProfessionalProfile.csproj": {
+              "projectPath": "D:\\University\\ISS\\TestLab\\ProfessionalProfile\\ProfessionalProfile.csproj"
             }
           }
         }

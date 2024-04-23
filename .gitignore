@@ -65,3 +65,6 @@ bin/
 TestProject/obj/Debug/net8.0-windows/TestProject.GeneratedMSBuildEditorConfig.editorconfig
 TestProject/bin/Debug/net8.0-windows/CoverletSourceRootsMapping_TestProject
 TestProject/obj/Debug/net8.0-windows/TestProject.AssemblyInfo.cs
+TestProject/obj/Debug/net8.0-windows/TestProject.GeneratedMSBuildEditorConfig.editorconfig
+TestProject/obj/Debug/net8.0-windows/TestProject.AssemblyInfo.cs
+TestProject/bin/Debug/net8.0-windows/CoverletSourceRootsMapping_TestProject

@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProfessionalProfile.Domain;
+using ProfessionalProfile.RepoInterfaces;
 
 namespace ProfessionalProfile.Repo
 {
-    public class AssessmentTestRepoMock : IRepoInterface<AssessmentTest>
+    public class AssessmentTestRepoMock : IAssessmentTestRepoInterface<AssessmentTest>
     {
         private List<AssessmentTest> assessmentTests;
 

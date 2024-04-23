@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 using System.Web;
 using ProfessionalProfile.Domain;
 using ProfessionalProfile.Repo;
+using ProfessionalProfile.RepoInterfaces;
 
 namespace TestProject.Mocks
 {
-    public class SkillRepoMock : IRepoInterface<Skill>
+    public class SkillRepoMock : ISkillRepoInterface<Skill>
     {
         private List<Skill> _skillList;
         private List<User> _userList;
